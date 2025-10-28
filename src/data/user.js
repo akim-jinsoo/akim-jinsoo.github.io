@@ -4,7 +4,6 @@ const INFO = {
 		name: "Aaron Kim",
 		email: "akim2002@utexas.edu",
  		logo: "../logo.png", //TODO change logo to my logo
-		// Path (from public/) to your university logo. Place the file in public/ut-logo.png or change this path.
 		universityLogo: "../ut-logo.png",
 	},
 
@@ -42,10 +41,10 @@ const INFO = {
 
 	projects: [
 		{
-			title: "Project 1",
-			slug: "project-1",
+			title: "ARISTO Hand",
+			slug: "aristo",
 			description:
-				"Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
+				"3 Fingered Robotics Hand achieving human-like sensing.",
 			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
 			linkText: "View Project",
 			link: "https://github.com",
@@ -53,10 +52,10 @@ const INFO = {
 		},
 
 		{
-			title: "Project 2",
-			slug: "project-2",
+			title: "PLATO Hand",
+			slug: "plato",
 			description:
-				"Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
+				"3 Fingered Robotics Hand inspired by human musculoskeletal autonomy.",
 			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/python/python.png",
 			linkText: "View Project",
 			link: "https://github.com",
@@ -64,10 +63,10 @@ const INFO = {
 		},
 
 		{
-			title: "Project 3",
+			title: "Isaac Lab: Reinforcement Learning for Robotic Manipulation",
 			slug: "project-3",
 			description:
-				"Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
+				"Utilizing Isaac Lab for simulating and training PLATO/ARISTO Hand for manipulation tasks.",
 			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/html/html.png",
 			linkText: "View Project",
 			link: "https://github.com",
@@ -75,10 +74,10 @@ const INFO = {
 		},
 
 		{
-			title: "Project 4",
+			title: "Imitation Learning for Robotic Manipulation",
 			slug: "project-4",
 			description:
-				"Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
+				"Use ARISTO Hand has data collection platform for imitation learning in robotic manipulation tasks and deployed policies on ARISTO Hand",
 			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
 			linkText: "View Project",
 			link: "https://github.com",
@@ -86,15 +85,60 @@ const INFO = {
 		},
 
 		{
-			title: "Project 5",
-			slug: "project-5",
+			title: "Sony: Robotic Hand",
+			slug: "sony-robotic-hand",
 			description:
-				"Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
+				"Developed and tested actuators and 3-finger robotic hand at the Fundamental Robotics Lab in Sony, Tokyo, Japan.",
 			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
 			linkText: "View Project",
 			link: "https://github.com",
 			longDescription: "<p>This is a placeholder long description for Project 5. Replace with real content.</p>",
 		},
+
+		{
+			title: "Human Centered Robotics Lab: Ungraduate Research",
+			slug: "hcrl-ugrad-research",
+			description:
+				"Undergraduate research on humanoids and assistive robotics at the Human Centered Robotics Lab.",
+			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+			linkText: "View Project",
+			link: "https://github.com",
+			longDescription: "<p>This is a placeholder long description for Project 5. Replace with real content.</p>",
+		},
+
+		{
+			title: "Samsung Austin Semiconductor",
+			slug: "sas",
+			description:
+				"Internship at Samsung Austin Semiconductor.",
+			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+			linkText: "View Project",
+			link: "https://github.com",
+			longDescription: "<p>This is a placeholder long description for Project 5. Replace with real content.</p>",
+		},
+
+		{
+			title: "Human-Enabled Robotics Technology Lab",
+			slug: "sas",
+			description:
+				"Undergraduate research at the Human-Enabled Robotics Technology Lab.",
+			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+			linkText: "View Project",
+			link: "https://github.com",
+			longDescription: "<p>This is a placeholder long description for Project 5. Replace with real content.</p>",
+		},
+
+		{
+			title: "Freshman Research Initiative",
+			slug: "sas",
+			description:
+				"Freshman Research initiative.",
+			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+			linkText: "View Project",
+			link: "https://github.com",
+			longDescription: "This is a placeholder long description for Project 5. Replace with real content.",
+		},
+
 	],
 };
 

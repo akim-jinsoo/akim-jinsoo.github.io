@@ -70,14 +70,8 @@ const ProjectDetail = () => {
                                 </div>
                             )}
 
-                            {project.link && (
-                                <p>
-                                    <a href={project.link} target="_blank" rel="noreferrer">Open project (external)</a>
-                                </p>
-                            )}
-
                             <p>
-                                <Link to="/experience">Back to Experience</Link>
+                                <Link to="/experience">Back to Experience</Link> //TODO Make this into a button using back-button.png
                             </p>
                         </div>
                     </div>
