@@ -55,6 +55,74 @@
 	transition: color 0.3s ease-in-out;
 }
 
+/* Dropdown styles for Experience */
+.nav-item {
+	position: relative;
+}
+
+
+.nav-dropdown {
+	display: none;
+	position: absolute;
+	/* keep dropdown flush under the trigger to avoid mouse gaps */
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	/* auto-size to the widest item */
+	width: max-content;
+	background: #fff;
+	box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+	border-radius: 8px;
+	padding: 8px 0;
+	list-style: none;
+	z-index: 1000;
+	box-sizing: border-box;
+	overflow: visible;
+}
+
+.nav-dropdown-item {
+	padding: 6px 14px;
+	white-space: nowrap;
+}
+
+/* small caret toggle next to Experience link */
+.dropdown-toggle {
+	background: transparent;
+	border: none;
+	/* increase size by ~50% from 80% -> 120% */
+	font-size: 120%;
+	/* move the caret more to the left so it's closer to 'Experience' */
+	margin-left: -6px;
+	/* make it easier to tap/click */
+	padding: 4px 6px;
+	border-radius: 4px;
+	cursor: pointer;
+	color: var(--primary-color);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1;
+}
+
+.dropdown-toggle:hover {
+	color: var(--link-color);
+	background: rgba(20,184,166,0.06);
+}
+
+.nav-dropdown-item a {
+	color: var(--primary-color);
+	text-decoration: none;
+}
+
+.nav-dropdown-item a:hover {
+	color: var(--link-color);
+}
+
+.nav-item:hover .nav-dropdown,
+.nav-item.open .nav-dropdown {
+	display: block;
+}
+
 @media (max-width: 600px) {
 	.navbar {
 		margin-left: 25%;

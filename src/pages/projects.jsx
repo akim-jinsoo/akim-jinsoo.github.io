@@ -11,7 +11,7 @@ import SEO from "../data/seo";
 
 import "./styles/projects.css";
 
-const Projects = () => {
+const Experience = () => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
@@ -21,7 +21,7 @@ const Projects = () => {
 	return (
 		<React.Fragment>
 			<Helmet>
-				<title>{`Projects | ${INFO.main.title}`}</title>
+				<title>{`Experience | ${INFO.main.title}`}</title>
 				<meta name="description" content={currentSEO.description} />
 				<meta
 					name="keywords"
@@ -29,8 +29,8 @@ const Projects = () => {
 				/>
 			</Helmet>
 
-			<div className="page-content">
-				<NavBar active="projects" />
+				<div className="page-content">
+					<NavBar active="experience" />
 				<div className="content-wrapper">
 					<div className="projects-logo-container">
 						<div className="projects-logo">
@@ -69,4 +69,4 @@ const Projects = () => {
 	);
 };
 
-export default Projects;
+export default Experience;

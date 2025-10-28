@@ -22,9 +22,7 @@ Live demo here: <a href="https://reactfolio.tharindu.dev/" target="_blank">react
 
 -   📖 Multi-Page Layout
     -   Home
-    -   About
-    -   Projects
-    -   Articles
+    -   Experience
     -   Contact
 -   📱 Fully Responsive
 -   🛠 Easy configurations
@@ -61,56 +59,6 @@ Directory: `/src/data/`
 
     From this you can change the content of each page of the web application.
 
--   `articles.js`
-
-    From this you can add your articles to the web application.
-
-    Instructions:
-
-    -   Add new article
-
-        1. Create a new function starts with `article_`. For example you can add new function named `article_3`.
-
-        2. Then add the data accordingly.
-
-            - Add `<React.Fragment>` tag and it's closing tags in body.
-            - In React there has no keyword `class`, so you should use `className` to define html classes.
-
-            ```js
-            function article_3() {
-            	return {
-            		date: "7 May 2023",
-            		title: "The Benefits of Cloud Computing",
-            		description: "Why businesses are turning to the cloud.",
-            		style: `
-            				.random-image {
-            					align-self: center;
-            					outline: 2px solid red;
-            				}
-            				`,
-            		body: (
-            			<React.Fragment>
-            				<div className="article-content">
-            					<div className="paragraph">
-            						Content of article 1
-            					</div>
-            					<img
-            						src="https://picsum.photos/200/300"
-            						alt="random"
-            						className="random-image"
-            					/>
-            				</div>
-            			</React.Fragment>
-            		),
-            	};
-            }
-            ```
-
-        3. In the last lines you will see an array to which you need to add your new `articles` function.
-
-            ```js
-            const myArticles = [article_1, article_2, article_3];
-            ```
 
 -   `seo.js`
 
@@ -207,3 +155,20 @@ If you are using Apache as your web server, you can insert this into your .htacc
 ## 🌱 Contribution
 
 If you have any suggestions on what to improve in Reactfolio and would like to share them, feel free to leave an issue or fork project to implement your own ideas
+
+## 📄 Adding a downloadable resume
+
+If you'd like the site to offer a Resume download button (appears in the navigation), drop your PDF named `resume.pdf` into the project's `public/` directory. The site includes a nav link that points to `/resume.pdf` and uses the HTML `download` attribute to trigger a download in supported browsers.
+
+Example:
+
+1. Place your resume file at: `public/resume.pdf`
+2. Start the dev server:
+
+```powershell
+npm start
+```
+
+3. Click the "Resume" link in the site navigation; the browser should download the PDF (or open it depending on browser settings).
+
+If you want the resume to open in a new tab instead of downloading, remove the `download` attribute in `src/components/common/navBar.jsx`.
