@@ -1,0 +1,14 @@
+/section Plato
+
+/subsection Objective
+I am currently involved in a new project at HCRL Lab called Plato. This collaborative effort involves two significant partners: Roboligent, which provides robotic arms and manufacturing support, and Sony, the primary funder and proposer of the project. Plato aims to develop robotic systems capable of playing Jenga using teleoperation against a human opponent. The hand's novel aspects have been designed considering human safety; specifically, the fingers are back-drivable.
+
+Additionally, the fingers have fingernails with 6-axis FT sensors, enabling complex manipulations.
+
+/subsection Plato Hand V2 Mechanical Development
+We have started the R&D of Plato V2, the successor of Plato V1/V1.5, to overcome the initial shortcomings. The hand's fundamental design is linkage-driven fingers and QDD motors, enabling back-drivability and proprioceptive force sensing. I went through several different iterations of the hand, making both minor and significant changes, the major milestones of which are shown below.
+
+We initially followed a simple idea used by most other linkage-driven hands: stacking 4-bar linkages to create a finger. However, with our motor configuration, the back motors needed to move or rotate the front motors. During design review, we realized one of the motors would have to carry the weight of the other, making the system inefficient. I redesigned the mechanism by merging the two 4-bar linkages into a single 5-bar linkage. This eliminated the moving motor and simplified the design, resulting in a more compact and efficient structure.
+
+/subsection Plato Hand V2 Initial Testing
+After assembling the hand, we performed simple tests to validate its mechanical capabilities and controller performance.

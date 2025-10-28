@@ -19,7 +19,7 @@ test
 test
 /endbullet
 
-/image /aristo.png aspect=16:9, height=500, crop=center
+/image /aristo.png aspect=2:3, height=400, crop=center
 /caption "test ,test", italic
 /subsection Results
 We demonstrated pick-and-place tasks with compliant grasps and tactile feedback.

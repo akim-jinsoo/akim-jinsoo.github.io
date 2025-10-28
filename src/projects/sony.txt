@@ -1,0 +1,37 @@
+/section Sony
+
+/subsection Introduction
+During my internship at Sony, I worked on the Plato Project, a joint initiative between Sony and UT Austin to develop a teleoperated robotic system with arms and hands capable of fine-tuned manipulation and haptic feedback. I focused on solving critical issues with the Plato Hand V1 to ensure it met the high precision and reliability standards required for tasks such as playing Jenga and other tabletop games.
+
+/subsection Challenges and Goals
+/bullet
+Torque Issues: The HT2205 motors had a specified torque rating of 0.04 Nm; however, we could only extract 0.03 Nm after testing. To pick up a Jenga block, 0.031 Nm was required, and additional torque would significantly improve manipulation performance. The primary goal of the internship was to fix the torque issue of Plato V1 to enable Sony to continue in-house R&D.
+Electrical System Complexity: The original design included 81 wires and used hot glue for mounting electronics, which made maintenance difficult. At UT Austin, we experienced a short in the electrical system that couldn’t be repaired easily. Simplifying and redesigning the electrical system was a secondary objective of the internship.
+/endbullet
+
+/subsection Plato Hand V1.5
+
+/subsubsection Torque Fixes
+I implemented 30:1 harmonic drives on the MCP joint of the Plato Hand, amplifying torque from 0.03 Nm to 0.9 Nm. This dramatically increased manipulation capabilities.
+
+Why harmonic drive?
+/bullet
+The department had prior experience using harmonic drives, enabling support from mechanical engineers.
+The internship timeline was tight, so off-the-shelf components were essential.
+Zero backlash made it ideal for precise manipulation.
+Maintaining back-drivability was crucial for safety when interacting with humans.
+/endbullet
+
+For the PIP joint, space constraints prevented harmonic drive installation, so I adjusted the pulley ratio from 1:1 to 1.49:1, increasing torque to 0.045 Nm.
+
+/subsubsection Electrical System Revamp
+/bullet
+Designed a PCB to consolidate each finger’s electrical system, which includes:
+    - SimpleFOCMini V1.0 (3x)
+    - ESP32 Devkit V1.0 (1x)
+    - TJA1050 CAN transceiver (1x)
+Designed a new electrical mount for improved reliability and ease of maintenance.
+/endbullet
+
+/subsubsection Completed Hand
+After implementing the mechanical and electrical upgrades, the Plato Hand V1.5 was fully assembled and operational, addressing both torque and reliability issues identified in earlier versions.

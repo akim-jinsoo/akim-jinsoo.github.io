@@ -21,6 +21,8 @@ Item one
 Item two
 /endlist
 
+or
+
 /list
 Item one
     Sub-item A

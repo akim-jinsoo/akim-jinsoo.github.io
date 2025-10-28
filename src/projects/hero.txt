@@ -1,0 +1,27 @@
+/section Mouse Haptic
+
+/subsection Objective
+At the HeRo Lab, I led the development of an autonomous mouse tester designed to aid pharmaceutical research on dynamic allodynia—a condition where light touch causes pain.  
+The goal was to automate behavioral testing for mice, improving consistency, efficiency, and throughput in neurological pain research.
+
+/subsection Initial Design
+Building on the concept of a one-channel mouse sorter, the initial prototype featured a dual-environment design.  
+A brush applied light strokes at random intervals on the dark side of the chamber, while IR sensors tracked mouse movements between light and dark zones.  
+Since mice prefer darkness, those experiencing pain would retreat toward the light side, allowing behavioral data collection.  
+While conceptually effective, the design proved too complex and difficult to manufacture reliably.
+
+/subsection Design Improvement Efforts
+To simplify construction, we developed a five-channel prototype using acrylic sheets for the wire mesh, which were compatible with laser cutting.  
+However, this version was material-inefficient and cumbersome, prompting a redesign focused on modularity and assembly efficiency.
+
+/subsection Current Prototype
+The latest version replaced acrylic sheets with aluminum extrusions, resulting in a lighter and more robust structure.  
+We expanded the system to six channels to increase testing capacity and integrated a 12V motor with a CPR encoder and IR sensors for precise control of brush motion.  
+The device runs on an Arduino Mega for control logic and automation.  
+A patent application was filed, but due to limited slots, it was not initially accepted. A reapplication is in progress.
+
+/subsection On-Hold Status
+Despite positive technical results, the project was placed on temporary hold due to shifting research priorities and limited lab resources.
+
+/subsection Summary
+The Mouse Haptic project represented a step toward automating tactile sensitivity research, combining mechanical design, embedded systems, and behavioral testing into a scalable biomedical research tool.

@@ -1,0 +1,40 @@
+/section Computer Game for Rehabilitating Kids with Neurological Injuries (FIRE)
+
+/subsection Objective
+This project was part of my Freshman Introduction to Research Engineering (FIRE) program.  
+The goal was to create an affordable and engaging interactive game for children recovering from traumatic brain injuries.  
+The motivation came from our mentor, Professor James Sulzer, whose daughter Livie suffered a severe head injury.  
+He noted that most existing rehabilitation devices were prohibitively expensive, inspiring our team to design a low-cost, accessible alternative.
+
+/subsection Initial Prototype
+Our first prototype was a simple interactive matching game where Livie aligned on-screen prompts with a physical board.  
+To minimize costs, we repurposed old keyboards and cards for the mechanical interface.  
+During testing, Livie was more interested in stress-testing the prototype than playing the game, but the concept showed potential for engagement and rehabilitation.
+
+/subsection Final Prototype
+We refined the design using 3D printed and laser-cut parts to improve durability and prevent damage during use.  
+The keycaps were redesigned to be visually appealing and textured for tactile feedback.  
+When Livie answered correctly, the system played funny reward sounds, which kept her entertained and motivated.
+
+/subsection Results
+
+/subsubsection Engagement
+/bullet
+Livie smiled frequently and attempted to imitate the reward sounds.
+She showed sustained engagement, far exceeding our expectations.
+/endbullet
+
+/subsubsection Interaction
+/bullet
+Livie kept her hands on the keys throughout gameplay.
+She explored the textures and shapes of the redesigned components.
+/endbullet
+
+/subsection Cost and Accessibility
+The total project cost was approximately $29.07, excluding 3D printing.  
+Most parts were made from common household materials.  
+The software was written in JavaScript and HTML, allowing future deployment on the web for free, device-independent access.
+
+/subsection Summary
+The FIRE rehabilitation game demonstrated that low-cost, home-built systems can provide meaningful therapy experiences for children with neurological injuries.  
+It combined simple hardware, playful software, and accessibility-driven design into an effective rehabilitation tool.

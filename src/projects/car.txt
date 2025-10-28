@@ -1,0 +1,34 @@
+/section ME 338 – RC Car
+
+/subsection Project Overview
+As part of the Advanced Mechatronics (ME 338) course, I worked on a team tasked with designing and building a high-performance RC car for a circuit race.  
+Our main goals were to develop a modular, reliable, and lightweight design while maintaining mechanical simplicity and robustness.
+
+/subsection Chassis Design
+I was responsible for designing the chassis structure.  
+We adopted a modular frame with cap fittings for easy battery replacement and maintenance.  
+The initial design used ABS, but due to limited availability, we switched to PLA and reduced the chassis thickness from 6.35 mm to 5.3 mm to compensate for material differences.  
+I conducted stress, displacement, and strain analyses in SolidWorks to validate the structure’s ability to handle loads from the drivetrain and impacts during operation.
+
+/subsection Steering Mechanism
+The main challenge in steering was maintaining stability within a small chassis footprint while keeping the system modular.  
+I designed a wide 220 mm front axle to improve traction and cornering control.  
+We implemented a single-axle steering design that balanced simplicity and precision, using PLA for rapid iteration and durability under collision stress.
+
+/subsection Powertrain Development
+I designed a custom gear case using a compact triangular gear layout to maximize space efficiency.  
+The open gearbox design allowed easy maintenance and quick gear replacement during testing.  
+We used rigid white resin for the gears to handle high rotational speeds and a carbon fiber rod for the rear axle to maintain stiffness with minimal weight.
+
+/subsection Aesthetic and Functional Add-ons
+Inspired by Formula 1 design, I modeled a 3D-printed aerodynamic body kit, including front and rear wings, side skirts, and chassis panels.  
+These components improved both the car’s aesthetics and aerodynamic stability.  
+The front wing doubled as a protective guard for the steering mechanism during collisions.
+
+/subsection Post-Race Analysis
+While the RC car performed well during testing and races, we identified issues with tire grip and drivetrain endurance.  
+Future improvements could include weighted front axles for better traction and metal gears for enhanced wear resistance.
+
+/subsection Summary
+The RC Car project reinforced my understanding of mechanical design optimization, drivetrain integration, and performance tuning under real-world constraints.  
+It also demonstrated the impact of iterative prototyping and material selection on reliability and competitive performance.

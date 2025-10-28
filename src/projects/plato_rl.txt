@@ -1,0 +1,41 @@
+/section Plato – Reinforcement Learning
+
+/subsection Objective
+The goal is to leverage the fingernails on the Plato Hand V2 for efficient manipulation. Traditional contact-model-based control methods are challenging due to the fingernails’ complex geometry. Instead, we aim to apply Reinforcement Learning (RL) to effectively learn and utilize the robotic hand’s fingernails for fine manipulations.
+
+The project’s primary task involves using NVIDIA’s Isaac Sim to train the Plato Hand to pick up coins with fingernails and stack them accurately. Success in this task would demonstrate that RL can effectively train the robotic hand to use its fingernails for complex dexterous tasks.
+
+/subsection Initial Setup and Configuration of Isaac Sim and RL Training
+The initial phase focused on confirming that Isaac Sim was correctly configured on my setup. The simulation model integrates a URDF file with a Plato Hand assembly attached to a Franka Panda Arm.
+
+/subsection Step 1: Simple Reach Task
+I implemented a simple RL training session to test the simulation environment on a reach task. The arm was trained to move to randomized positions and orientations within its workspace.
+
+/bullet
+Self-Collisions in URDF: The original URDF exhibited numerous self-collisions, which caused instabilities during training. Using PyBullet, I identified self-collision points and optimized the collision meshes, creating a simplified version of the URDF assembly specifically for this setup.
+Testing the Environment Setup: Once the collision issues were resolved, the RL training on the reach task executed smoothly, confirming that Isaac Sim was set up and running correctly.
+/endbullet
+
+/subsection Step 2: Transition to Inverse Kinematics (IK) Control
+After verifying the environment, I explored using Inverse Kinematics (IK) for arm control, as it generally offers faster and smoother motion than RL-based control. However, this transition presented new challenges:
+
+/bullet
+Shakiness and Instability: The IK training generated unstable arm movements, likely due to Isaac Sim supplying unreachable training points or configurations close to singularities. This limitation led to poor data quality, resulting in jittery movements.
+Resolution Strategy: To address this, we are conducting a comprehensive reachability analysis of the Panda Arm. This will allow us to define feasible movement ranges better and avoid singular configurations in the training data.
+/endbullet
+
+/subsection Reachability Analysis for Panda Arm
+To enhance the effectiveness of the IK control and minimize instability, I adapted a reachability computation tool originally developed by a colleague for a different robot model. This adaptation leverages PyBullet to compute the reachable workspace of the Panda Arm and visualize the space using Meshcat.
+
+Key additions to the tool include:
+/bullet
+Singularity Checks: Identifying and excluding configurations near kinematic singularities to prevent unstable movements.
+Self-Collision Detection: Integrated checks to avoid self-collision points in the generated workspace data, ensuring reliable and feasible points for training.
+/endbullet
+
+/subsection RL Grasp Training
+The next phase in RL training for the Plato Hand focuses on achieving a stable and effective grasp using fingernails. But before we get to fingernail grasping, we must build a strong foundation of simple grasping. The reasoning is that it is much simpler for RL to train a simple task and progress towards a challenging task rather than going straight for the difficult task.
+
+Currently, with simple grasping we are having an issue with the policy training, where the mean noise standard deviation is increasing as training progresses. One way of interpreting this is that the training is not confident in what it is doing due to the critic not being able to see the entire picture, so when it does the “same,” based on what information the critic is given, it gets two different results.
+
+Another hypothesis is that at the beginning of the training, the policy cannot make any meaningful movement, so to explore effectively, it increases the standard deviation to enable the policy to sample from a larger variance.

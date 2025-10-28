@@ -46,10 +46,8 @@ const INFO = {
 			description:
 				"3 Fingered Robotics Hand achieving human-like sensing.",
 			logo: "./aristo.png",
-			linkText: "View Project",
-			// Externalized long markup: now referenced by key (bundled from src/projects)
 			longMarkupKey: "aristo",
-			longDescription: "<p>This is a placeholder long description for Project 1. Replace with real content.</p>",
+			category: "research",
 		},
 
 		{
@@ -60,28 +58,28 @@ const INFO = {
 			logo: "./plato.png",
 			longMarkupPath: "/projects/plato.txt",
 			longMarkupKey: "plato",
-			longDescription: "<p>This is a placeholder long description for Project 2. Replace with real content.</p>",
+			category: "research",
 		},
 
 		{
 			title: "Isaac Lab: Reinforcement Learning for Robotic Manipulation",
-			slug: "project-3",
+			slug: "reinforcement-learning",
 			description:
 				"Utilizing Isaac Lab for simulating and training PLATO/ARISTO Hand for manipulation tasks.",
 			logo: "./rl.gif",
-			longMarkupKey: "project-3",
-			longDescription: "<p>This is a placeholder long description for Project 3. Replace with real content.</p>",
+			longMarkupKey: "rl",
+			category: "research",
 		},
 
 		{
 			title: "Imitation Learning for Robotic Manipulation",
-			slug: "project-4",
+			slug: "imitation-learning",
 			description:
 				"Use ARISTO Hand has data collection platform for imitation learning in robotic manipulation tasks and deployed policies on ARISTO Hand",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
-			linkText: "View Project",
-			longMarkupKey: "project-4",
-			longDescription: "<p>This is a placeholder long description for Project 4. Replace with real content.</p>",
+			// logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+			longMarkupKey: "il",
+			longDescription: "!!!This page is under construction!!! Please check back later for updates.",
+			category: "research",
 		},
 
 		{
@@ -89,10 +87,9 @@ const INFO = {
 			slug: "sony-robotic-hand",
 			description:
 				"Developed and tested actuators and 3-finger robotic hand at the Fundamental Robotics Lab in Sony, Tokyo, Japan.",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
-			linkText: "View Project",
-			longMarkupKey: "sony-robotic-hand",
-			longDescription: "<p>This is a placeholder long description for Project 5. Replace with real content.</p>",
+			logo: "./hand.png",
+			longMarkupKey: "sony",
+			category: "internship",
 		},
 
 		{
@@ -101,9 +98,8 @@ const INFO = {
 			description:
 				"Undergraduate research on humanoids and assistive robotics at the Human Centered Robotics Lab.",
 			logo: "./draco.png",
-			linkText: "View Project",
-			longMarkupKey: "hcrl-ugrad-research",
-			longDescription: "<p>This is a placeholder long description for Project 5. Replace with real content.</p>",
+			longMarkupKey: "hcrl",
+			category: "research",
 		},
 
 		{
@@ -111,10 +107,9 @@ const INFO = {
 			slug: "sas",
 			description:
 				"Internship at Samsung Austin Semiconductor.",
-			logo: "./samsung.png",
-			linkText: "View Project",
-			longMarkupKey: "sas-samsung",
-			longDescription: "<p>This is a placeholder long description for Project 5. Replace with real content.</p>",
+			logo: "./fab.png",
+			longMarkupKey: "samsung",
+			category: "internship",
 		},
 
 		{
@@ -123,9 +118,8 @@ const INFO = {
 			description:
 				"Undergraduate research at the Human-Enabled Robotics Technology Lab.",
 			logo: "./mouse.png",
-			linkText: "View Project",
-			longMarkupKey: "sas-human-enabled",
-			longDescription: "<p>This is a placeholder long description for Project 5. Replace with real content.</p>",
+			longMarkupKey: "hero",
+			category: "research",
 		},
 
 		{
@@ -134,9 +128,38 @@ const INFO = {
 			description:
 				"Freshman Research initiative.",
 			logo: "./fire.png",
-			linkText: "View Project",
-			longMarkupKey: "sas-fri",
-			longDescription: "This is a placeholder long description for Project 5. Replace with real content.",
+			longMarkupKey: "fire",
+			category: "research",
+		},
+
+		{
+			title: "Hockey Bot",
+			slug: "hockey-bot",
+			description:
+				"ME 392Q",
+			logo: "./hockey.png",
+			longMarkupKey: "hockey",
+			category: "course",
+		},
+
+		{
+			title: "Battle Bot",
+			slug: "battle-bot",
+			description:
+				"ME 366J",
+			logo: "./battle.png",
+			longMarkupKey: "battle",
+			category: "course",
+		},
+
+		{
+			title: "RC Car",
+			slug: "rc-car",
+			description:
+				"ME 388",
+			logo: "./car.png",
+			longMarkupKey: "car",
+			category: "course",
 		},
 
 	],
