@@ -1,32 +1,70 @@
 import React from "react";
 
-// Simple markup renderer supporting the following directives (one per line):
-// /section Title       -> <h2>Title</h2>
-// /subsection Title    -> <h3>Title</h3>
-// /list                -> begin unordered list
-// /endlist             -> end unordered list
-// /bullet Item text    -> <li>Item text</li>
-// Blank lines create paragraph breaks for plain text.
-// Any other line is treated as a paragraph.
+// Markup renderer supporting directives:
+// /section Title        -> <h2>
+// /subsection Title     -> <h3>
+// /list                 -> begin ordered list block
+// /endlist              -> end ordered list block
+// /bullet               -> begin bullet list block
+// /endbullet            -> end bullet list block
+// Lines inside list/bullet can be prefixed with tabs (\t) to indicate nesting.
+// /image URL [alt text] -> <img>
+// /video URL [caption]  -> <video controls>
 
-const escapeHtml = (str) =>
-  String(str)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
+const buildNestedFromLines = (lines) => {
+  const root = [];
+  const stack = [{ level: -1, children: root }];
+
+  for (const item of lines) {
+    const node = { text: item.text, children: [] };
+    const level = item.level;
+
+    while (stack.length && stack[stack.length - 1].level >= level) {
+      stack.pop();
+    }
+    stack[stack.length - 1].children.push(node);
+    stack.push({ level, children: node.children });
+  }
+
+  return root;
+};
+
+const listStyleForLevel = (level, ordered = true) => {
+  if (!ordered) {
+    const styles = ["disc", "circle", "square"];
+    return styles[level % styles.length];
+  }
+  const styles = ["decimal", "lower-alpha", "lower-roman", "lower-alpha"];
+  return styles[level % styles.length];
+};
+
+const renderNestedList = (items, level = 0, ordered = true, keyPrefix = "") => {
+  if (!items || items.length === 0) return null;
+  const Tag = ordered ? "ol" : "ul";
+  const listStyle = listStyleForLevel(level, ordered);
+  return (
+    <Tag key={keyPrefix + level} style={{ listStyleType: listStyle }}>
+      {items.map((it, idx) => (
+        <li key={`${keyPrefix}${level}-${idx}`}>
+          {it.text}
+          {it.children && it.children.length > 0 ? renderNestedList(it.children, level + 1, ordered, `${keyPrefix}${idx}-`) : null}
+        </li>
+      ))}
+    </Tag>
+  );
+};
 
 const parseToNodes = (content) => {
   if (!content) return [];
   const lines = content.split(/\r?\n/);
   const nodes = [];
-  let inList = false;
+  let inList = false; // false | 'ordered' | 'bullet'
   let listItems = [];
 
   const flushList = () => {
-    if (inList) {
-      nodes.push({ type: "ul", items: listItems.slice() });
+    if (inList && Array.isArray(listItems) && listItems.length > 0) {
+      const nested = buildNestedFromLines(listItems);
+      nodes.push({ type: inList === "ordered" ? "olist" : "ulist", items: nested });
       listItems = [];
       inList = false;
     }
@@ -35,7 +73,6 @@ const parseToNodes = (content) => {
   for (let rawLine of lines) {
     const line = rawLine.trim();
     if (line === "") {
-      // blank line - flush any open list and add a paragraph break marker
       flushList();
       nodes.push({ type: "br" });
       continue;
@@ -54,42 +91,88 @@ const parseToNodes = (content) => {
     }
 
     if (line === "/list") {
-      // start list
       flushList();
-      inList = true;
+      inList = "ordered";
       listItems = [];
       continue;
     }
 
     if (line === "/endlist") {
-      flushList();
-      continue;
-    }
-
-    if (line.startsWith("/bullet ")) {
-      // bullet inside list (if list not started, start it implicitly)
-      const item = line.replace("/bullet ", "");
-      if (!inList) {
-        inList = true;
+      if (inList === "ordered") {
+        const nested = buildNestedFromLines(listItems);
+        nodes.push({ type: "olist", items: nested });
         listItems = [];
+        inList = false;
       }
-      listItems.push(item);
       continue;
     }
 
-    // default: paragraph line
+    if (line === "/bullet") {
+      flushList();
+      inList = "bullet";
+      listItems = [];
+      continue;
+    }
+
+    if (line === "/endbullet") {
+      if (inList === "bullet") {
+        const nested = buildNestedFromLines(listItems);
+        nodes.push({ type: "ulist", items: nested });
+        listItems = [];
+        inList = false;
+      }
+      continue;
+    }
+
+    if (line.startsWith("/image ")) {
+      flushList();
+      const m = line.match(/^\/image\s+(\S+)(?:\s+(.+))?$/);
+      if (m) {
+        nodes.push({ type: "image", url: m[1], alt: m[2] || "" });
+        continue;
+      }
+    }
+
+    if (line.startsWith("/video ")) {
+      flushList();
+      const m = line.match(/^\/video\s+(\S+)(?:\s+(.+))?$/);
+      if (m) {
+        nodes.push({ type: "video", url: m[1], caption: m[2] || "" });
+        continue;
+      }
+    }
+
+    if (inList === "ordered" || inList === "bullet") {
+      // Support both tabs and spaces for indentation. 2 spaces == 1 indent level.
+      const leading = rawLine.match(/^[\t ]*/)[0];
+      const tabCount = (leading.match(/\t/g) || []).length;
+      const spaceCount = (leading.match(/ /g) || []).length;
+      const level = tabCount + Math.floor(spaceCount / 2);
+      const text = line;
+      listItems.push({ level, text });
+      continue;
+    }
+
+    // default paragraph
     flushList();
     nodes.push({ type: "p", text: line });
   }
 
-  // flush at end
   flushList();
-
   return nodes;
 };
 
 const MarkupRenderer = ({ content }) => {
   const nodes = parseToNodes(content);
+
+  const resolveMediaUrl = (url) => {
+    if (!url) return url;
+    // If url is already absolute (starts with / or http), leave it.
+    if (/^\w+:\/\//.test(url) || url.startsWith("/")) return url;
+    // If url is relative like ./image.png or ../image.png, map to public root by stripping leading ./ or ../ segments
+    // Accept one or more occurrences of "./" or "../" at the start and remove them.
+    return "/" + url.replace(/^(?:\.\/|\.\.\/)+/, "");
+  };
 
   return (
     <div className="markup-renderer">
@@ -107,13 +190,30 @@ const MarkupRenderer = ({ content }) => {
                 {node.text}
               </h3>
             );
-          case "ul":
+          case "olist":
             return (
-              <ul key={idx} className="markup-list">
-                {node.items.map((it, i) => (
-                  <li key={i}>{it}</li>
-                ))}
-              </ul>
+              <div key={idx} className="markup-olist">
+                {renderNestedList(node.items, 0, true, `olist-${idx}-`)}
+              </div>
+            );
+          case "ulist":
+            return (
+              <div key={idx} className="markup-ulist">
+                {renderNestedList(node.items, 0, false, `ulist-${idx}-`)}
+              </div>
+            );
+          case "image":
+            return (
+              <div key={idx} className="markup-image">
+                <img src={resolveMediaUrl(node.url)} alt={node.alt || ""} style={{ maxWidth: "100%", height: "auto", borderRadius: 8 }} />
+              </div>
+            );
+          case "video":
+            return (
+              <div key={idx} className="markup-video">
+                <video controls src={resolveMediaUrl(node.url)} style={{ width: "100%", borderRadius: 8 }} />
+                {node.caption ? <div className="video-caption">{node.caption}</div> : null}
+              </div>
             );
           case "p":
             return (
@@ -132,3 +232,4 @@ const MarkupRenderer = ({ content }) => {
 };
 
 export default MarkupRenderer;
+

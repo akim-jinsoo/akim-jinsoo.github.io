@@ -1,0 +1,27 @@
+/section Project Title
+/subsection Overview
+A short overview of the project (one or two sentences).
+
+/subsection Motivation
+Why you built this project and what problem it solves.
+
+/subsection Implementation
+/list
+/bullet Hardware: Describe hardware or platform used
+/bullet Software: Libraries, frameworks, or tools
+/bullet Algorithms: Brief overview of key algorithms or methods
+/endlist
+
+/subsection Results
+Summary of results and any quantitative metrics.
+
+/subsection Links
+/list
+/bullet GitHub: https://github.com/your/repo
+/bullet Demo: https://example.com/demo
+/endlist
+
+# Notes
+- Use `/section`, `/subsection`, `/list`, `/endlist`, and `/bullet` to structure content.
+- Plain lines become paragraphs.
+- Add images or code later if you want (we can add /image and /code directives on request).

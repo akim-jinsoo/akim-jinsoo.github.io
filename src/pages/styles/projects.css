@@ -55,3 +55,32 @@
 	margin: 8px 0;
 }
 
+.markup-image {
+	margin: 12px 0;
+	display: flex;
+	justify-content: center;
+}
+.markup-video {
+	margin: 12px 0;
+}
+.video-caption {
+	margin-top: 6px;
+	font-size: 13px;
+	color: var(--secondary-color);
+}
+
+/* Back to Experience button */
+.back-button {
+	display: inline-block;
+	background: var(--link-color);
+	color: #fff;
+	padding: 8px 14px;
+	border-radius: 8px;
+	text-decoration: none;
+	font-weight: 600;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+.back-button:hover {
+	opacity: 0.95;
+}
+

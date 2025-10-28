@@ -1,0 +1,13 @@
+/section Imitation Learning for Robotic Manipulation
+/subsection Overview
+Use ARISTO Hand for data collection and imitation learning; deploy policies on hardware.
+
+/subsection Implementation
+/list
+/bullet Data Collection: Teleoperation / scripted trajectories
+/bullet Model: Behavioral cloning / GAIL / other imitation frameworks
+/bullet Evaluation: Real-world deployment on ARISTO
+/endlist
+
+/subsection Results
+Placeholder: add performance numbers and success rates.

@@ -1,0 +1,12 @@
+/section Sony: Robotic Hand
+/subsection Overview
+Developed and tested actuators and a three-finger robotic hand at Sony's Fundamental Robotics Lab in Tokyo.
+
+/subsection Implementation
+/list
+/bullet Hardware: Actuator development and testing rigs
+/bullet Experiments: Durability and control trials
+/endlist
+
+/subsection Results
+Add notes about prototypes, test results, and deliverables.

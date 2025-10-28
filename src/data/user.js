@@ -47,8 +47,8 @@ const INFO = {
 				"3 Fingered Robotics Hand achieving human-like sensing.",
 			logo: "./aristo.png",
 			linkText: "View Project",
-			// Example of new simple markup. Use /section, /subsection, /list, /bullet to author content.
-			longMarkup: `/section ARISTO Hand\n/subsection Overview\nARISTO is a three-fingered robotic hand designed to emulate human tactile sensing and dexterous manipulation.\n\n/list\n/bullet Hardware:\n/bullet Sensing:\n/bullet Control:\n/endlist\n\n/subsection Results\nWe demonstrated pick-and-place tasks with compliant grasps and tactile feedback.\n`,
+			// Externalized long markup: now referenced by key (bundled from src/projects)
+			longMarkupKey: "aristo",
 			longDescription: "<p>This is a placeholder long description for Project 1. Replace with real content.</p>",
 		},
 
@@ -58,7 +58,8 @@ const INFO = {
 			description:
 				"3 Fingered Robotics Hand inspired by human musculoskeletal autonomy.",
 			logo: "./plato.png",
-			linkText: "View Project",
+			longMarkupPath: "/projects/plato.txt",
+			longMarkupKey: "plato",
 			longDescription: "<p>This is a placeholder long description for Project 2. Replace with real content.</p>",
 		},
 
@@ -68,6 +69,7 @@ const INFO = {
 			description:
 				"Utilizing Isaac Lab for simulating and training PLATO/ARISTO Hand for manipulation tasks.",
 			logo: "./rl.gif",
+			longMarkupKey: "project-3",
 			longDescription: "<p>This is a placeholder long description for Project 3. Replace with real content.</p>",
 		},
 
@@ -78,6 +80,7 @@ const INFO = {
 				"Use ARISTO Hand has data collection platform for imitation learning in robotic manipulation tasks and deployed policies on ARISTO Hand",
 			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
 			linkText: "View Project",
+			longMarkupKey: "project-4",
 			longDescription: "<p>This is a placeholder long description for Project 4. Replace with real content.</p>",
 		},
 
@@ -88,6 +91,7 @@ const INFO = {
 				"Developed and tested actuators and 3-finger robotic hand at the Fundamental Robotics Lab in Sony, Tokyo, Japan.",
 			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
 			linkText: "View Project",
+			longMarkupKey: "sony-robotic-hand",
 			longDescription: "<p>This is a placeholder long description for Project 5. Replace with real content.</p>",
 		},
 
@@ -98,6 +102,7 @@ const INFO = {
 				"Undergraduate research on humanoids and assistive robotics at the Human Centered Robotics Lab.",
 			logo: "./draco.png",
 			linkText: "View Project",
+			longMarkupKey: "hcrl-ugrad-research",
 			longDescription: "<p>This is a placeholder long description for Project 5. Replace with real content.</p>",
 		},
 
@@ -108,6 +113,7 @@ const INFO = {
 				"Internship at Samsung Austin Semiconductor.",
 			logo: "./samsung.png",
 			linkText: "View Project",
+			longMarkupKey: "sas-samsung",
 			longDescription: "<p>This is a placeholder long description for Project 5. Replace with real content.</p>",
 		},
 
@@ -118,6 +124,7 @@ const INFO = {
 				"Undergraduate research at the Human-Enabled Robotics Technology Lab.",
 			logo: "./mouse.png",
 			linkText: "View Project",
+			longMarkupKey: "sas-human-enabled",
 			longDescription: "<p>This is a placeholder long description for Project 5. Replace with real content.</p>",
 		},
 
@@ -128,6 +135,7 @@ const INFO = {
 				"Freshman Research initiative.",
 			logo: "./fire.png",
 			linkText: "View Project",
+			longMarkupKey: "sas-fri",
 			longDescription: "This is a placeholder long description for Project 5. Replace with real content.",
 		},
 

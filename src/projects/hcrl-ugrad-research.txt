@@ -1,0 +1,12 @@
+/section Human Centered Robotics Lab: Undergraduate Research
+/subsection Overview
+Undergraduate research on humanoids and assistive robotics at the HCRL.
+
+/subsection Implementation
+/list
+/bullet Platform: Humanoid/assistive robot platforms
+/bullet Tasks: Perception, control, HRI experiments
+/endlist
+
+/subsection Results
+Notes on projects, posters, or publications to include.

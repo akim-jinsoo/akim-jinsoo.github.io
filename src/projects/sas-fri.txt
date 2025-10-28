@@ -1,0 +1,12 @@
+/section Freshman Research Initiative
+/subsection Overview
+Freshman Research Initiative projects and early research exposure.
+
+/subsection Implementation
+/list
+/bullet Activities and responsibilities
+/bullet Skills learned
+/endlist
+
+/subsection Results
+Add any outcomes, posters, or follow-ups.

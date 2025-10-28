@@ -1,0 +1,12 @@
+/section Samsung Austin Semiconductor
+/subsection Overview
+Internship at Samsung Austin Semiconductor; contributions to manufacturing and process engineering.
+
+/subsection Implementation
+/list
+/bullet Team projects and responsibilities
+/bullet Tools and workflows used
+/endlist
+
+/subsection Results
+Add outcomes and any metrics or contributions here.
