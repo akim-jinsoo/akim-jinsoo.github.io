@@ -16,28 +16,78 @@ const Works = () => {
 						<div className="work">
 							<img
 								src="./facebook.png"
-								alt="facebook"
+								alt="hcrl"
 								className="work-image"
 							/>
-							<div className="work-title">Facebook</div>
-							<div className="work-subtitle">
-								Software Engineer
+							<div className="work-content">
+								<div className="work-header">
+									<div className="work-title">Human Centered Robotics Lab</div>
+									<div className="work-duration">August 2024 - Present</div>
+								</div>
+								<div className="work-subtitle">Graduate Student Fellow</div>
 							</div>
-							<div className="work-duration">2019 - Present</div>
 						</div>
 
 						<div className="work">
 							<img
 								src="./twitter.png"
-								alt="twitter"
+								alt="sony"
 								className="work-image"
 							/>
-							<div className="work-title">Twitter</div>
-							<div className="work-subtitle">
-								Software Engineer
+							<div className="work-content">
+								<div className="work-header">
+									<div className="work-title">Sony Corporation – Fundamental Robotics Lab, Tokyo, Japan</div>
+									<div className="work-duration">May 2024 - August 2024</div>
+								</div>
+								<div className="work-subtitle">Research Intern</div>
 							</div>
-							<div className="work-duration">2019 - Present</div>
 						</div>
+
+						<div className="work">
+							<img
+								src="./twitter.png"
+								alt="hcrl"
+								className="work-image"
+							/>
+							<div className="work-content">
+								<div className="work-header">
+									<div className="work-title">Human Centered Robotics Lab</div>
+									<div className="work-duration">January 2023 - May 2024</div>
+								</div>
+								<div className="work-subtitle">Undergraduate Researcher</div>
+							</div>
+						</div>
+
+						<div className="work">
+							<img
+								src="./twitter.png"
+								alt="hero"
+								className="work-image"
+							/>
+							<div className="work-content">
+								<div className="work-header">
+									<div className="work-title">Human-Enabled Robotics Technology Lab</div>
+									<div className="work-duration">August 2021 - December 2022</div>
+								</div>
+								<div className="work-subtitle">Undergraduate Researcher</div>
+							</div>
+						</div>
+
+						<div className="work">
+							<img
+								src="./twitter.png"
+								alt="hero"
+								className="work-image"
+							/>
+							<div className="work-content">
+								<div className="work-header">
+									<div className="work-title">Samsung Austin Semiconductor</div>
+									<div className="work-duration">May 2022 - August 2022</div>
+								</div>
+								<div className="work-subtitle">Engineering Intern</div>
+							</div>
+						</div>
+
 					</div>
 				}
 			/>

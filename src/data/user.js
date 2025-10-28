@@ -1,25 +1,43 @@
 const INFO = {
 	main: {
-		title: "Reactfolio by truethari",
-		name: "Tharindu N.",
-		email: "mail@tharindu.dev",
-		logo: "../logo.png",
+		title: "Online Portfolio",
+		name: "Aaron Kim",
+		email: "akim2002@utexas.edu",
+ 		logo: "../logo.png", //TODO change logo to my logo
+		// Path (from public/) to your university logo. Place the file in public/ut-logo.png or change this path.
+		universityLogo: "../ut-logo.png",
 	},
 
 	socials: {
-		twitter: "https://twitter.com/",
-		github: "https://github.com/",
-		linkedin: "https://linkedin.com/",
-		instagram: "https://instagram.com/",
-		stackoverflow: "https://stackoverflow.com/",
-		facebook: "https://facebook.com/",
+		github: "https://github.com/akim-jinsoo",
+		linkedin: "https://www.linkedin.com/in/akim-jinsoo/",
 	},
 
 	homepage: {
-		title: "Full-stack web and mobile app developer, and amateur astronaut.",
+		title: "Hello! I'm Aaron",
 		description:
-			"I am a backend developer with expertise in Node.js. I have experience in building scalable, secure and reliable web applications using various frameworks and technologies. I enjoy solving complex problems and learning new skills. I am passionate about creating high-quality code that follows best practices and industry standards. I am always looking for new challenges and opportunities to grow as a developer.",
+			"A second-year graduate student at The University of Texas at Austin pursuing a Master's in Mechanical Engineering, with a passion for robotics.",
 	},
+
+	education: [
+		{
+			degree: "M.S. in Mechanical Engineering",
+			institution: "The University of Texas at Austin",
+			period: "August 2024 - May 2026",
+			gpa: "3.9/4.0",
+			description: "Coursework: Machine Learning, Algorithms, Systems. Replace with your actual details.",
+			awards: [
+				"Graduate Research Fellowship"
+			],
+		},
+		{
+			degree: "B.S. in Mechanical Engineering",
+			institution: "The University of Texas at Austin",
+			period: "August 2020 - May 2024",
+			gpa: "3.7/4.0",
+			description: "Undergraduate coursework in dynamics, controls, and robotics. Replace with your actual details.",
+		},
+	],
 
 
 	projects: [

@@ -1,0 +1,88 @@
+/* Education subsection for homepage — matches work/card layout */
+.homepage-education {
+    margin-top: 2rem;
+}
+
+.education-body {
+    margin-bottom: 10px;
+}
+
+.education-item {
+    border-left: 3px solid var(--link-color);
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    background: #fff;
+    width: 100%;
+}
+
+.education-degree {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--secondary-color);
+}
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.education-duration {
+    font-size: 13px;
+    color: var(--tertiary-color);
+    white-space: nowrap;
+}
+
+.education-institution {
+    color: var(--secondary-color);
+    margin-top: 4px;
+    font-size: 13px;
+}
+
+.education-description {
+    color: var(--tertiary-color);
+    margin-top: 6px;
+}
+
+.education-empty {
+    color: var(--secondary-color);
+}
+
+/* University logo placed in the top-right of the card body */
+.education-body {
+    position: relative; /* to anchor the absolute logo */
+}
+
+/* University logo placed in the top-right of the card body */
+.card-university-logo {
+    /* increased size by 50% from 64px -> 96px */
+    width: 96px;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 600px) {
+    /* increased mobile size by 50% from 44px -> 66px */
+    .card-university-logo {
+        width: 66px;
+    }
+}
+
+/* GPA and awards styling */
+.education-gpa {
+    font-size: 13px;
+    color: var(--tertiary-color);
+    margin-top: 4px;
+}
+
+.education-awards {
+    margin-top: 10px;
+    margin-left: 18px;
+    padding-left: 12px;
+    color: var(--secondary-color);
+}
+
+.education-award-item {
+    font-size: 13px;
+    margin-bottom: 6px;
+}

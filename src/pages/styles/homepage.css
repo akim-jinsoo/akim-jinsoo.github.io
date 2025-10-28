@@ -71,6 +71,7 @@
 
 .homepage-after-title {
 	display: flex;
+	flex-direction: column; /* stack works then education */
 }
 
 .homepage-projects {
@@ -89,9 +90,11 @@
 }
 
 .homepage-works {
-	flex-basis: 600px;
+	width: 100%;
 	padding-top: 30px;
 }
+
+/* Education subsection moved to components/homepage/styles/education.css */
 
 @media (max-width: 1024px) {
 	.homepage-first-area {
