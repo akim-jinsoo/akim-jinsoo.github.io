@@ -1,0 +1,51 @@
+```plaintext
+Quick guide: supported directives and short examples
+
+Features
+- Headings: `/section Title` and `/subsection Title`
+- Ordered lists: `/list` ... `/endlist` (indent with tab or 2 spaces for nesting)
+- Unordered lists: `/bullet` ... `/endbullet` (same nesting rules)
+- Images: `/image <URL> [options]` (options comma-separated)
+- Videos: `/video <URL> [caption text]`
+- Captions: `/caption Text[, italic]` — placed beneath the immediately preceding image if present
+
+Directive quick reference
+- /section Project Title
+- /subsection Overview
+  A short project summary.
+
+Lists
+/list
+Item one
+\tSub-item A
+Item two
+/endlist
+
+/list
+Item one
+    Sub-item A
+        Sub-sub-item A
+Item two
+/endlist
+
+Images and captions
+- Basic image:
+  /image /aristo.png
+
+- Image with options (aspect, height in px, crop):
+  /image /aristo.png aspect=16:9, height=240, crop=top
+  /caption A concise caption for the image
+
+- Caption with commas or italic:
+  /caption "Caption, with comma", italic
+
+Video
+- /video /demo/video.mp4 Short demo description
+
+Notes
+- Relative media paths like `./img.png` are resolved to `/img.png` (public root).
+- Keep `/caption` on the line immediately after the `/image` to attach it to that image.
+- Plain lines become paragraphs.
+
+End of guide
+```

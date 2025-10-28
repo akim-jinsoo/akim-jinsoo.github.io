@@ -1,27 +1,61 @@
-/section Project Title
-/subsection Overview
-A short overview of the project (one or two sentences).
+ /section Project Title
+ /subsection Overview
+ A short overview of the project (one or two sentences).
 
-/subsection Motivation
-Why you built this project and what problem it solves.
+ /subsection Motivation
+ Why you built this project and what problem it solves.
 
-/subsection Implementation
-/list
-/bullet Hardware: Describe hardware or platform used
-/bullet Software: Libraries, frameworks, or tools
-/bullet Algorithms: Brief overview of key algorithms or methods
-/endlist
+ /subsection Implementation
+ Use `/list` ... `/endlist` for ordered lists and `/bullet` ... `/endbullet` for unordered lists.
 
-/subsection Results
-Summary of results and any quantitative metrics.
+ /list
+ Hardware: Custom board and actuators
+		 Sensors: Tactile pads
+		 Actuation: Tendon-driven fingers
+ Control: Real-time impedance controller
+ /endlist
 
-/subsection Links
-/list
-/bullet GitHub: https://github.com/your/repo
-/bullet Demo: https://example.com/demo
-/endlist
+ /bullet
+ Key features
+		 Low-latency sensing
+		 Robust grasping
+ /endbullet
 
-# Notes
-- Use `/section`, `/subsection`, `/list`, `/endlist`, and `/bullet` to structure content.
-- Plain lines become paragraphs.
-- Add images or code later if you want (we can add /image and /code directives on request).
+ (Nesting: indent list lines with a tab or two spaces to create sub-levels.)
+
+ /subsection Results
+ Summary of results and any quantitative metrics.
+
+ /subsection Media examples
+ Images and videos can be embedded with the following directives.
+
+ Image syntax examples:
+ - Basic image (no alt text in directive):
+   /image /aristo.png
+
+ - With options (key=value options separated by commas):
+   /image /aristo.png aspect=16:9, height=240, crop=top
+
+   Options:
+   - `aspect=WxH` (e.g. `16:9` or `4/3`) — enforce aspect ratio.
+   - `height=NN` (px) (e.g. `height=240` or `height=240px`) — maximum container height in pixels (used as maxHeight when aspect is specified).
+   - `crop=position` — `center`, `top`, `bottom`, `left`, `right` or any CSS `object-position` value.
+
+ Video syntax example:
+ - /video /demo/video.mp4 Demonstration of the grasping pipeline
+
+ /subsection Links
+ /list
+ /bullet GitHub: https://github.com/your/repo
+ /bullet Demo: https://example.com/demo
+ /endlist
+
+ # Notes for authors
+ - Use `/section` and `/subsection` to create headings.
+ - Plain lines become paragraphs.
+ - Ordered sections: put `/list` then place each item on its own line; indent with a tab or two spaces for nested entries.
+ - Unordered sections: same as above but use `/bullet` and `/endbullet`.
+ - Images support optional aspect/height/crop parameters as shown above.
+ - Videos accept a URL and an optional caption.
+
+ Happy authoring!
