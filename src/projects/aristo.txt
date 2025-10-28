@@ -1,0 +1,25 @@
+/section ARISTO Hand
+/subsection Overview
+ARISTO is a three-fingered robotic hand designed to emulate human tactile sensing and dexterous manipulation.
+
+/list
+Hardware: Custom tendon-driven fingers, embedded tactile sensors
+    test
+        test
+Sensing: High-resolution pressure and slip detection
+Control: Real-time impedance control with tactile feedback
+/endlist
+
+/bullet
+test
+test
+    test
+    test
+        test
+test
+/endbullet
+
+/image /aristo.png
+
+/subsection Results
+We demonstrated pick-and-place tasks with compliant grasps and tactile feedback.

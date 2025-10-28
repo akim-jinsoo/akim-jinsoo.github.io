@@ -46,7 +46,8 @@
 }
 
 .work-duration {
-	font-size: 13px;
+	/* match the work title size for visual parity */
+	font-size: 16px;
 	color: var(--tertiary-color);
 	white-space: nowrap;
 	margin-left: 12px;
@@ -68,6 +69,7 @@
 	}
 
 	.work-duration {
-		font-size: 12px;
+		/* match the mobile title size */
+		font-size: 15px;
 	}
 }

@@ -8,6 +8,7 @@ import Logo from "../components/common/logo";
 
 import INFO from "../data/user";
 import SEO from "../data/seo";
+import MarkupRenderer from "../components/common/MarkupRenderer";
 
 import "./styles/projects.css";
 
@@ -62,7 +63,9 @@ const ProjectDetail = () => {
                         <div className="subtitle projects-subtitle">{project.description}</div>
 
                         <div className="project-detail-body">
-                            {project.longDescription ? (
+                            {project.longMarkup ? (
+                                <MarkupRenderer content={project.longMarkup} />
+                            ) : project.longDescription ? (
                                 <div dangerouslySetInnerHTML={{ __html: project.longDescription }} />
                             ) : (
                                 <div>

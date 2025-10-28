@@ -5,6 +5,7 @@
 
 .education-body {
     margin-bottom: 10px;
+    position: relative; /* to anchor logos if needed */
 }
 
 .education-item {
@@ -28,7 +29,8 @@
 }
 
 .education-duration {
-    font-size: 13px;
+    /* match the degree/title font size for visual parity */
+    font-size: 15px;
     color: var(--tertiary-color);
     white-space: nowrap;
 }
@@ -39,50 +41,89 @@
     font-size: 13px;
 }
 
+/* styling for the shared institution heading shown above multiple degrees */
+.education-institution.shared {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
 .education-description {
     color: var(--tertiary-color);
     margin-top: 6px;
+    font-size: 15px; /* coursework / description size */
+}
+
+/* Make GPA same size as coursework/description */
+.education-gpa {
+    font-size: 15px;
+    color: var(--tertiary-color);
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+/* Awards — match description styling, keep italic and bullets */
+.education-awards {
+    margin-top: 10px;
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none; /* ensure no default bullets */
+}
+
+.education-award-item {
+    font-size: 15px;
+    color: var(--tertiary-color);
+    margin-bottom: 6px;
+    background: none;
+    padding-left: 0;
+    font-style: normal; /* remove italics */
+    display: block;
+    list-style: none; /* remove bullets */
 }
 
 .education-empty {
     color: var(--secondary-color);
 }
 
-/* University logo placed in the top-right of the card body */
-.education-body {
-    position: relative; /* to anchor the absolute logo */
-}
-
-/* University logo placed in the top-right of the card body */
+/* University logo sizing */
 .card-university-logo {
-    /* increased size by 50% from 64px -> 96px */
     width: 96px;
     height: auto;
     object-fit: contain;
 }
 
 @media (max-width: 600px) {
-    /* increased mobile size by 50% from 44px -> 66px */
     .card-university-logo {
         width: 66px;
     }
 }
 
-/* GPA and awards styling */
-.education-gpa {
-    font-size: 13px;
-    color: var(--tertiary-color);
-    margin-top: 4px;
+/* row layout: logo on left, degrees on right */
+.education-row {
+    display: flex;
+    gap: 18px;
+    align-items: center; /* vertical center the logo with the list */
 }
 
-.education-awards {
-    margin-top: 10px;
-    margin-left: 18px;
-    padding-left: 12px;
-    color: var(--secondary-color);
+.education-logo {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.education-award-item {
-    font-size: 13px;
-    margin-bottom: 6px;
+.education-content {
+    flex: 1 1 auto;
+}
+
+@media (max-width: 640px) {
+    .education-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .education-logo {
+        margin-bottom: 8px;
+        align-self: center;
+    }
 }

@@ -39,6 +39,10 @@
 .nav-item {
 	font-weight: bold;
 	font-size: 80%;
+	/* ensure link + caret are vertically centered inside the nav pill */
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
 }
 
 .nav-item.active a {

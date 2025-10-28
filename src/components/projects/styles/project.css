@@ -5,6 +5,7 @@
 	border-radius: 20px;
 	opacity: 0.8;
 	height: 100%;
+	overflow: hidden; /* ensure image and overlay respect card radius */
 }
 
 .project a {
@@ -23,50 +24,117 @@
 }
 
 .project-container {
-	padding: 30px;
+	padding: 0; /* let image fill full card */
 }
 
 .project-logo {
-	width: 30px;
+	position: relative;
 }
 
-.project-logo img {
+/* darken the entire image with a uniform translucent layer (covers the background only)
+   This makes the image appear darker without relying on a gradient. */
+.project-logo::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: rgba(0,0,0,0.3);
+	z-index: 1;
+	pointer-events: none;
+}
+
+.project-overlay {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: flex-end; /* place overlay content at bottom */
+	/* Cloudy/frosted effect when NOT hovered: a translucent light layer with a backdrop blur.
+	   On hover this will be removed so the image appears clear. */
+	background: rgba(255,255,255,0.12);
+	-webkit-backdrop-filter: blur(4px);
+	backdrop-filter: blur(4px);
+	transition: background 200ms ease, backdrop-filter 200ms ease, -webkit-backdrop-filter 200ms ease;
+	z-index: 2;
+}
+
+.project-overlay-inner {
+	padding: 14px;
 	width: 100%;
+	box-sizing: border-box;
+}
+
+.project-overlay .project-title {
+	color: #fff;
+	font-family: var(--secondary-font);
+	font-size: 16px;
+	font-weight: 700;
+	margin: 0 0 6px 0;
+	/* stronger shadow for better contrast */
+	text-shadow: 0 3px 10px rgba(0,0,0,0.75);
+	z-index: 3;
+}
+
+.project-overlay .project-description {
+	color: rgba(255,255,255,0.95);
+	font-size: 14px;
+	margin: 0;
+	/* stronger shadow for better contrast */
+	text-shadow: 0 2px 6px rgba(0,0,0,0.65);
+	z-index: 3;
+}
+
+/* Light-mode overlay (image is bright) */
+.project-overlay.light {
+	background: linear-gradient(rgba(255,255,255,0) 40%, rgba(255,255,255,0.85) 100%);
+}
+
+.project-overlay.light .project-title {
+	color: #0a0a0a;
+	/* stronger light-mode shadow */
+	text-shadow: 0 2px 4px rgba(255,255,255,0.8);
+}
+
+.project-overlay.light .project-description {
+	color: rgba(0,0,0,0.85);
+	/* stronger light-mode shadow */
+	text-shadow: 0 2px 4px rgba(255,255,255,0.8);
 }
 
 .project-title {
+	/* fallback styling when title is used outside overlay */
 	font-family: var(--secondary-font);
 	color: var(--primary-color);
 	font-size: 16px;
-	padding-top: 15px;
-	margin-bottom: 1em;
+	margin: 0 0 6px 0;
 	font-weight: 700;
 }
 
 .project-description {
+	/* fallback styling when description is used outside overlay */
 	color: var(--secondary-color);
+	margin: 0;
 }
 
-.project-link {
-	display: flex;
-	align-items: center;
-	color: var(--secondary-color);
-	font-size: 12px;
-	padding-top: 20px;
-}
-
-.project-link-icon {
-	padding-left: 5px;
-	font-size: 13px;
-}
-
-.project-link-text {
-	padding-left: 20px;
-	font-weight: 700;
+.project-logo {
+	width: 100%;
+	/* keep a constant aspect ratio (width -> height derived) */
+	aspect-ratio: 16 / 9;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: inherit; /* match card radius */
+	overflow: hidden;
+	display: block;
 }
 
 @media (max-width: 600px) {
 	.project {
 		height: 300px;
 	}
+}
+
+/* Remove the cloudy overlay on hover so the image clears up */
+.project:hover .project-overlay {
+	background: transparent;
+	-webkit-backdrop-filter: none;
+	backdrop-filter: none;
 }

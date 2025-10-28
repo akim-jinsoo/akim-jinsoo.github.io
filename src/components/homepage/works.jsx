@@ -15,7 +15,7 @@ const Works = () => {
 					<div className="works-body">
 						<div className="work">
 							<img
-								src="./facebook.png"
+								src="./hcrl.png"
 								alt="hcrl"
 								className="work-image"
 							/>
@@ -30,13 +30,13 @@ const Works = () => {
 
 						<div className="work">
 							<img
-								src="./twitter.png"
+								src="./sony.png"
 								alt="sony"
 								className="work-image"
 							/>
 							<div className="work-content">
 								<div className="work-header">
-									<div className="work-title">Sony Corporation – Fundamental Robotics Lab, Tokyo, Japan</div>
+									<div className="work-title">Sony Corporation - Fundamental Robotics Lab, Tokyo, Japan</div>
 									<div className="work-duration">May 2024 - August 2024</div>
 								</div>
 								<div className="work-subtitle">Research Intern</div>
@@ -45,7 +45,7 @@ const Works = () => {
 
 						<div className="work">
 							<img
-								src="./twitter.png"
+								src="./hcrl.png"
 								alt="hcrl"
 								className="work-image"
 							/>
@@ -60,7 +60,7 @@ const Works = () => {
 
 						<div className="work">
 							<img
-								src="./twitter.png"
+								src="./hero.png"
 								alt="hero"
 								className="work-image"
 							/>
@@ -75,7 +75,7 @@ const Works = () => {
 
 						<div className="work">
 							<img
-								src="./twitter.png"
+								src="./samsung.png"
 								alt="hero"
 								className="work-image"
 							/>
@@ -85,6 +85,21 @@ const Works = () => {
 									<div className="work-duration">May 2022 - August 2022</div>
 								</div>
 								<div className="work-subtitle">Engineering Intern</div>
+							</div>
+						</div>
+
+						<div className="work">
+							<img
+								src="./ut-logo.png"
+								alt="fire"
+								className="work-image"
+							/>
+							<div className="work-content">
+								<div className="work-header">
+									<div className="work-title">Freshman Introduction to Research in Engineering - UT Austin</div>
+									<div className="work-duration">January 2021 - May 2021</div>
+								</div>
+								<div className="work-subtitle">Freshman Researcher</div>
 							</div>
 						</div>
 

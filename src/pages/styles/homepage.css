@@ -43,12 +43,20 @@
 
 .homepage-image-wrapper {
 	overflow: hidden;
-	border-radius: 10%;
+	/* use a fixed px radius for more consistent clipping when the element is rotated */
+	border-radius: 16px;
 	transform: rotate(3deg);
+	width: 100%;
+	height: 100%;
+	display: block;
+	transform-origin: center center;
 }
 
 .homepage-image-wrapper img {
 	width: 100%;
+	height: 100%;
+	display: block;
+	object-fit: cover; /* ensure image fills the wrapper and corners are clipped */
 }
 
 .homepage-socials {

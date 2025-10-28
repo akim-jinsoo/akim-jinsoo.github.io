@@ -70,7 +70,7 @@ const NavBar = (props) => {
                                 </ul>
                             </li>
                             <li className="nav-item">
-                                <a href="/resume.pdf" download target="_blank" rel="noreferrer">
+                                <a href="./resume.pdf" download target="_blank" rel="noreferrer">
                                     Resume
                                 </a>
                             </li>

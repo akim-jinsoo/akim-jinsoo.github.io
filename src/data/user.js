@@ -23,18 +23,18 @@ const INFO = {
 			degree: "M.S. in Mechanical Engineering",
 			institution: "The University of Texas at Austin",
 			period: "August 2024 - May 2026",
-			gpa: "3.9/4.0",
-			description: "Coursework: Machine Learning, Algorithms, Systems. Replace with your actual details.",
+			gpa: "3.7/4.0",
+			description: "Relevant Coursework: Sensor-based algorithms, Robot Manipulation Learning, Learning for dynamics and control",
 			awards: [
-				"Graduate Research Fellowship"
+				"Award: NSF Research Traineeship Recipient"
 			],
 		},
 		{
 			degree: "B.S. in Mechanical Engineering",
 			institution: "The University of Texas at Austin",
 			period: "August 2020 - May 2024",
-			gpa: "3.7/4.0",
-			description: "Undergraduate coursework in dynamics, controls, and robotics. Replace with your actual details.",
+			gpa: "3.6/4.0",
+			description: "Relevant Coursework: Design of Human-centered Robotics, Robot Mechanism Design, Mechatronics, Dynamics Systems & Control",
 		},
 	],
 
@@ -45,9 +45,10 @@ const INFO = {
 			slug: "aristo",
 			description:
 				"3 Fingered Robotics Hand achieving human-like sensing.",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+			logo: "./aristo.png",
 			linkText: "View Project",
-			link: "https://github.com",
+			// Example of new simple markup. Use /section, /subsection, /list, /bullet to author content.
+			longMarkup: `/section ARISTO Hand\n/subsection Overview\nARISTO is a three-fingered robotic hand designed to emulate human tactile sensing and dexterous manipulation.\n\n/list\n/bullet Hardware:\n/bullet Sensing:\n/bullet Control:\n/endlist\n\n/subsection Results\nWe demonstrated pick-and-place tasks with compliant grasps and tactile feedback.\n`,
 			longDescription: "<p>This is a placeholder long description for Project 1. Replace with real content.</p>",
 		},
 
@@ -56,9 +57,8 @@ const INFO = {
 			slug: "plato",
 			description:
 				"3 Fingered Robotics Hand inspired by human musculoskeletal autonomy.",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/python/python.png",
+			logo: "./plato.png",
 			linkText: "View Project",
-			link: "https://github.com",
 			longDescription: "<p>This is a placeholder long description for Project 2. Replace with real content.</p>",
 		},
 
@@ -67,9 +67,7 @@ const INFO = {
 			slug: "project-3",
 			description:
 				"Utilizing Isaac Lab for simulating and training PLATO/ARISTO Hand for manipulation tasks.",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/html/html.png",
-			linkText: "View Project",
-			link: "https://github.com",
+			logo: "./rl.gif",
 			longDescription: "<p>This is a placeholder long description for Project 3. Replace with real content.</p>",
 		},
 
@@ -80,7 +78,6 @@ const INFO = {
 				"Use ARISTO Hand has data collection platform for imitation learning in robotic manipulation tasks and deployed policies on ARISTO Hand",
 			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
 			linkText: "View Project",
-			link: "https://github.com",
 			longDescription: "<p>This is a placeholder long description for Project 4. Replace with real content.</p>",
 		},
 
@@ -91,7 +88,6 @@ const INFO = {
 				"Developed and tested actuators and 3-finger robotic hand at the Fundamental Robotics Lab in Sony, Tokyo, Japan.",
 			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
 			linkText: "View Project",
-			link: "https://github.com",
 			longDescription: "<p>This is a placeholder long description for Project 5. Replace with real content.</p>",
 		},
 
@@ -100,9 +96,8 @@ const INFO = {
 			slug: "hcrl-ugrad-research",
 			description:
 				"Undergraduate research on humanoids and assistive robotics at the Human Centered Robotics Lab.",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+			logo: "./draco.png",
 			linkText: "View Project",
-			link: "https://github.com",
 			longDescription: "<p>This is a placeholder long description for Project 5. Replace with real content.</p>",
 		},
 
@@ -111,9 +106,8 @@ const INFO = {
 			slug: "sas",
 			description:
 				"Internship at Samsung Austin Semiconductor.",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+			logo: "./samsung.png",
 			linkText: "View Project",
-			link: "https://github.com",
 			longDescription: "<p>This is a placeholder long description for Project 5. Replace with real content.</p>",
 		},
 
@@ -122,9 +116,8 @@ const INFO = {
 			slug: "sas",
 			description:
 				"Undergraduate research at the Human-Enabled Robotics Technology Lab.",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+			logo: "./mouse.png",
 			linkText: "View Project",
-			link: "https://github.com",
 			longDescription: "<p>This is a placeholder long description for Project 5. Replace with real content.</p>",
 		},
 
@@ -133,9 +126,8 @@ const INFO = {
 			slug: "sas",
 			description:
 				"Freshman Research initiative.",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+			logo: "./fire.png",
 			linkText: "View Project",
-			link: "https://github.com",
 			longDescription: "This is a placeholder long description for Project 5. Replace with real content.",
 		},
 

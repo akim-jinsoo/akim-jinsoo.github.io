@@ -31,3 +31,27 @@
 		width: calc(100% / 2);
 	}
 }
+
+/* Markup renderer styles */
+.markup-renderer {
+	margin-top: 18px;
+	line-height: 1.6;
+	color: var(--secondary-color);
+}
+.markup-section {
+	margin: 18px 0 8px 0;
+	font-size: 22px;
+	color: var(--primary-color);
+}
+.markup-subsection {
+	margin: 12px 0 6px 0;
+	font-size: 18px;
+	color: var(--primary-color);
+}
+.markup-list {
+	margin: 8px 0 12px 20px;
+}
+.markup-paragraph {
+	margin: 8px 0;
+}
+
