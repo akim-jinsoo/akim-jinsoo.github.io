@@ -21,9 +21,12 @@ const Homepage = () => {
 	const [stayLogo, setStayLogo] = useState(false);
 	const [logoSize, setLogoSize] = useState(80);
 	const [oldLogoSize, setOldLogoSize] = useState(80);
+	const [mounted, setMounted] = useState(false);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
+		// trigger entrance animations
+		setMounted(true);
 	}, []);
 
 	useEffect(() => {
@@ -55,7 +58,9 @@ const Homepage = () => {
 	const logoStyle = {
 		display: "flex",
 		position: stayLogo ? "fixed" : "relative",
-		top: stayLogo ? "3vh" : "auto",
+		// align the (shrunk) logo vertically with the navbar pill
+		// navbar top is 3vh and its height is 40px; we offset the logo so its center matches the nav center
+		top: stayLogo ? `calc(3vh + ${(40 - Math.round(logoSize)) / 2}px)` : "auto",
 		zIndex: 999,
 		border: stayLogo ? "1px solid white" : "none",
 		borderRadius: stayLogo ? "50%" : "none",
@@ -77,37 +82,40 @@ const Homepage = () => {
 				<NavBar active="home" />
 				<div className="content-wrapper">
 					<div className="homepage-logo-container">
-						<div style={logoStyle}>
+						<div style={logoStyle} className={mounted ? "logo-float" : ""}>
 							<Logo width={logoSize} link={false} />
 						</div>
 					</div>
 
 					<div className="homepage-container">
 						<div className="homepage-first-area">
-							<div className="homepage-first-area-left-side">
-								<div className="title homepage-title">
-									{INFO.homepage.title}
+								<div className="homepage-first-area-left-side">
+									<div className={`title homepage-title ${mounted ? 'animate-fade-up' : ''}`}>
+										{INFO.homepage.title}
+									</div>
+
+									<div
+										className={`subtitle homepage-subtitle ${mounted ? 'animate-fade-up' : ''}`}
+										style={{ animationDelay: mounted ? '120ms' : '0ms' }}
+									>
+										{INFO.homepage.description}
+									</div>
 								</div>
 
-								<div className="subtitle homepage-subtitle">
-									{INFO.homepage.description}
-								</div>
-							</div>
-
-							<div className="homepage-first-area-right-side">
-								<div className="homepage-image-container">
-									<div className="homepage-image-wrapper">
-										<img
-											src="homepage.png"
-											alt="about"
-											className="homepage-image"
-										/>
+								<div className="homepage-first-area-right-side">
+									<div className={`homepage-image-container ${mounted ? 'animate-fade-up' : ''}`} style={{ animationDelay: mounted ? '200ms' : '0ms' }}>
+										<div className="homepage-image-wrapper">
+											<img
+												src="homepage.png"
+												alt="about"
+												className="homepage-image"
+											/>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 
-						<div className="homepage-socials">
+						<div className={`homepage-socials ${mounted ? 'animate-fade-up' : ''}`} style={{ animationDelay: mounted ? '500ms' : '0ms' }}>
 							<a
 								href={INFO.socials.github}
 								target="_blank"
@@ -115,7 +123,7 @@ const Homepage = () => {
 							>
 								<FontAwesomeIcon
 									icon={faGithub}
-									className="homepage-social-icon"
+									className={`homepage-social-icon ${mounted ? 'social-float' : ''}`}
 								/>
 							</a>
 							<a
@@ -125,7 +133,7 @@ const Homepage = () => {
 							>
 								<FontAwesomeIcon
 									icon={faLinkedin}
-									className="homepage-social-icon"
+									className={`homepage-social-icon ${mounted ? 'social-float' : ''}`}
 								/>
 							</a>
 							<a
@@ -135,7 +143,7 @@ const Homepage = () => {
 							>
 								<FontAwesomeIcon
 									icon={faMailBulk}
-									className="homepage-social-icon"
+									className={`homepage-social-icon ${mounted ? 'social-float' : ''}`}
 								/>
 							</a>
 						</div>
@@ -143,13 +151,17 @@ const Homepage = () => {
 						{/* Project section removed per request */}
 
 						<div className="homepage-after-title">
-							<About />
+							<div className={`animate-fade-up`} style={{ animationDelay: mounted ? "260ms" : "0ms" }}>
+								<About />
+							</div>
 
-							<div className="homepage-works">
+							<div className={`homepage-works animate-fade-up`} style={{ animationDelay: mounted ? "320ms" : "0ms" }}>
 								<Works />
 							</div>
 
-							<Education />
+							<div className={`animate-fade-up`} style={{ animationDelay: mounted ? "380ms" : "0ms" }}>
+								<Education />
+							</div>
 						</div>
 
 						<div className="page-footer">

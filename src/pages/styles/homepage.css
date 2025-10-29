@@ -7,6 +7,72 @@
 	padding-top: 130px;
 }
 
+/* Entrance animations */
+@keyframes fadeUp {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes floatY {
+	0% { transform: translateY(0); }
+	50% { transform: translateY(-6px); }
+	100% { transform: translateY(0); }
+}
+
+.animate-fade-up {
+	animation-name: fadeUp;
+	animation-duration: 520ms;
+	animation-timing-function: cubic-bezier(.2,.9,.3,1);
+	animation-fill-mode: both;
+}
+
+/* subtle floating for logo when mounted (respects reduced motion) */
+.logo-float {
+	animation: floatY 3.6s ease-in-out infinite;
+	will-change: transform;
+}
+
+/* floating animation for social icons */
+.social-float {
+	  /* total cycle = 3s: movement in first half (~1.5s), then subtle idle float in second half (~1.5s)
+		  Idle float amplitude is 5% of main movement (main = 6px, idle = 0.3px) */
+	animation: floatSeq 6s ease-in-out infinite;
+	will-change: transform;
+}
+
+@keyframes floatSeq {
+	0% { transform: translateY(0); }
+	25% { transform: translateY(-6px); }
+	50% { transform: translateY(0); }
+		/* idle micro-wave during the pause (5% of main amplitude ~0.3px) */
+		62% { transform: translateY(-0.6px); }
+	75% { transform: translateY(0); }
+		87% { transform: translateY(-0.6px); }
+	100% { transform: translateY(0); }
+}
+
+/* staggered start: left -> center -> right with 0.5s between starts
+	 and an initial container entrance delay of 0.5s (handled on the container).
+	 We add the container delay into the icon delays so floating sequence starts
+	 after the icons have faded in. */
+.homepage-socials a:nth-child(1) .homepage-social-icon.social-float { animation-delay: 500ms; }
+.homepage-socials a:nth-child(2) .homepage-social-icon.social-float { animation-delay: 1000ms; }
+.homepage-socials a:nth-child(3) .homepage-social-icon.social-float { animation-delay: 1500ms; }
+
+@media (prefers-reduced-motion: reduce) {
+	.animate-fade-up,
+	.logo-float,
+	.social-float {
+		animation: none !important;
+	}
+}
+
 .homepage-container {
 	padding-top: 25px;
 }

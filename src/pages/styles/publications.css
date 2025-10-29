@@ -5,6 +5,42 @@
   flex-direction: column;
   height: 100%;
   padding-top: 120px;
+  /* Ensure the page fills the viewport so footer sits at the bottom when content is short.
+    Use a slightly larger visible area so the footer is pushed lower on short lists. */
+  min-height: calc(100vh - 40px); /* slightly less subtraction to extend the page */
+  box-sizing: border-box;
+  padding-bottom: 32px; /* extra breathing room so footer isn't mid-screen */
+}
+
+/* Entrance animations (reuse the site's fade-up and logo float patterns) */
+@keyframes fadeUpPub {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation-name: fadeUpPub;
+  animation-duration: 520ms;
+  animation-timing-function: cubic-bezier(.2,.9,.3,1);
+  animation-fill-mode: both;
+}
+
+@keyframes floatYPub {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.logo-float {
+  animation: floatYPub 3.6s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .logo-float {
+    animation: none !important;
+  }
 }
 
 /* page logo positioning to match Experience page */
@@ -46,6 +82,18 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
+}
+
+/* push footer to bottom when content doesn't fill the viewport */
+.publications-container > .page-footer {
+  margin-top: auto;
+}
+
+/* Make footer spacing on Publications match other pages (avoid taller footer appearance) */
+.publications-container > .page-footer .footer {
+  margin-top: 24px; /* reduce the large default spacing */
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 @media (max-width: 600px) {

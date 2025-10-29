@@ -6,7 +6,7 @@ import INFO from "../../data/user";
 
 import "./styles/allProjects.css";
 
-const AllProjects = () => {
+const AllProjects = ({ mounted }) => {
 	const projects = INFO.projects || [];
 	const research = projects.filter((p) => p.category === "research");
 	const internships = projects.filter((p) => p.category === "internship");
@@ -33,18 +33,18 @@ const AllProjects = () => {
 
 	return (
 		<div className="all-projects-container grouped-projects">
-			<section className="projects-section research-section">
-				<h2 className="projects-section-title">Research</h2>
+                <section className="projects-section research-section">
+                	<h2 className="projects-section-title">Research</h2>
 				{renderList(research)}
 			</section>
 
 			<section className="projects-section internships-section">
-				<h2 className="projects-section-title">Internships</h2>
+                	<h2 className="projects-section-title">Internships</h2>
 				{renderList(internships)}
 			</section>
 
 			<section className="projects-section courses-section">
-				<h2 className="projects-section-title">Course Projects</h2>
+                	<h2 className="projects-section-title">Course Projects</h2>
 				{renderList(courses)}
 			</section>
 		</div>

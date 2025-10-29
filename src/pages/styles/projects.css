@@ -28,6 +28,48 @@
 	padding-top: 120px;
 }
 
+/* Entrance animations (similar to homepage) */
+@keyframes fadeUpProj {
+	from { opacity: 0; transform: translateY(12px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+	animation-name: fadeUpProj;
+	animation-duration: 520ms;
+	animation-timing-function: cubic-bezier(.2,.9,.3,1);
+	animation-fill-mode: both;
+}
+
+@keyframes floatYProj {
+	0% { transform: translateY(0); }
+	50% { transform: translateY(-6px); }
+	100% { transform: translateY(0); }
+}
+
+.logo-float {
+	animation: floatYProj 3.6s ease-in-out infinite;
+	will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.animate-fade-up,
+	.logo-float {
+		animation: none !important;
+	}
+}
+
+/* Projects title: allow wrapping so long titles don't overflow the viewport */ 
+.projects-title-text {
+	/* allow the title to wrap at word boundaries without inserting hyphens */
+	display: inline-block;
+	white-space: normal;
+	word-break: normal; /* don't break words mid-word */
+	hyphens: none;      /* disable automatic hyphenation */
+	overflow-wrap: normal; /* prefer wrapping at whitespace */
+	max-width: 100%;
+}
+
 /* project detail progress bar (thin bar at top of content) */
 .project-progress-wrapper {
 	height: 4px;
@@ -43,6 +85,8 @@
 	background: linear-gradient(90deg, var(--link-color), #0e9a8e);
 	transition: width 100ms linear;
 }
+
+/* removed category floating - headings are intentionally static to reduce distraction */
 
 @media (max-width: 600px) {
 	.projects-container {
