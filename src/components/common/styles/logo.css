@@ -3,4 +3,7 @@
 	display: block;
 	margin: 0;
 	padding: 0;
+	/* keep the image from exceeding its container height when placed inside a fixed-size wrapper */
+	max-height: 100%;
+	height: auto;
 }

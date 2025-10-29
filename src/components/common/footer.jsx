@@ -18,7 +18,7 @@ const Footer = () => {
 						</li>
 
 						<li className="footer-nav-link-item">
-							<Link to="/contact">Contact</Link>
+							{/* Contact removed */}
 						</li>
 					</ul>
 				</div>

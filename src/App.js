@@ -5,7 +5,6 @@ import ReactGA from "react-ga4";
 import Homepage from "./pages/homepage";
 import Experience from "./pages/projects";
 import { Navigate } from "react-router-dom";
-import Contact from "./pages/contact";
 import ProjectDetail from "./pages/projectDetail";
 import Notfound from "./pages/404";
 import Publications from "./pages/publications";
@@ -28,7 +27,7 @@ function App() {
 				<Route path="/experience" element={<Experience />} />
 				<Route path="/project/:slug" element={<ProjectDetail />} />
 				<Route path="/publications" element={<Publications />} />
-				<Route path="/contact" element={<Contact />} />
+
 				<Route path="*" element={<Notfound />} />
 			</Routes>
 		</div>

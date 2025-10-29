@@ -1,25 +1,11 @@
-/section ARISTO Hand
-/subsection Overview
-ARISTO is a three-fingered robotic hand designed to emulate human tactile sensing and dexterous manipulation.
+/section Overview
+The ARISTO (Anthropomorphic, Robotic, Integrated-Sensing, TendOn-driven) Hand is the next generation of the PLATO platform, designed to explore how multimodal sensing can improve dexterous robotic manipulation.
 
-/list
-Hardware: Custom tendon-driven fingers, embedded tactile sensors
-    test
-        test
-Sensing: High-resolution pressure and slip detection
-Control: Real-time impedance control with tactile feedback
-/endlist
+While PLATO focused on human-like mechanics and proprioceptive control, ARISTO expands this concept by integrating tactile, force, and visual feedback into a single system. The hand features capacitive tactile sensors embedded in the fingertips, six-axis force-torque sensors at the fingernails, and RGB-D cameras for visual feedback. Together, these sensing modalities replicate how humans use touch and vision to plan, grasp, and manipulate complex objects.
 
-/bullet
-test
-test
-    test
-    test
-        test
-test
-/endbullet
+/section Objective
+The goal of ARISTO is to study how integrated sensing and learning-based control can enable more adaptive and human-like manipulation. By fusing data from touch, force, and vision, the system aims to improve contact understanding, grasp stability, and autonomous skill acquisition through machine learning.
 
-/image /aristo.png aspect=2:3, height=400, crop=center
-/caption "test ,test", italic
-/subsection Results
-We demonstrated pick-and-place tasks with compliant grasps and tactile feedback.
+/section Status
+This project is currently under active development. Hardware design, sensor integration, and initial data collection are in progress.
+Please check back later for updates as the first prototype and experimental results become available.

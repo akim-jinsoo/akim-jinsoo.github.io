@@ -15,14 +15,16 @@ const INFO = {
 	homepage: {
 		title: "Hello! I'm Aaron",
 		description:
-			"A second-year graduate student at The University of Texas at Austin pursuing a Master's in Mechanical Engineering, with a passion for robotics.",
+			"A Graduate student in Mechanical Engineering at UT Austin, specializing in mechanical design, robotic manipulation, and machine learning.",
 	},
 
 	// About section (editable content for the homepage About card)
 	about: {
 		paragraphs: [
-			"I am studying at the University of Texas at Austin, working toward an integrated master's degree in mechanical engineering, mainly focusing on dynamic systems and control. Throughout my academic journey, I have gained most of my valuable research experience while collaborating with Dr. Luis Sentis at the Human-Centered Robotics Lab. My passion for robotics is evident in my portfolio, which showcases various projects I have completed throughout my studies.",
-			"Aside from studying and researching, I enjoy photography, cooking, traveling, being a mechanic, and more!",
+			"I’m pursuing an integrated master’s degree in Mechanical Engineering at The University of Texas at Austin, specializing in dynamic systems and control. My research experience comes primarily from working with Dr. Luis Sentis at the Human-Centered Robotics Lab, where I focus on robotic manipulation and learning-based control.",
+			"My passion for robotics drives me to design, build, and test systems that bridge mechanical design, control theory, and machine intelligence. This portfolio highlights a range of projects that reflect my hands-on approach to solving complex robotics problems.",
+			"Outside of engineering, I enjoy photography, cooking, traveling, and spending time in the garage as a self-taught mechanic.",
+			"Feel free to reach out via LinkedIn or email; I’m always open to connecting about research or industry collaborations."
 		],
 	},
 
@@ -49,7 +51,7 @@ const INFO = {
 
 	projects: [
 		{
-			title: "ARISTO Hand",
+			title: "ARISTO Hand (in-progress)",
 			slug: "aristo",
 			description:
 				"3 Fingered Robotics Hand achieving human-like sensing.",
@@ -101,7 +103,7 @@ const INFO = {
 		},
 
 		{
-			title: "Human Centered Robotics Lab: Ungraduate Research",
+			title: "Human Centered Robotics Lab: Undergraduate Research",
 			slug: "hcrl-ugrad-research",
 			description:
 				"Undergraduate researcher on humanoids and assistive robotics at the Human Centered Robotics Lab.",
@@ -132,10 +134,10 @@ const INFO = {
 
 
 		{
-			title: "Freshman Research Initiative",
+			title: "Freshman Introduction to Research in Engineering",
 			slug: "fri",
 			description:
-				"Freshman Research initiative.",
+				"Developed and lead a rehabilitation device for children with traumatic brain injuries.",
 			logo: "./fire.png",
 			longMarkupKey: "fire",
 			category: "research",

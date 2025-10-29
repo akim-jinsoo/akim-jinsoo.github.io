@@ -10,7 +10,13 @@
 	border: 1px solid white;
 	border-radius: 50%;
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-	top: 4vh;
+	/* align the logo vertically with the navbar (navbar top is 3vh) */
+	top: 3vh;
+	/* match the nav pill height so the logo visually centers with the pill */
+	height: 40px;
+	width: 40px;
+	align-items: center;
+	justify-content: center;
 	z-index: 999;
 }
 
@@ -20,6 +26,22 @@
 	height: 100%;
 	margin: 0;
 	padding-top: 120px;
+}
+
+/* project detail progress bar (thin bar at top of content) */
+.project-progress-wrapper {
+	height: 4px;
+	width: 100%;
+	background: rgba(0,0,0,0.04);
+	position: sticky;
+	top: 56px; /* sit below navbar */
+	z-index: 800;
+}
+.project-progress {
+	height: 100%;
+	width: 0%;
+	background: linear-gradient(90deg, var(--link-color), #0e9a8e);
+	transition: width 100ms linear;
 }
 
 @media (max-width: 600px) {

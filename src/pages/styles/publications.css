@@ -4,6 +4,28 @@
   padding: 20px;
 }
 
+/* page logo positioning to match Experience page */
+.publications-logo-container {
+  display: flex;
+  justify-content: left;
+  padding-top: 25px;
+}
+
+.publications-logo {
+  display: flex;
+  position: fixed;
+  border: 1px solid white;
+  border-radius: 50%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  /* align with navbar top */
+  top: 3vh;
+  height: 40px;
+  width: 40px;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
 .publications-title {
   font-size: 2rem;
   margin-bottom: 20px;

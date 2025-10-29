@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import Footer from "../components/common/footer";
 import NavBar from "../components/common/navBar";
+import Logo from "../components/common/logo";
 import INFO from "../data/user";
 import "./styles/publications.css";
 
@@ -20,6 +21,11 @@ const Publications = () => {
 			<div className="page-content">
 				<NavBar active="publications" />
 				<div className="content-wrapper">
+					<div className="publications-logo-container">
+						<div className="publications-logo">
+							<Logo width={46} />
+						</div>
+					</div>
 					<div className="publications-container">
 						<h1 className="publications-title">Publications</h1>
 
