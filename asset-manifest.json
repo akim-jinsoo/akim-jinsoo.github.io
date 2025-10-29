@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "https://www.aaronjkim.com/static/css/main.b0272fe9.css",
-    "main.js": "https://www.aaronjkim.com/static/js/main.a8cb8c7f.js",
-    "static/js/787.a0f32c2f.chunk.js": "https://www.aaronjkim.com/static/js/787.a0f32c2f.chunk.js",
-    "static/media/plato.txt": "https://www.aaronjkim.com/static/media/plato.8fd781918a915c1e1707.txt",
-    "static/media/hcrl-ugrad-research.txt": "https://www.aaronjkim.com/static/media/hcrl-ugrad-research.a6e65c9ca32dfa02b954.txt",
-    "static/media/plato_rl.txt": "https://www.aaronjkim.com/static/media/plato_rl.2eba74d523c81164d0fe.txt",
-    "static/media/sony.txt": "https://www.aaronjkim.com/static/media/sony.a4c6c6a1a8a23ee2a2d6.txt",
-    "static/media/fire.txt": "https://www.aaronjkim.com/static/media/fire.fcecf6b1df5640666d3f.txt",
-    "static/media/car.txt": "https://www.aaronjkim.com/static/media/car.1893e9f2d2fa76f915ef.txt",
-    "static/media/hero.txt": "https://www.aaronjkim.com/static/media/hero.ec515b0c15393c9c9d7d.txt",
-    "static/media/samsung.txt": "https://www.aaronjkim.com/static/media/samsung.ba18264f0de08c7dd89d.txt",
-    "static/media/battle.txt": "https://www.aaronjkim.com/static/media/battle.8497bc72d9d4760f89e9.txt",
-    "static/media/hockey.txt": "https://www.aaronjkim.com/static/media/hockey.becf9ba2d126f8438ef4.txt",
-    "static/media/aristo.txt": "https://www.aaronjkim.com/static/media/aristo.5ed88816d0b812fa456f.txt",
-    "index.html": "https://www.aaronjkim.com/index.html",
-    "main.b0272fe9.css.map": "https://www.aaronjkim.com/static/css/main.b0272fe9.css.map",
-    "main.a8cb8c7f.js.map": "https://www.aaronjkim.com/static/js/main.a8cb8c7f.js.map",
-    "787.a0f32c2f.chunk.js.map": "https://www.aaronjkim.com/static/js/787.a0f32c2f.chunk.js.map"
+    "main.css": "/static/css/main.b0272fe9.css",
+    "main.js": "/static/js/main.5cfb8bc6.js",
+    "static/js/787.a0f32c2f.chunk.js": "/static/js/787.a0f32c2f.chunk.js",
+    "static/media/plato.txt": "/static/media/plato.8fd781918a915c1e1707.txt",
+    "static/media/hcrl-ugrad-research.txt": "/static/media/hcrl-ugrad-research.a6e65c9ca32dfa02b954.txt",
+    "static/media/plato_rl.txt": "/static/media/plato_rl.2eba74d523c81164d0fe.txt",
+    "static/media/sony.txt": "/static/media/sony.a4c6c6a1a8a23ee2a2d6.txt",
+    "static/media/fire.txt": "/static/media/fire.fcecf6b1df5640666d3f.txt",
+    "static/media/car.txt": "/static/media/car.1893e9f2d2fa76f915ef.txt",
+    "static/media/hero.txt": "/static/media/hero.ec515b0c15393c9c9d7d.txt",
+    "static/media/samsung.txt": "/static/media/samsung.ba18264f0de08c7dd89d.txt",
+    "static/media/battle.txt": "/static/media/battle.8497bc72d9d4760f89e9.txt",
+    "static/media/hockey.txt": "/static/media/hockey.becf9ba2d126f8438ef4.txt",
+    "static/media/aristo.txt": "/static/media/aristo.5ed88816d0b812fa456f.txt",
+    "index.html": "/index.html",
+    "main.b0272fe9.css.map": "/static/css/main.b0272fe9.css.map",
+    "main.5cfb8bc6.js.map": "/static/js/main.5cfb8bc6.js.map",
+    "787.a0f32c2f.chunk.js.map": "/static/js/787.a0f32c2f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b0272fe9.css",
-    "static/js/main.a8cb8c7f.js"
+    "static/js/main.5cfb8bc6.js"
   ]
 }
