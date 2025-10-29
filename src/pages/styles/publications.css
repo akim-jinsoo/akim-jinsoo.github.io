@@ -1,7 +1,10 @@
 .publications-container {
   max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 120px;
 }
 
 /* page logo positioning to match Experience page */
@@ -27,14 +30,28 @@
 }
 
 .publications-title {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  /* smaller gap to subtitle (match Experience page feel) */
+  margin-bottom: -25px;
+  /* inherit sizing from global .title (app.css) */
+  font-size: inherit;
+}
+
+/* tweak spacing for subtitle: reduce top gap, increase bottom padding */
+.publications-subtitle {
+  margin-top: 1px; /* less distance from the title */
+  padding-bottom: 15px; /* more breathing room before the list */
 }
 
 .publications-list {
   display: flex;
   flex-direction: column;
   gap: 18px;
+}
+
+@media (max-width: 600px) {
+  .publications-container {
+    padding-top: 60px;
+  }
 }
 
 .publication-item {

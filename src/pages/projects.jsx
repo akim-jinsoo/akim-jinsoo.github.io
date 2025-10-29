@@ -43,7 +43,7 @@ const Experience = () => {
 						</div>
 
 						<div className="subtitle projects-subtitle">
-							I've worked on a variety of projects over the years and have learned a lot, expanding my knowledge and skills. Now my research is mainly focused on robotics manipulation and mechanical design. However, I am still expanding my knowledge and now exploring AI and machine learning fields.
+							I've worked on a variety of projects over the years, gaining experience that has shaped my approach to engineering and research. My current focus is on robotic manipulation and mechanical design, while I continue to expand into artificial intelligence and machine learning to enhance perception and control in robotics. WARNING: !!!Underdevelopment!!! In the process of switching to a new portfolio format, some projects may be temporarily be incomplete.
  						</div>
 
 						<div className="projects-list">

@@ -27,7 +27,11 @@ const Publications = () => {
 						</div>
 					</div>
 					<div className="publications-container">
-						<h1 className="publications-title">Publications</h1>
+						<div className="title publications-title">Publications</div>
+
+						<div className="subtitle publications-subtitle">
+							Papers and articles I've authored or co-authored in academic journals and conferences. There is more to come!
+						</div>
 
 						<div className="publications-list">
 							{(() => {
