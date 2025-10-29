@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLink } from "@fortawesome/free-solid-svg-icons";
+
 
 import "./styles/project.css";
 
 const Project = (props) => {
-	const { slug, logo, title, description, linkText, externalLink } = props;
+	const { slug, logo, title, description, externalLink } = props;
 
 	/* Overlay text color is forced to white for consistency */
 
