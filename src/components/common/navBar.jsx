@@ -60,13 +60,36 @@ const NavBar = (props) => {
                                 </button>
 
                                 <ul className="nav-dropdown">
-                                    {INFO.projects.map((p) => (
-                                        <li key={p.slug} className="nav-dropdown-item">
-                                            <Link to={`/project/${p.slug}`} onClick={() => setOpen(false)}>
-                                                {p.title}
-                                            </Link>
-                                        </li>
-                                    ))}
+                                    {(() => {
+                                        // Group projects by category in the same order as the Experience page
+                                        const order = [
+                                            { key: "research", label: "Research" },
+                                            { key: "internship", label: "Internships" },
+                                            { key: "course", label: "Course Projects" },
+                                        ];
+                                        const groups = order.map((o) => ({ ...o, items: [] }));
+                                        INFO.projects.forEach((p) => {
+                                            const idx = order.findIndex((o) => o.key === p.category);
+                                            if (idx >= 0) groups[idx].items.push(p);
+                                        });
+
+                                        return groups.map((g) => {
+                                            if (!g.items || g.items.length === 0) return null;
+                                            return (
+                                                <React.Fragment key={g.key}>
+                                                    <li className="nav-dropdown-section-title">{g.label}</li>
+                                                    {g.items.map((p) => (
+                                                        <li key={p.slug} className="nav-dropdown-item">
+                                                            <Link to={`/project/${p.slug}`} onClick={() => setOpen(false)}>
+                                                                {p.title}
+                                                            </Link>
+                                                        </li>
+                                                    ))}
+                                                    <li className="nav-dropdown-separator" aria-hidden="true"></li>
+                                                </React.Fragment>
+                                            );
+                                        });
+                                    })()}
                                 </ul>
                             </li>
                             <li className="nav-item">

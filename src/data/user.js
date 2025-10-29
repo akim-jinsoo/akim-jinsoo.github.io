@@ -18,6 +18,14 @@ const INFO = {
 			"A second-year graduate student at The University of Texas at Austin pursuing a Master's in Mechanical Engineering, with a passion for robotics.",
 	},
 
+	// About section (editable content for the homepage About card)
+	about: {
+		paragraphs: [
+			"I am studying at the University of Texas at Austin, working toward an integrated master's degree in mechanical engineering, mainly focusing on dynamic systems and control. Throughout my academic journey, I have gained most of my valuable research experience while collaborating with Dr. Luis Sentis at the Human-Centered Robotics Lab. My passion for robotics is evident in my portfolio, which showcases various projects I have completed throughout my studies.",
+			"Aside from studying and researching, I enjoy photography, cooking, traveling, being a mechanic, and more!",
+		],
+	},
+
 	education: [
 		{
 			degree: "M.S. in Mechanical Engineering",
@@ -75,7 +83,7 @@ const INFO = {
 			title: "Imitation Learning for Robotic Manipulation",
 			slug: "imitation-learning",
 			description:
-				"Use ARISTO Hand has data collection platform for imitation learning in robotic manipulation tasks and deployed policies on ARISTO Hand",
+				"Utilizing ARISTO Hand has data collection platform for imitation learning in robotic manipulation tasks and deployed policies on ARISTO Hand",
 			// logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
 			longMarkupKey: "il",
 			longDescription: "!!!This page is under construction!!! Please check back later for updates.",
@@ -96,7 +104,7 @@ const INFO = {
 			title: "Human Centered Robotics Lab: Ungraduate Research",
 			slug: "hcrl-ugrad-research",
 			description:
-				"Undergraduate research on humanoids and assistive robotics at the Human Centered Robotics Lab.",
+				"Undergraduate researcher on humanoids and assistive robotics at the Human Centered Robotics Lab.",
 			logo: "./draco.png",
 			longMarkupKey: "hcrl",
 			category: "research",
@@ -113,18 +121,19 @@ const INFO = {
 		},
 
 		{
-			title: "Human-Enabled Robotics Technology Lab",
-			slug: "sas",
+			title: "Human-Enabled Robotics Technology Lab: Haptic Mouse Device",
+			slug: "hero",
 			description:
-				"Undergraduate research at the Human-Enabled Robotics Technology Lab.",
+				"An autonomous multi-channel system that automates tactile sensitivity testing in mice to support neurological pain research.",
 			logo: "./mouse.png",
 			longMarkupKey: "hero",
 			category: "research",
 		},
 
+
 		{
 			title: "Freshman Research Initiative",
-			slug: "sas",
+			slug: "fri",
 			description:
 				"Freshman Research initiative.",
 			logo: "./fire.png",

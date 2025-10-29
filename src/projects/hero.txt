@@ -1,27 +1,29 @@
 /section Mouse Haptic
 
 /subsection Objective
-At the HeRo Lab, I led the development of an autonomous mouse tester designed to aid pharmaceutical research on dynamic allodynia—a condition where light touch causes pain.  
-The goal was to automate behavioral testing for mice, improving consistency, efficiency, and throughput in neurological pain research.
+At the HeRo Lab, I led the development of an autonomous mouse tester designed to support pharmaceutical research on dynamic allodynia — a condition where light touch causes pain.  
+The goal was to automate behavioral testing for mice, improving consistency, efficiency, and throughput in neurological pain studies.
 
 /subsection Initial Design
-Building on the concept of a one-channel mouse sorter, the initial prototype featured a dual-environment design.  
-A brush applied light strokes at random intervals on the dark side of the chamber, while IR sensors tracked mouse movements between light and dark zones.  
-Since mice prefer darkness, those experiencing pain would retreat toward the light side, allowing behavioral data collection.  
-While conceptually effective, the design proved too complex and difficult to manufacture reliably.
+The first prototype was based on a one-channel mouse sorter and used a dual-environment chamber.  
+A brush applied light strokes at random intervals on the dark side while IR sensors tracked mouse movement between light and dark zones.  
+Since mice prefer darkness, those experiencing pain would retreat toward the light, providing a measurable behavioral signal.  
+The setup worked conceptually but was too complex and difficult to manufacture consistently.
 
 /subsection Design Improvement Efforts
-To simplify construction, we developed a five-channel prototype using acrylic sheets for the wire mesh, which were compatible with laser cutting.  
-However, this version was material-inefficient and cumbersome, prompting a redesign focused on modularity and assembly efficiency.
+To simplify manufacturing, we developed a five-channel prototype using acrylic sheets for the wire mesh, chosen for laser-cut compatibility.  
+Although this improved precision and repeatability, the design was inefficient in material use and assembly time.  
+We shifted focus toward a modular, easier-to-assemble design that could scale testing capacity without sacrificing accuracy.
 
 /subsection Current Prototype
-The latest version replaced acrylic sheets with aluminum extrusions, resulting in a lighter and more robust structure.  
-We expanded the system to six channels to increase testing capacity and integrated a 12V motor with a CPR encoder and IR sensors for precise control of brush motion.  
-The device runs on an Arduino Mega for control logic and automation.  
-A patent application was filed, but due to limited slots, it was not initially accepted. A reapplication is in progress.
+The latest prototype replaced acrylic with aluminum extrusions, making the structure lighter, stronger, and easier to maintain.  
+We expanded the design to six independent testing channels and integrated a 12V motor with a CPR encoder and IR sensors for precise brush motion control.  
+The system runs on an Arduino Mega for full automation and data collection.  
+A provisional patent application was filed to protect the design, but the process was paused when the project lost funding and was indefinitely halted.
 
-/subsection On-Hold Status
-Despite positive technical results, the project was placed on temporary hold due to shifting research priorities and limited lab resources.
+/subsection Project Status
+Despite strong technical progress and promising test results, the project ultimately lost funding and has been halted indefinitely.  
+The final prototype remains functional and documented, ready to continue development if future resources become available.
 
 /subsection Summary
-The Mouse Haptic project represented a step toward automating tactile sensitivity research, combining mechanical design, embedded systems, and behavioral testing into a scalable biomedical research tool.
+The Mouse Haptic project combined mechanical design, embedded systems, and behavioral research into an automated platform for studying pain sensitivity in mice.

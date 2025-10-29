@@ -122,6 +122,20 @@
 	color: var(--link-color);
 }
 
+/* Section title inside dropdown (e.g., Research, Internships) */
+.nav-dropdown-section-title {
+	padding: 8px 14px;
+	font-weight: 700;
+	color: var(--secondary-color);
+	font-size: 12px;
+}
+
+.nav-dropdown-separator {
+	height: 1px;
+	background: var(--quaternary-color);
+	margin: 6px 8px;
+}
+
 .nav-item:hover .nav-dropdown,
 .nav-item.open .nav-dropdown {
 	display: block;

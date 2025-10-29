@@ -1,0 +1,77 @@
+@import "../../../data/styles.css";
+
+.about-body {
+  margin-bottom: 10px;
+}
+
+.about-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 12px;
+  width: 100%;
+}
+
+.about-image {
+  flex: 0 0 72px;
+}
+
+.about-photo {
+  height: 72px;
+  width: 72px;
+  border-radius: 8px;
+  outline: 6px solid white;
+  box-shadow: 0px 7px 10px rgba(0,0,0,0.12);
+  object-fit: cover;
+}
+
+.about-content {
+  flex: 1;
+}
+
+.about-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.about-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+
+/* Only-paragraphs variant: match homepage subtitle color and tighten spacing */
+.only-paragraphs p {
+  color: var(--secondary-color);
+  margin: 6px 0;
+  line-height: 1.45;
+}
+
+.about-duration {
+  font-size: 14px;
+  color: var(--tertiary-color);
+}
+
+.about-subtitle {
+  margin-top: 8px;
+  color: var(--secondary-color);
+}
+
+.about-contact {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--secondary-color);
+}
+
+/* Tweak spacing specifically for the About card on the homepage:
+   - Reduce the large default card-body top padding so the paragraphs sit closer to the header.
+   - Add a small top margin to the whole section to "lower" it a bit on the page. */
+.homepage-about .card-body { padding-top: 16px; }
+.homepage-about { margin-top: 10px; }
+
+@media (max-width: 600px) {
+  .about-row { gap: 12px; }
+  .about-photo { height: 56px; width: 56px; }
+  .about-title { font-size: 15px; }
+}

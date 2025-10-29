@@ -8,6 +8,7 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import Logo from "../components/common/logo";
 import Footer from "../components/common/footer";
 import NavBar from "../components/common/navBar";
+import About from "../components/homepage/about";
 import Works from "../components/homepage/works";
 import Education from "../components/homepage/education";
 
@@ -142,6 +143,8 @@ const Homepage = () => {
 						{/* Project section removed per request */}
 
 						<div className="homepage-after-title">
+							<About />
+
 							<div className="homepage-works">
 								<Works />
 							</div>

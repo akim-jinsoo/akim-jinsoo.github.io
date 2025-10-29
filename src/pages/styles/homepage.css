@@ -82,24 +82,15 @@
 	flex-direction: column; /* stack works then education */
 }
 
-.homepage-projects {
-	flex-basis: 300px;
-	padding-top: 40px;
-}
-
-.homepage-articles {
-	flex-basis: 900px;
-	padding-top: 30px;
-	margin-left: -30px;
-}
-
-.homepage-article {
-	padding-bottom: 5px;
-}
-
 .homepage-works {
 	width: 100%;
 	padding-top: 30px;
+}
+
+/* Ensure the About card uses the same width and top spacing as Works */
+.homepage-about {
+    width: 100%;
+    padding-top: 20px;
 }
 
 /* Education subsection moved to components/homepage/styles/education.css */
