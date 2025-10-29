@@ -1,0 +1,66 @@
+/section Reinforcement Learning for Dexterous Manipulation
+
+/subsection Overview
+This project explored reinforcement learning for dexterous manipulation using the PLATO Hand, a three-finger robotic hand with rigid fingernails for high-fidelity contact control.  
+The goal was to teach the system how to pick up and manipulate thin, flat objects like playing cards or coins through learning-based control rather than hand-tuned grasp strategies.  
+I focused on developing and running the training setup in simulation, tuning reward functions, and analyzing how different control action spaces affected learning and grasp stability.
+
+/subsection Motivation
+Traditional learning-based manipulation often struggles when contact precision matters.  
+Most robot hands rely on soft fingertips that make it hard to control forces or sense stable contact.  
+The PLATO Hand’s rigid nails and 6-axis fingertip sensors make it ideal for testing contact-driven learning methods — specifically, whether reinforcement learning can discover human-like strategies that use the fingernail edge to lift or slide under objects.
+
+/subsection Simulation and Training Setup
+The experiments ran in NVIDIA IsaacSim using the IsaacLab framework, which supports thousands of parallel simulation environments.  
+The PLATO Hand was mounted to a virtual 7-DoF Franka arm to test coordinated manipulation tasks.  
+All learning used proximal policy optimization (PPO) from the RSL-RL library.  
+I implemented the training configuration, shaped the rewards, and ran the first batches of simulation policies.
+
+Reward structure:
+/bullet
+Encourage moving the hand close to the object.  
+Reward for lifting the object above a threshold.  
+Reward for tracking a desired SE(3) goal pose and orientation.  
+Penalize excessive joint velocity, acceleration, or palm contact.
+/endbullet
+
+Each episode ran for five seconds or ended early if the object left the workspace.  
+Training started with simple grasping using a binary open/close action space, then moved to continuous torque control for more natural manipulation.
+
+/subsection Action Space Experiments
+A major focus of the project was comparing how different action representations affect learning efficiency and final grasp quality.  
+We tested two main approaches:  
+/bullet
+Joint-position control: simpler and faster to train, but limited in fine contact control.  
+Joint-torque control: slower to train, but allowed the policy to use fingertip force feedback more effectively.
+/endbullet
+
+Torque-based control proved more flexible, letting the hand adapt to different object shapes like spheres and cylinders, and exploit contact through the rigid nails to form stable grasps.
+
+/subsection Results
+The learned policies were able to pick up small spheres and cylinders with consistent motion and force control.  
+Switching from a virtual arm to a static mount simplified training and avoided reachability issues.  
+As the reward shaping improved, the policies began to learn smoother, coordinated movements instead of jerky, binary grasps.  
+Initial results showed stable grasping performance and good generalization to different object sizes.
+
+Performance summary:
+/bullet
+Trained entirely in simulation with parallelized PPO (IsaacLab).  
+Achieved stable grasp on flat and curved objects.  
+Torque control showed better adaptability and force precision.  
+Provided a strong baseline for future tactile and vision-based extensions.
+/endbullet
+
+/subsection My Contributions
+/bullet
+Set up and tuned the IsaacSim training environment for the PLATO Hand and Franka arm.  
+Developed and adjusted reward functions for stable and efficient training.  
+Implemented and compared position- and torque-based control policies.  
+Analyzed grasp performance and learning behavior across action spaces.  
+Helped design experiments for evaluating grasp robustness under perturbations.
+/endbullet
+
+/subsection Lessons and Next Steps
+This project showed that reinforcement learning can leverage rigid-contact fingertips to discover human-like grasp strategies.  
+The biggest challenges were reward shaping and balancing exploration — small tweaks made large differences in stability.  
+Next steps include adding tactile feedback into the observation space and testing real-world transfer using the actual PLATO Hand hardware.

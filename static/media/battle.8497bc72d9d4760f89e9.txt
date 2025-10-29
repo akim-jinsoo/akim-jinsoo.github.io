@@ -1,0 +1,24 @@
+/section ME 366J – BattleBots
+
+/subsection Project Overview
+In my Design Methodology course (ME 366J), our team of six designed and built a 3-pound BattleBot to compete in a class tournament.  
+The project required balancing aggressive design goals with strict weight and component constraints.  
+The primary challenge was achieving structural durability and combat effectiveness within the 3-pound limit.
+
+/subsection Robot Design and Construction
+We opted for a lightweight, fully 3D-printed chassis to meet the weight restriction while maintaining rigidity.  
+The robot used five high-performance outrunner drone motors chosen for their excellent power-to-weight ratio and responsiveness.  
+To protect internal components, I designed an interlocking frame that distributed impact forces across the shell while minimizing print failures during assembly.
+
+/subsection Control System
+The control system was based on an Arduino Nano ESP32 connected to three-phase electronic speed controllers (ESCs) that managed the drone motors.  
+This setup provided precise speed modulation and fast directional changes necessary for competitive performance.
+
+/subsection Communication and Debugging
+We initially implemented Bluetooth control for accessibility, but testing revealed significant latency and inconsistent packet delivery.  
+I led efforts to debug the communication delay by refining serial transmission parameters and optimizing code timing.  
+When latency persisted, we planned a transition to an RF-based control system for improved reliability and responsiveness.
+
+/subsection Summary
+The BattleBot project was a rigorous exercise in lightweight mechanical design, embedded control, and real-world testing.  
+Working within strict physical and time constraints forced efficient design decisions and reinforced the importance of robustness, modularity, and iterative debugging in competitive robotics.

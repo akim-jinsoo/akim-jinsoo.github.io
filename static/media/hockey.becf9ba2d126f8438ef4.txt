@@ -1,0 +1,26 @@
+/section ME 392Q – Hockey Bot
+
+/subsection Project Objective
+In the Advanced Mechatronics I (ME 392Q) course, my team was tasked with creating an autonomous hockey shooting robot.  
+The challenge involved detecting three possible goals, each emitting a unique IR signal, and shooting a puck into the correct target.  
+Our team of five collaborated to design, prototype, and build a functional system capable of autonomous operation.
+
+/subsection First Prototype
+I began by building a rapid prototype using LEGO components and a small motor to test the flywheel concept for shooting.  
+This initial version confirmed the mechanical feasibility of using a flywheel-based shooter.
+
+/subsection Second Prototype
+Based on insights from the first iteration, I designed an improved mechanical shooter and puck loader using 3D printing and laser-cut plywood.  
+The design emphasized simplicity, cost efficiency, and modularity for quick testing.  
+I also handled the electrical system, wiring, and motor control.  
+We used two L298N H-Bridge drivers controlled via an Arduino and Raspberry Pi combination, with code written in both the Arduino IDE and Python.  
+My main focus was motor synchronization, encoder feedback, and control stability.
+
+/subsection Final Robot
+Through testing, we identified structural weaknesses in the chassis and motor mounts, as well as control instability with the mecanum wheels.  
+We transitioned to a tank drive configuration for greater stability and replaced the chassis with laser-cut acrylic for higher rigidity.  
+These changes significantly improved mobility and overall robustness.
+
+/subsection Summary
+The Hockey Bot project strengthened my understanding of mechatronic integration—combining mechanical design, electronics, and embedded software.  
+It also emphasized rapid prototyping, iterative improvement, and practical problem solving under hardware constraints.

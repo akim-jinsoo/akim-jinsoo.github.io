@@ -1,0 +1,46 @@
+/section Sony
+
+/subsection Objective
+During my internship at Sony, I worked on the PLATO Project — a collaboration between Sony and UT Austin to develop a teleoperated robotic system capable of precise manipulation and haptic feedback.  
+My focus was improving the PLATO Hand V1, which suffered from limited torque and an overly complex electrical system.  
+The goal was to redesign and validate a new version — PLATO Hand V1.5 — that met Sony’s standards for reliability, strength, and maintainability.
+
+/subsection Challenges
+The PLATO Hand V1 faced two major issues: limited actuation torque and excessive wiring complexity.  
+The HT2205 motors were rated for 0.04 Nm, but in testing, only produced around 0.03 Nm — barely enough to lift a Jenga block, which required 0.031 Nm.  
+Additionally, the hand’s electrical system used 81 wires and relied on hot glue for mounting, making it fragile and nearly impossible to service.  
+The project goal was to increase torque while reducing wiring and improving accessibility.
+
+/subsection Actuator Test Bed
+We have decided to use harmonic drive as our gearbox. Why harmonic drive?
+/bullet
+The department I was working with has previous experience using the harmonic drive, which would allow technical support from the mechanical engineers there.
+The internship was on a tight timeline, so an off-the-shelf product was necessary to complete the goals
+0 backlash, which is critical for fine & precise manipulation
+Maintaining back-driveability of the motors is a crucial point of the hand that improves safety when playing with other human players.
+/endbullet
+While harmonic drives are susceptible to damage when experiencing sudden impact or force, however, our use case doesn't include that, so it should be fine under normal operation.
+I addtionally developed a test bed with a force gauge to verify and validate the actuator prototype, which includes the housing, motor, and gearbox.
+
+/subsection Mechanical Redesign
+To solve the torque limitation, I integrated 30:1 harmonic drives into the MCP joints, boosting torque from 0.03 Nm to roughly 0.9 Nm.
+This upgrade enabled strong, controlled grasping without sacrificing backdrivability — essential for safe teleoperation.  
+For the PIP joints, where space was limited, I modified the pulley ratio from 1:1 to 1.49:1, increasing torque to 0.045 Nm without redesigning the housing.
+
+/subsection Electrical System Redesign
+I reworked the entire electrical system to eliminate wiring clutter and improve maintainability.  
+Each finger received its own compact PCB containing:
+/bullet
+SimpleFOCMini V1.0 motor controllers (3x)  
+ESP32 Devkit V1.0 microcontroller (1x)  
+TJA1050 CAN transceiver (1x)
+/endbullet
+
+This modular layout replaced 81 individual wires with clean CAN communication and localized control.  
+I also designed a new mounting system that secured each PCB mechanically, removing hot glue and making maintenance far faster and safer.
+
+/subsection Final Assembly
+After completing the redesign, the PLATO Hand V1.5 was assembled and tested successfully.  
+The torque improvements made fine manipulation tasks — including grasping and moving Jenga blocks — stable and consistent.  
+The simplified electrical system improved reliability, made servicing straightforward, and enabled future modular upgrades.  
+The result was a far more robust, serviceable robotic hand that set the foundation for Sony’s ongoing PLATO research.

@@ -1,0 +1,26 @@
+/section Samsung Austin Semiconductor
+
+/subsection Role
+Engineering Intern – Chemical Vapor Deposition (CVD) Department
+
+/subsection Overview
+During my internship at Samsung Austin Semiconductor (SAS), I worked within the Chemical Vapor Deposition (CVD) Department on multiple process improvement and automation projects.  
+My work focused on increasing operational efficiency, reducing downtime, and improving documentation protocols across the department.
+
+/subsection Autonomous Fluid Mixer Development
+I collaborated with another intern and two senior engineers to design and build an autonomous fluid mixer.  
+The system used Arduino-based control and 3D-printed components to automate chemical mixing processes previously performed manually.  
+This automation improved consistency and reduced technician time during setup.
+
+/subsection Cost Analysis
+I conducted a detailed cost analysis of the CVD process, including component usage, chemical consumption, and recipe modifications for wafers.  
+The resulting report identified several inefficiencies, leading to process optimizations that saved the company over $2 million annually.
+
+/subsection Response Protocol Enhancement
+I reviewed and updated all shutdown response protocols for CVD tools to improve maintenance and safety reliability.  
+In addition to revising existing procedures, I authored over 20 new tool-specific protocols tailored for my CVD team’s equipment.  
+I also initiated collaboration with five other CVD teams to develop and standardize additional documentation, significantly reducing downtime and improving wafer throughput.
+
+/subsection Summary
+My internship at SAS provided hands-on experience in process engineering, cost analysis, automation, and technical documentation.  
+The projects I led and contributed to improved both efficiency and reliability within the CVD department, generating measurable cost savings and operational improvements.

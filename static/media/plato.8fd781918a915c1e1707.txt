@@ -1,0 +1,91 @@
+/section Mechanical Design
+
+/subsection Overview
+I worked on the mechanical design and system integration of the PLATO Hand, a proprioceptive three-finger robotic hand that uses rigid fingernails for precise force control and contact sensing.  
+The goal was to make a hand that could handle both delicate and dynamic interactions using proprioception instead of relying on bulky sensors or soft fingertips.  
+Most of my time went into making the hardware compact, reliable, and easy to work with while keeping the system responsive enough for real manipulation tasks.
+
+/subsection Key Design
+Each finger uses a five-bar linkage that mimics how human fingers bend, giving the hand eight total degrees of freedom.  
+I designed everything in CAD, fit the actuators and sensors, and refined the geometry until it could actually be built and assembled without fighting tolerances or cable clearances.  
+The challenge was finding space for everything while keeping the hand light and backdrivable.
+
+Design details:
+/bullet
+MCP joint: direct-driven with a QDD actuator (GIM3505, 0.43 Nm continuous torque).  
+PIP joint: driven through a linkage that increases torque when the finger bends.  
+Fingernails: machined aluminum tips mounted on miniature 6-axis FT sensors, coated with a thin silicone layer for protection and grip.
+/endbullet
+
+I also reworked several internal structures to make sensors easier to access during calibration and to keep wiring neat and serviceable.
+
+/subsection Fingernail System
+The fingertip design combines a rigid nail surface with a soft layer underneath, similar to how a real fingernail interacts with objects.  
+By mounting the nail directly onto the FT sensor, the hand gets a stiff contact surface that transmits force signals cleanly without losing tactile feedback.  
+The silicone coating protects the sensor during impacts while still letting the system pick up small force variations.
+
+In practice, this setup allowed the hand to handle thin or flat objects like coins and cards, absorb repeated impacts without damage, and maintain better control than fully soft designs.
+
+
+/section Experimentation and Testing
+
+/subsection Setup
+Once the hardware was assembled, I worked on testing both the physical prototype and the simulated version in Isaac Sim.  
+The experiments focused on how well the hand could manipulate different objects, how accurately it could estimate contact forces, and how durable the mechanical parts were under extended use.
+
+We ran several types of tests:
+/bullet
+Thin-object handling: lifting and stacking coins and cards using fingernail contact.  
+Dynamic manipulation: catching and flicking lightweight objects under teleoperation.  
+Force estimation: comparing torque-based force estimates with FT sensor readings.  
+Durability: impact and long-term fatigue testing on the finger assemblies.
+/endbullet
+
+I set up the test rigs, defined safety limits for high-speed operation, and handled the data collection and analysis for each run.  
+Most of these experiments helped us identify how design changes actually affected performance in the real system.
+
+
+/section Control and Teleoperation Software
+
+/subsection Overview
+Alongside the mechanical work, I developed the control and teleoperation software that we used for experiments.  
+This made it easier to run tests, visualize data, and fine-tune the system without constantly rewriting scripts or restarting the robot.  
+The goal was to make operating the hand as intuitive and repeatable as possible.
+
+Main features:
+/bullet
+Saved joint positions for repeatable trials.  
+Minimum-jerk motion planning for smooth movement.  
+Live logging of joint angles and contact forces.  
+Visualization and control through Foxglove Studio.
+/endbullet
+
+This setup turned testing into a faster feedback loop - I could make a mechanical change, update a control parameter, and see the result immediately in both motion and data.
+
+
+/section Results and Impact
+
+/subsection Performance
+The final hand performed well across a range of tests:
+/bullet
+Total weight: 1.3 kg  
+Payload capacity: 11.3 kg  
+Fingertip force up to 20 N  
+Less than 10 percent error between estimated and measured forces  
+Stable proprioceptive control during hybrid rigid-compliant grasps
+/endbullet
+
+/subsection Outcome
+The PLATO Hand showed that rigid fingertips and proprioceptive control can work together to achieve precise, responsive manipulation.  
+I designed and built the hardware, helped run the experiments, and wrote the software that made it all usable.  
+This project led to two research papers and became the foundation for the lab’s next generation of proprioceptive hands.
+
+
+/section Design Challenges and Lessons Learned
+
+/bullet
+Fitting actuators, sensors, and wiring into a compact hand while keeping it backdrivable took multiple iterations.  
+Cable routing and sensor mounting caused signal noise early on, which I fixed with better internal fixtures and strain relief.  
+Finding the right silicone thickness for the fingernails was a balance between protecting the sensors and keeping contact sharp.  
+I also learned how much easier research becomes when hardware is designed for calibration, quick assembly, and long-term maintenance.
+/endbullet
