@@ -8,6 +8,7 @@ import { Navigate } from "react-router-dom";
 import Contact from "./pages/contact";
 import ProjectDetail from "./pages/projectDetail";
 import Notfound from "./pages/404";
+import Publications from "./pages/publications";
 
 import { TRACKING_ID } from "./data/tracking";
 import "./app.css";
@@ -26,6 +27,7 @@ function App() {
 				<Route path="/projects" element={<Navigate to="/experience" replace />} />
 				<Route path="/experience" element={<Experience />} />
 				<Route path="/project/:slug" element={<ProjectDetail />} />
+				<Route path="/publications" element={<Publications />} />
 				<Route path="/contact" element={<Contact />} />
 				<Route path="*" element={<Notfound />} />
 			</Routes>

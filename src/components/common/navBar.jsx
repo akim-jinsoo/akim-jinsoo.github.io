@@ -92,6 +92,10 @@ const NavBar = (props) => {
                                     })()}
                                 </ul>
                             </li>
+                            <li className={active === "publications" ? "nav-item active" : "nav-item"}>
+                                <Link to="/publications">Publications</Link>
+                            </li>
+
                             <li className="nav-item">
                                 <a href="./resume.pdf" download target="_blank" rel="noreferrer">
                                     Resume

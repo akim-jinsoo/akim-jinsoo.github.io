@@ -172,6 +172,30 @@ const INFO = {
 		},
 
 	],
+
+	// Publications: add/remove entries here to show on the Publications page
+	publications: [
+		{
+			id: "paper-1",
+			title: "PLATO Hand: Dexterous Robotic Hand with Fingernails for Versatile Force Interaction",
+			authors: "Dong Ho Kang, Aaron Kim, Mingyo Seo, & Luis Sentis",
+			venue: "IEEE Robotics and Automation Letters (under review)",
+			year: 2025,
+			abstract:
+				"We present a robotic hand design that uses artificial fingernails and proprioceptive five-bar linkage fingers to achieve both precise and dynamic manipulation in unstructured environments.",
+		},
+
+		// examples of links
+			// link: "https://github.com",
+
+			// link: ["https://github.com", "PDF"],
+		
+			// links: [
+			// { href: "https://github.com", label: "PDF" },
+			// { href: "https://arxiv.org/abs/...", label: "arXiv" }
+			// ],
+
+	],
 };
 
 export default INFO;
