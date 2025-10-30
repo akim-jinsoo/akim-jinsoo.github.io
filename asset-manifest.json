@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "https://www.aaronjkim.com/static/css/main.8b9de9c5.css",
-    "main.js": "https://www.aaronjkim.com/static/js/main.ec23639f.js",
+    "main.js": "https://www.aaronjkim.com/static/js/main.8ee16928.js",
     "static/js/787.a0f32c2f.chunk.js": "https://www.aaronjkim.com/static/js/787.a0f32c2f.chunk.js",
     "static/media/plato.txt": "https://www.aaronjkim.com/static/media/plato.8fd781918a915c1e1707.txt",
     "static/media/hcrl-ugrad-research.txt": "https://www.aaronjkim.com/static/media/hcrl-ugrad-research.a6e65c9ca32dfa02b954.txt",
@@ -16,11 +16,11 @@
     "static/media/aristo.txt": "https://www.aaronjkim.com/static/media/aristo.b43a3b39c133cdce7d6a.txt",
     "index.html": "https://www.aaronjkim.com/index.html",
     "main.8b9de9c5.css.map": "https://www.aaronjkim.com/static/css/main.8b9de9c5.css.map",
-    "main.ec23639f.js.map": "https://www.aaronjkim.com/static/js/main.ec23639f.js.map",
+    "main.8ee16928.js.map": "https://www.aaronjkim.com/static/js/main.8ee16928.js.map",
     "787.a0f32c2f.chunk.js.map": "https://www.aaronjkim.com/static/js/787.a0f32c2f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8b9de9c5.css",
-    "static/js/main.ec23639f.js"
+    "static/js/main.8ee16928.js"
   ]
 }
