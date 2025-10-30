@@ -9,6 +9,7 @@ const NavBar = (props) => {
 
     const [open, setOpen] = useState(false);
     const wrapperRef = useRef(null);
+    const [theme, setTheme] = useState(null);
 
     useEffect(() => {
         function handleClickOutside(event) {
@@ -25,9 +26,35 @@ const NavBar = (props) => {
         };
     }, [wrapperRef]);
 
+    useEffect(() => {
+        // initialize theme from localStorage or prefers-color-scheme
+        try {
+            const stored = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initial = stored || (prefersDark ? 'dark' : 'light');
+            setTheme(initial);
+            document.documentElement.setAttribute('data-theme', initial);
+        } catch (e) {
+            // ignore storage errors
+        }
+    }, []);
+
     return (
         <React.Fragment>
             <div className="nav-container">
+                <button
+                    className="theme-toggle"
+                    aria-pressed={theme === 'dark'}
+                    aria-label="Toggle dark mode"
+                    onClick={() => {
+                        const next = theme === 'dark' ? 'light' : 'dark';
+                        setTheme(next);
+                        try { localStorage.setItem('theme', next); } catch (e) {}
+                        document.documentElement.setAttribute('data-theme', next);
+                    }}
+                >
+                    {theme === 'dark' ? '🌙' : '☀️'}
+                </button>
                 <nav className="navbar">
                     <div className="nav-background">
                         <ul className="nav-list">
@@ -73,22 +100,23 @@ const NavBar = (props) => {
                                             if (idx >= 0) groups[idx].items.push(p);
                                         });
 
-                                        return groups.map((g) => {
-                                            if (!g.items || g.items.length === 0) return null;
-                                            return (
-                                                <React.Fragment key={g.key}>
-                                                    <li className="nav-dropdown-section-title">{g.label}</li>
-                                                    {g.items.map((p) => (
-                                                        <li key={p.slug} className="nav-dropdown-item">
-                                                            <Link to={`/project/${p.slug}`} onClick={() => setOpen(false)}>
-                                                                {p.title}
-                                                            </Link>
-                                                        </li>
-                                                    ))}
+                                        // Only render separators between populated groups (avoid trailing separator)
+                                        const populated = groups.filter((g) => g.items && g.items.length > 0);
+                                        return populated.map((g, gi) => (
+                                            <React.Fragment key={g.key}>
+                                                <li className="nav-dropdown-section-title">{g.label}</li>
+                                                {g.items.map((p) => (
+                                                    <li key={p.slug} className="nav-dropdown-item">
+                                                        <Link to={`/project/${p.slug}`} onClick={() => setOpen(false)}>
+                                                            {p.title}
+                                                        </Link>
+                                                    </li>
+                                                ))}
+                                                {gi < populated.length - 1 ? (
                                                     <li className="nav-dropdown-separator" aria-hidden="true"></li>
-                                                </React.Fragment>
-                                            );
-                                        });
+                                                ) : null}
+                                            </React.Fragment>
+                                        ));
                                     })()}
                                 </ul>
                             </li>

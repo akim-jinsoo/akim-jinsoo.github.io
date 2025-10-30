@@ -5,10 +5,29 @@
 	--tertiary-color: #acacb4;
 	--quaternary-color: #e4e4e7;
 	--link-color: #14b8a6;
+
+	/* page background variable (used by app.css) */
+	--page-bg: #ffffff;
+	--card-bg: #ffffff;
+	--side-bg: #fafafa;
+	--side-border: #f4f4f5;
 	/* ---------------------- */
 
 	/* ------- fonts ------- */
 	--primary-font: "Heebo", sans-serif;
 	--secondary-font: "Roboto", sans-serif;
 	/* --------------------- */
+}
+
+/* Dark theme overrides: set by adding data-theme="dark" on <html> or <body> */
+[data-theme="dark"] {
+	--primary-color: #e6eef0;
+	--secondary-color: #c2c8cc;
+	--tertiary-color: #98a0a6;
+	--quaternary-color: #1f2933;
+	--link-color: #2dd4bf;
+	--page-bg: #071019;
+	--card-bg: #0b2230;
+	--side-bg: #06161b;
+	--side-border: #0b2a33;
 }

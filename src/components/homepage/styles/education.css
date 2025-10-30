@@ -12,8 +12,13 @@
     border-left: 3px solid var(--link-color);
     padding: 12px 14px;
     margin-bottom: 12px;
-    background: #fff;
+    /* match the page background so the box visually blends with the page */
+    background: var(--page-bg);
     width: 100%;
+    box-sizing: border-box;
+    /* prevent long unbroken text or large inline content from overflowing */
+    overflow-wrap: break-word;
+    word-break: normal;
 }
 
 .education-degree {

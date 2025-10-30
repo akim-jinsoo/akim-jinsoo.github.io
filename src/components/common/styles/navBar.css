@@ -7,6 +7,28 @@
 	align-items: center;
 }
 
+/* Theme toggle placed at the top-right of the viewport */
+.theme-toggle {
+	position: fixed;
+	right: 2.5vw;
+	top: 3vh;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	background: var(--page-bg);
+	border: 1px solid var(--quaternary-color);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	z-index: 1100;
+	font-size: 16px;
+}
+
+.theme-toggle:hover {
+	transform: translateY(-2px);
+}
+
 .navbar {
 	display: flex;
 	justify-content: center;
@@ -21,10 +43,11 @@
 	width: auto;
 	height: 40px;
 	padding: 0 12px;
-	background: #fff;
-	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+	background: var(--page-bg);
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
 	border-radius: 40px;
 	display: inline-block;
+	border: 1px solid var(--quaternary-color);
 }
 
 .nav-list {
@@ -71,22 +94,27 @@
 
 
 .nav-dropdown {
-	display: none;
 	position: absolute;
 	/* keep dropdown flush under the trigger to avoid mouse gaps */
 	top: 100%;
 	left: 50%;
-	transform: translateX(-50%);
+	transform: translateX(-50%) translateY(-8px);
 	/* auto-size to the widest item */
 	width: max-content;
-	background: #fff;
+	background: var(--page-bg);
 	box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+	border: 1px solid var(--quaternary-color);
 	border-radius: 8px;
 	padding: 8px 0;
 	list-style: none;
 	z-index: 1000;
 	box-sizing: border-box;
 	overflow: visible;
+	/* hidden by default but animatable (avoid display:none) */
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transition: opacity 200ms ease, transform 240ms cubic-bezier(.2,.9,.3,1), visibility 200ms;
 }
 
 .nav-dropdown-item {
@@ -150,7 +178,10 @@
 
 .nav-item:hover .nav-dropdown,
 .nav-item.open .nav-dropdown {
-	display: block;
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+	transform: translateX(-50%) translateY(0);
 }
 
 @media (max-width: 600px) {

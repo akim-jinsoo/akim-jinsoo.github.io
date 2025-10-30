@@ -306,10 +306,10 @@ const MarkupRenderer = ({ content }) => {
         if (i + 1 < nodes.length && nodes[i + 1].type === "caption") {
           const cap = nodes[i + 1];
           out.push(
-            <div key={`${key}-cap`} className="markup-image-caption" style={{ marginTop: 8, color: "#555", textAlign: "center", fontSize: "0.9em" }}>
-              {cap.italic ? <em>{cap.text}</em> : cap.text}
-            </div>
-          );
+              <div key={`${key}-cap`} className="markup-image-caption">
+                {cap.italic ? <em>{cap.text}</em> : cap.text}
+              </div>
+            );
           i++; // skip caption node
         }
 
@@ -336,7 +336,7 @@ const MarkupRenderer = ({ content }) => {
       case "caption":
         // standalone caption (no preceding image) — render as muted paragraph
         out.push(
-          <div key={key} className="markup-image-caption" style={{ marginTop: 8, color: "#555", textAlign: "center", fontSize: "0.9em" }}>
+          <div key={key} className="markup-image-caption">
             {node.italic ? <em>{node.text}</em> : node.text}
           </div>
         );

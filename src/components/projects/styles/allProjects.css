@@ -30,7 +30,7 @@
 .projects-section-title {
 	font-size: 1.4rem;
 	margin: 8px 0 12px 0;
-	color: #222;
+	color: var(--primary-color);
 }
 
 .all-projects-grid {
@@ -44,7 +44,7 @@
 }
 
 .projects-empty {
-	color: #666;
+	color: var(--secondary-color);
 	font-style: italic;
 	padding: 8px 0 16px 0;
 }

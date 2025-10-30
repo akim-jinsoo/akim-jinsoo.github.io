@@ -135,6 +135,13 @@
 	color: var(--secondary-color);
 }
 
+.markup-image-caption {
+    margin-top: 8px;
+    color: var(--secondary-color);
+    text-align: center;
+    font-size: 0.9em;
+}
+
 /* Back to Experience button */
 .back-button {
 	display: inline-block;
