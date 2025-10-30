@@ -9,3 +9,6 @@ The goal of ARISTO is to study how integrated sensing and learning-based control
 /section Status
 This project is currently under active development. Hardware design, sensor integration, and initial data collection are in progress.
 Please check back later for updates as the first prototype and experimental results become available.
+
+/image /aristo.png aspect=2:3, height=500
+/caption in-progress image of ARISTO Hand, italic
