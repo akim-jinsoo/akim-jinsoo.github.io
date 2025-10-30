@@ -29,6 +29,36 @@
 	transform: translateY(-2px);
 }
 
+/* Splash toggle placed at the top-left of the viewport (mirrors theme-toggle) */
+.splash-toggle {
+	position: fixed;
+	left: 2.5vw;
+	top: 3vh;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	background: var(--page-bg);
+	border: 1px solid var(--quaternary-color);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	z-index: 1100;
+	font-size: 16px;
+	color: var(--primary-color);
+}
+
+.splash-toggle:hover {
+	transform: translateY(-2px);
+	color: var(--link-color);
+	background: rgba(20,184,166,0.06);
+}
+
+.splash-toggle:focus {
+	outline: 2px solid rgba(20,184,166,0.12);
+	outline-offset: 2px;
+}
+
 .navbar {
 	display: flex;
 	justify-content: center;

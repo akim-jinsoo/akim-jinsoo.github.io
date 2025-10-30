@@ -42,6 +42,22 @@ const NavBar = (props) => {
     return (
         <React.Fragment>
             <div className="nav-container">
+                {/* Small button to re-open the splash (clears sessionStorage key and reloads) - only on homepage */}
+                {active === "home" && (
+                    <button
+                        className="splash-toggle"
+                        aria-label="Back to splash"
+                        title="Show splash"
+                        onClick={() => {
+                            try { sessionStorage.removeItem('seenSplash'); } catch (e) {}
+                            // reload so SplashGate sees no key and shows again
+                            window.location.reload();
+                        }}
+                    >
+                        ⟲
+                    </button>
+                )}
+
                 <button
                     className="theme-toggle"
                     aria-pressed={theme === 'dark'}
@@ -125,7 +141,7 @@ const NavBar = (props) => {
                             </li>
 
                             <li className="nav-item">
-                                <a href="./resume.pdf" download target="_blank" rel="noreferrer">
+                                <a href="./resume.pdf" target="_blank" rel="noreferrer">
                                     Resume
                                 </a>
                             </li>

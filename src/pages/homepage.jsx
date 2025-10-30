@@ -22,11 +22,58 @@ const Homepage = () => {
 	const [logoSize, setLogoSize] = useState(80);
 	const [oldLogoSize, setOldLogoSize] = useState(80);
 	const [mounted, setMounted] = useState(false);
+	const [skipTitleAnimation, setSkipTitleAnimation] = useState(false);
+	const [fromSplash, setFromSplash] = useState(false);
+
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
-		// trigger entrance animations
-		setMounted(true);
+		// if we just came from the splash, skip the title animation once
+		let cameFromSplash = false;
+		
+		// Check URL parameter first (most reliable)
+		const urlParams = new URLSearchParams(window.location.search);
+		if (urlParams.get('fromSplash') === '1') {
+			cameFromSplash = true;
+			// Store it in sessionStorage immediately so it survives any re-renders
+			sessionStorage.setItem('fromSplash', 'true');
+			// Clean up URL without reloading
+			window.history.replaceState({}, '', '/');
+		}
+		
+		try {
+			const skip = sessionStorage.getItem('skipHomeTitleAnimation');
+			if (skip) {
+				cameFromSplash = true;
+				setSkipTitleAnimation(true);
+				sessionStorage.removeItem('skipHomeTitleAnimation');
+			}
+			// also accept a dedicated fromSplash marker (more reliable)
+			const fs = sessionStorage.getItem('fromSplash');
+			if (fs) {
+				cameFromSplash = true;
+			}
+		} catch (e) {}
+		setFromSplash(cameFromSplash);
+		console.log('Homepage mount - fromSplash:', cameFromSplash, 'skipTitleAnimation:', cameFromSplash);
+		
+		// If coming from splash, delay animations by 1 second
+		if (cameFromSplash) {
+			setTimeout(() => {
+				setMounted(true);
+			}, 1000);
+		} else {
+			// Direct navigation - mount immediately
+			setMounted(true);
+		}
+		
+		// Clear the fromSplash flag after a short delay to allow any re-renders to complete
+		// but ensure it doesn't persist for future navigations
+		if (cameFromSplash) {
+			setTimeout(() => {
+				sessionStorage.removeItem('fromSplash');
+			}, 100);
+		}
 	}, []);
 
 	useEffect(() => {
@@ -78,11 +125,19 @@ const Homepage = () => {
 				/>
 			</Helmet>
 
-			<div className="page-content">
-				<NavBar active="home" />
+			<div className={`page-content ${fromSplash ? 'from-splash' : ''}`}>
+				<div className={`${fromSplash ? 'pre-animate' : ''} ${fromSplash && mounted ? 'animate-fade-up' : ''}`} style={{ animationDelay: fromSplash && mounted ? '0ms' : '0ms' }}>
+					<NavBar active="home" />
+				</div>
 				<div className="content-wrapper">
 					<div className="homepage-logo-container">
-						<div style={logoStyle} className={mounted ? "logo-float" : ""}>
+						<div 
+							style={{
+								...logoStyle,
+								animationDelay: mounted ? (fromSplash ? '150ms' : '0ms') : '0ms'
+							}} 
+							className={`${fromSplash ? 'pre-animate' : ''} ${mounted ? 'animate-fade-up' : ''} ${mounted ? "logo-float" : ""}`}
+						>
 							<Logo width={logoSize} link={false} />
 						</div>
 					</div>
@@ -90,20 +145,23 @@ const Homepage = () => {
 					<div className="homepage-container">
 						<div className="homepage-first-area">
 								<div className="homepage-first-area-left-side">
-									<div className={`title homepage-title ${mounted ? 'animate-fade-up' : ''}`}>
+									<div className={`title homepage-title ${(mounted && !skipTitleAnimation) ? 'animate-fade-up' : ''}`}>
 										{INFO.homepage.title}
 									</div>
 
 									<div
-										className={`subtitle homepage-subtitle ${mounted ? 'animate-fade-up' : ''}`}
-										style={{ animationDelay: mounted ? '120ms' : '0ms' }}
+										className={`subtitle homepage-subtitle ${fromSplash ? 'pre-animate' : ''} ${mounted ? 'animate-fade-up' : ''}`}
+										style={{ animationDelay: mounted ? (fromSplash ? '400ms' : '120ms') : '0ms' }}
 									>
 										{INFO.homepage.description}
 									</div>
 								</div>
 
 								<div className="homepage-first-area-right-side">
-									<div className={`homepage-image-container ${mounted ? 'animate-fade-up' : ''}`} style={{ animationDelay: mounted ? '200ms' : '0ms' }}>
+									<div 
+										className={`homepage-image-container ${fromSplash ? 'pre-animate' : ''} ${mounted ? 'animate-fade-up' : ''}`} 
+										style={{ animationDelay: mounted ? (fromSplash ? '500ms' : '200ms') : '0ms' }}
+									>
 										<div className="homepage-image-wrapper">
 											<img
 												src="homepage.png"
@@ -115,7 +173,10 @@ const Homepage = () => {
 								</div>
 							</div>
 
-						<div className={`homepage-socials ${mounted ? 'animate-fade-up' : ''}`} style={{ animationDelay: mounted ? '500ms' : '0ms' }}>
+						<div 
+							className={`homepage-socials ${fromSplash ? 'pre-animate' : ''} ${mounted ? 'animate-fade-up' : ''}`} 
+							style={{ animationDelay: mounted ? (fromSplash ? '700ms' : '500ms') : '0ms' }}
+						>
 							<a
 								href={INFO.socials.github}
 								target="_blank"
@@ -151,15 +212,24 @@ const Homepage = () => {
 						{/* Project section removed per request */}
 
 						<div className="homepage-after-title">
-							<div className={`animate-fade-up`} style={{ animationDelay: mounted ? "260ms" : "0ms" }}>
+							<div 
+								className={`${fromSplash ? 'pre-animate' : ''} ${mounted ? 'animate-fade-up' : ''}`} 
+								style={{ animationDelay: mounted ? (fromSplash ? '900ms' : '260ms') : '0ms' }}
+							>
 								<About />
 							</div>
 
-							<div className={`homepage-works animate-fade-up`} style={{ animationDelay: mounted ? "320ms" : "0ms" }}>
+							<div 
+								className={`homepage-works ${fromSplash ? 'pre-animate' : ''} ${mounted ? 'animate-fade-up' : ''}`} 
+								style={{ animationDelay: mounted ? (fromSplash ? '1100ms' : '320ms') : '0ms' }}
+							>
 								<Works />
 							</div>
 
-							<div className={`animate-fade-up`} style={{ animationDelay: mounted ? "380ms" : "0ms" }}>
+							<div 
+								className={`${fromSplash ? 'pre-animate' : ''} ${mounted ? 'animate-fade-up' : ''}`} 
+								style={{ animationDelay: mounted ? (fromSplash ? '1300ms' : '380ms') : '0ms' }}
+							>
 								<Education />
 							</div>
 						</div>

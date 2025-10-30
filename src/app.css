@@ -22,15 +22,10 @@
 	position: relative;
 }
 
+/* Remove decorative side panels (sidebar) — keep theme toggle and other UI intact */
 .page-content:before,
 .page-content:after {
-	content: "";
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	width: calc((100% - 1200px) / 2);
-	background-color: var(--side-bg);
-	border: 1px solid var(--side-border);
+    display: none;
 }
 
 .page-content:before {

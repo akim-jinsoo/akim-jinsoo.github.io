@@ -1,0 +1,243 @@
+/* Splash page mirrors the homepage layout but minimal.
+   The splash renders the same header/logo/title classes so
+   the transition to the real homepage is visually aligned. */
+
+.splash-page-content {
+  position: fixed;
+  inset: 0;
+  background: var(--page-bg);
+  z-index: 2000;
+  height: 100vh; /* ensure the splash fills the entire viewport */
+  overflow: hidden; /* avoid scrollbars while splash is visible */
+  /* manual tweak for initial pre-blink caret vertical offset. Adjust as needed, e.g., 2px or -2px */
+  --preblink-caret-offset: -11px;
+  /* global caret height for splash typing (slightly shorter than text height) */
+  --caret-height: 0.9em;
+  cursor: pointer; /* indicate the splash is clickable to enter */
+}
+
+/* Exit state: stop idle animations and fade out all but the title and theme toggle */
+.splash-exit {
+  cursor: default;
+}
+
+/* stop animations immediately */
+.splash-exit .typing .caret,
+.splash-exit .hello-bounce,
+.splash-exit .splash-continue-hint { animation: none !important; }
+
+/* fade out caret quickly */
+.splash-exit .typing .caret { opacity: 0; transition: opacity 250ms ease; }
+
+/* fade out subtitle, right-side image placeholder, and bottom hint */
+.splash-exit .homepage-subtitle,
+.splash-exit .homepage-first-area-right-side,
+.splash-exit .splash-continue-hint {
+  opacity: 0;
+  transition: opacity 450ms ease;
+}
+
+/* keep the title and the theme toggle visible (no rules needed, exclude from fades) */
+
+.splash-enter-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+/* Make inner wrapper at least viewport height so inner layout (padding-top etc.)
+   lines up the same way as the homepage while the splash fills the screen. */
+.splash-page-content .content-wrapper {
+  min-height: 100vh;
+}
+
+.splash-enter {
+  background: var(--link-color);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.splash-enter:hover { opacity: 0.95; }
+
+/* Keep the right-side image area present for layout but hide the image itself
+   so the splash visually matches the homepage alignment without showing the photo. */
+.splash-page-content .homepage-image-container {
+  visibility: hidden; /* preserves layout space */
+}
+
+/* Hide the navigation pill (nav bar) and the floating logo on the splash page
+   but keep the theme/splash toggles visible. We hide the .navbar/.nav-background
+   elements rather than the entire .nav-container so the top-right theme button
+   remains accessible. */
+.splash-page-content .navbar,
+.splash-page-content .nav-background,
+.splash-page-content .homepage-logo-container {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Hide the subtitle on the splash but preserve its layout space so the
+   title remains in the same vertical position as on the homepage. */
+.splash-page-content .homepage-subtitle {
+  /* Show a single-line welcome message on the splash. Keep the same visual
+     style as the title by matching the font-size so spacing doesn't shift. */
+  visibility: visible;
+  color: var(--secondary-color);
+  font-size: 45px; /* match .title font-size */
+  line-height: 1.1;
+  margin-top: 8px;
+  margin-left: -5px; /* align with title */
+}
+
+/* Prevent the welcome line from wrapping on wide viewports so it stays on a
+   single line. On narrow/mobile viewports allow wrapping and reduce font-size. */
+.splash-page-content .homepage-subtitle {
+  white-space: nowrap;
+  width: auto !important;
+  overflow: visible;
+}
+
+@media (max-width: 600px) {
+  .splash-page-content .homepage-subtitle {
+    white-space: normal;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+}
+
+/* Nudge the title down on the splash by 20pt so its visual placement matches
+   the user's requested alignment without affecting the real homepage. */
+.splash-page-content .homepage-title {
+  margin-top: -17pt;
+  margin-left: -5px; /* indent title on splash */
+  line-height: 1.1; /* stabilize line height to prevent vertical jump at end of typing */
+  min-height: 50px; /* lock the block height to the 45px font-size * 1.1 line-height */
+}
+
+/* Shift the theme toggle left on the splash so it visually balances with the
+   indented title. This only applies while the splash is active. */
+.splash-page-content .theme-toggle {
+  right: calc(2.5vw + 10px);
+}
+
+/* The splash-toggle button should not be visible on the splash itself. Keep it
+   available on other pages (it lives in .nav-container) but hide while splash
+   is active to avoid re-opening the splash from inside it. */
+.splash-page-content .splash-toggle {
+  display: none !important;
+}
+
+/* Typing caret for title/subtitle on splash */
+.splash-page-content .typing {
+  display: inline-block;
+  white-space: nowrap;
+  position: relative; /* allow absolutely positioned caret that doesn't affect layout */
+}
+
+.splash-page-content .typing .caret {
+  position: absolute; /* take the caret out of normal flow to prevent line reflow */
+  left: calc(100% + 6px); /* default: place caret 6px to the right of typed text */
+  top: 50%; /* vertically center in the line box */
+  transform: translateY(-50%);
+  width: 2px; /* thin bar caret */
+  background: currentColor;
+  height: var(--caret-height); /* slightly shorter than full text height */
+  border-radius: 1px; /* subtle rounding like many UIs */
+}
+
+/* During the pre-typing phase, blink at the exact start of the line */
+.splash-page-content .typing .caret-at-start {
+  left: 0; /* no offset so it sits flush to the left of the first character */
+  margin-top: var(--preblink-caret-offset); /* allow manual vertical nudge for initial 3 blinks */
+}
+
+/* Blinking state applied only when typing is finished */
+.splash-page-content .typing .caret-blink {
+  animation: blink 1s step-start infinite;
+}
+
+/* Finite blink counts for pre/post typing phases */
+.splash-page-content .typing .caret-blink-1 {
+  animation: blink 1s step-start 1;
+}
+.splash-page-content .typing .caret-blink-2 {
+  animation: blink 1s step-start 2;
+}
+.splash-page-content .typing .caret-blink-3 {
+  animation: blink 1s step-start 3;
+}
+
+/* Invisible caret placeholder to keep line metrics stable when typing ends */
+.splash-page-content .typing .caret-hidden {
+  opacity: 0;           /* retain layout without painting; avoids reflow differences */
+  pointer-events: none; /* ensure it's not interactive */
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Soft fade-in for the bottom hint */
+@keyframes splashFadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(4px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.splash-continue-hint {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  color: var(--secondary-color);
+  font-size: 20px; /* slightly larger for better legibility */
+  letter-spacing: 0.03em;
+  opacity: 0;
+  /* Fade in, then begin pulsing (slower and higher contrast) */
+  animation: splashFadeIn 1.2s ease 600ms forwards, splashPulse 3s ease-in-out 1.8s infinite;
+  pointer-events: none; /* allow click to pass through to the backdrop handler */
+}
+
+/* Pulse effect for the bottom hint */
+@keyframes splashPulse {
+  0% { opacity: 0.35; }
+  50% { opacity: 1; }
+  100% { opacity: 0.35; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-page-content .typing .caret-blink,
+  .splash-page-content .typing .caret-blink-1,
+  .splash-page-content .typing .caret-blink-2,
+  .splash-page-content .typing .caret-blink-3 { animation: none; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-root { transition: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-continue-hint { animation: none; opacity: 1; }
+}
+
+/* Periodic gentle jump for the leading "Hello!" text */
+.hello-bounce {
+  display: inline-block;
+  animation: helloJumpSeq 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes helloJumpSeq {
+  0%, 86%, 100% { transform: translateY(0); }
+  90% { transform: translateY(-6px); }
+  94% { transform: translateY(0); }
+  96% { transform: translateY(-3px); }
+  98% { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hello-bounce { animation: none; }
+}

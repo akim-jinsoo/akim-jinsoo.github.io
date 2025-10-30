@@ -32,10 +32,32 @@
 	animation-fill-mode: both;
 }
 
+/* When landing from the splash, slow down entrance animations notably */
+.from-splash .animate-fade-up {
+	animation-duration: 3600ms; /* ~3x slower than previous splash path, ~6.9x default */
+}
+
+/* Hide elements that will animate when arriving from the splash until their animation starts */
+.from-splash .pre-animate {
+	opacity: 0;
+}
+
 /* subtle floating for logo when mounted (respects reduced motion) */
 .logo-float {
 	animation: floatY 3.6s ease-in-out infinite;
 	will-change: transform;
+}
+
+/* When logo needs to fade up first, delay the float animation */
+.animate-fade-up.logo-float {
+	animation: fadeUp 520ms cubic-bezier(.2,.9,.3,1) both,
+	           floatY 3.6s ease-in-out 520ms infinite;
+}
+
+/* For from-splash path, delay float even longer since fade-up is slower */
+.from-splash .animate-fade-up.logo-float {
+	animation: fadeUp 3600ms cubic-bezier(.2,.9,.3,1) both,
+	           floatY 3.6s ease-in-out 3600ms infinite;
 }
 
 /* floating animation for social icons */
