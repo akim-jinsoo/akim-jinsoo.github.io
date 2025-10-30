@@ -126,7 +126,14 @@ const Homepage = () => {
 			</Helmet>
 
 			<div className={`page-content ${fromSplash ? 'from-splash' : ''}`}>
-				<div className={`${fromSplash ? 'pre-animate' : ''} ${fromSplash && mounted ? 'animate-fade-up' : ''}`} style={{ animationDelay: fromSplash && mounted ? '0ms' : '0ms' }}>
+				<div 
+					className={`${fromSplash ? 'pre-animate' : ''} ${fromSplash && mounted ? 'animate-fade-up' : ''}`} 
+					style={{ 
+						animationDelay: fromSplash && mounted ? '0ms' : '0ms',
+						position: 'relative',
+						zIndex: 1000
+					}}
+				>
 					<NavBar active="home" />
 				</div>
 				<div className="content-wrapper">
