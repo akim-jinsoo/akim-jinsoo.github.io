@@ -33,7 +33,7 @@ const INFO = {
 			degree: "M.S. in Mechanical Engineering",
 			institution: "The University of Texas at Austin",
 			period: "August 2024 - May 2026",
-			gpa: "3.7/4.0",
+			gpa: "3.8/4.0",
 			description: "Relevant Coursework: Sensor-based algorithms, Robot Manipulation Learning, Learning for dynamics and control",
 			awards: [
 				"Award: NSF Research Traineeship Recipient"
@@ -54,7 +54,7 @@ const INFO = {
 			title: "ARISTO Hand (in-progress)",
 			slug: "aristo",
 			description:
-				"3 Fingered Robotics Hand achieving human-like sensing.",
+				"3 Fingered Robotics Hand inspired by human-like sensing.",
 			logo: "./aristo.png",
 			longMarkupKey: "aristo",
 			category: "research",
@@ -178,15 +178,39 @@ const INFO = {
 	// Publications: add/remove entries here to show on the Publications page
 	publications: [
 		{
-			id: "paper-1",
-			title: "PLATO Hand: Dexterous Robotic Hand with Fingernails for Versatile Force Interaction",
-			authors: "Dong Ho Kang, Aaron Kim, Mingyo Seo, & Luis Sentis",
-			venue: "IEEE Robotics and Automation Letters (under review)",
-			year: 2025,
-			abstract:
-				"We present a robotic hand design that uses artificial fingernails and proprioceptive five-bar linkage fingers to achieve both precise and dynamic manipulation in unstructured environments.",
+			id: "paper-2",
+			title: "ARISTO Hand: Sensing-Driven Distal Hyperextension for Fine-Grained Manipulation",
+			authorsList: [
+				{ name: "Aaron Kim", highlight: true },
+				{ name: "Dong Ho Kang" },
+				{ name: "Mark Helwig" },
+				{ name: "Mingyo Seo" },
+				{ name: "Kazuto Yokoyama" },
+				{ name: "Tetsuya Narita" },
+				{ name: "Luis Sentis" },
+			],
+			venue: "IEEE/ASME International Conference on Advanced Intelligent Mechatronics (under review)",
+			year: 2026,
 		},
-
+		{
+			id: "paper-1",
+			title: "PLATO Hand: Shaping Contact Behavior with Fingernails for Precise Manipulation",
+			authorsList: [
+				{ name: "Dong Ho Kang" },
+				{ name: "Aaron Kim", highlight: true },
+				{ name: "Mingyo Seo" },
+				{ name: "Kazuto Yokoyama" },
+				{ name: "Tetsuya Narita" },
+				{ name: "Luis Sentis" },
+			],
+			venue: "IEEE Robotics and Automation Letters (under review)",
+			year: 2026,
+			links: [
+				{ href: "https://arxiv.org/pdf/2602.05156", label: "arXiv" },
+			],
+			abstract:
+				"We present the PLATO Hand, with a hybrid fingernail and pulp fingertip and guided contact modeling that enable stable, force-observable, edge-sensitive manipulation across diverse objects.",
+		},
 		// examples of links
 			// link: "https://github.com",
 

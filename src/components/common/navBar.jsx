@@ -81,7 +81,7 @@ const NavBar = (props) => {
                             {/* Experience with dropdown */}
                             <li
                                 ref={wrapperRef}
-                                className={(active === "experience" ? "nav-item active" : "nav-item") + (open ? " open" : "")}
+                                className={(active === "experience" ? "nav-item experience-item active" : "nav-item experience-item") + (open ? " open" : "")}
                                 onMouseEnter={() => setOpen(true)}
                                 onMouseLeave={() => setOpen(false)}
                             >

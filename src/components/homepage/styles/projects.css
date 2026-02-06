@@ -1,0 +1,47 @@
+.homepage-projects {
+	width: 100%;
+	padding-top: 30px;
+}
+
+.homepage-projects .card-body {
+	padding-top: 16px;
+}
+
+.projects-body {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 12px;
+}
+
+.homepage-project-card {
+	height: 100%;
+}
+
+.projects-footer {
+	margin-top: 4px;
+	grid-column: 1 / -1;
+}
+
+.projects-link {
+	color: var(--link-color);
+	text-decoration: none;
+	font-weight: 600;
+	font-style: italic;
+	font-size: 0.9rem;
+}
+
+.projects-link:hover {
+	text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+	.projects-body {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 600px) {
+	.projects-body {
+		grid-template-columns: 1fr;
+	}
+}

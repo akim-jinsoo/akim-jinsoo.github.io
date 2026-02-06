@@ -8,6 +8,49 @@ import "./styles/publications.css";
 
 const Publications = () => {
 	const [mounted, setMounted] = useState(false);
+	const renderAuthors = (publication) => {
+		if (Array.isArray(publication?.authorsList) && publication.authorsList.length > 0) {
+			const hasMany = publication.authorsList.length > 3;
+			const shown = hasMany ? publication.authorsList.slice(0, 3) : publication.authorsList;
+			const remaining = hasMany ? publication.authorsList.slice(3) : [];
+			const remainingNames = remaining
+				.map((a) => (typeof a === "string" ? a : a.name))
+				.join(", ");
+			return (
+				<span
+					className="publication-authors"
+				>
+					{shown.map((a, idx) => {
+						const name = typeof a === "string" ? a : a.name;
+						const highlight = typeof a === "object" && a.highlight;
+						return (
+							<span key={`${name}-${idx}`}>
+								{highlight ? <strong>{name}</strong> : name}
+								{idx < shown.length - 1 ? ", " : ""}
+							</span>
+						);
+					})}
+					{hasMany ? (
+						<>
+							<span>, </span>
+							<details className="publication-authors-dropdown">
+								<summary className="publication-et-al">et al.</summary>
+								{remainingNames ? (
+									<span className="publication-authors-more">{remainingNames}</span>
+								) : null}
+							</details>
+						</>
+					) : ""}
+				</span>
+			);
+		}
+
+		if (publication?.authors) {
+			return <span>{publication.authors}</span>;
+		}
+
+		return null;
+	};
 	useEffect(() => {
 		window.scrollTo(0, 0);
 		setMounted(true);
@@ -42,15 +85,21 @@ const Publications = () => {
 								const unique = Array.from(
 									new Map(pubs.map((x) => [(x.id || x.title).toString(), x])).values()
 								);
-								return unique.map((p, i) => (
+								return unique.map((p, i) => {
+									const authorsNode = renderAuthors(p);
+									const venueNode = p.venue ? <span>{p.venue}</span> : null;
+									return (
 								<div className={`publication-item ${mounted ? 'animate-fade-up' : ''}`} style={{ animationDelay: mounted ? `${300 + i * 80}ms` : '0ms' }} key={p.id || p.title}>
 									<div className="publication-header">
 										<div className="publication-title">{p.title}</div>
 										<div className="publication-year">{p.year}</div>
 									</div>
 
-									<div className="publication-meta">{p.authors} &middot; {p.venue}</div>
-									<div className="publication-abstract">{p.abstract}</div>
+										<div className="publication-meta">
+											{authorsNode}
+											{authorsNode && venueNode ? " · " : ""}
+											{venueNode}
+										</div>
 
 									{/* action buttons row - supports multiple links via `p.links` or a single `p.link` fallback */}
 									{(() => {
@@ -75,8 +124,9 @@ const Publications = () => {
 											</div>
 										);
 									})()}
-								</div>
-							));
+									</div>
+								);
+								});
 						})()} 
 						</div>
 

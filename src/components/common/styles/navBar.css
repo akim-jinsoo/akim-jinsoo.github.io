@@ -88,7 +88,7 @@
 	gap: 20px;
 	margin: 0;
 	padding: 0;
-	margin-top: 11px;
+	margin-top: 9px;
 }
 
 .nav-item {
@@ -98,6 +98,10 @@
 	display: inline-flex;
 	align-items: center;
 	gap: 6px;
+}
+
+.experience-item {
+	margin-left: -5px;
 }
 
 .nav-item.active > a,
@@ -157,7 +161,7 @@
 	background: transparent;
 	border: none;
 	/* increase size by ~50% from 80% -> 120% */
-	font-size: 120%;
+	font-size: 84%;
 	/* move the caret more to the left so it's closer to 'Experience' */
 	margin-left: -10px;
 	/* keep a tiny right margin so it doesn't sit on top of adjacent items */
@@ -171,6 +175,7 @@
 	align-items: center;
 	justify-content: center;
 	line-height: 1;
+	transform: translateY(1px);
 }
 
 .dropdown-toggle:hover {

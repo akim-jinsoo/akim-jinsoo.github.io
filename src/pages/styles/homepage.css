@@ -181,6 +181,12 @@
     padding-top: 20px;
 }
 
+.homepage-about .card-body,
+.homepage-works .card-body,
+.homepage-education .card-body {
+	padding-top: 16px;
+}
+
 /* Education subsection moved to components/homepage/styles/education.css */
 
 @media (max-width: 1024px) {

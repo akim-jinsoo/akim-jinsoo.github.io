@@ -14,7 +14,7 @@ const About = () => {
     <div className="homepage-about">
       <Card
         icon={faUser}
-        title="About"
+        title="About Me"
         body={
           <div className="about-body">
             <div className="about-paragraphs only-paragraphs">

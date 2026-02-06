@@ -9,6 +9,7 @@ import Logo from "../components/common/logo";
 import Footer from "../components/common/footer";
 import NavBar from "../components/common/navBar";
 import About from "../components/homepage/about";
+import Projects from "../components/homepage/projects";
 import Works from "../components/homepage/works";
 import Education from "../components/homepage/education";
 
@@ -216,14 +217,19 @@ const Homepage = () => {
 							</a>
 						</div>
 
-						{/* Project section removed per request */}
-
 						<div className="homepage-after-title">
 							<div 
 								className={`${fromSplash ? 'pre-animate' : ''} ${mounted ? 'animate-fade-up' : ''}`} 
 								style={{ animationDelay: mounted ? (fromSplash ? '900ms' : '260ms') : '0ms' }}
 							>
 								<About />
+							</div>
+
+							<div 
+								className={`${fromSplash ? 'pre-animate' : ''} ${mounted ? 'animate-fade-up' : ''}`} 
+								style={{ animationDelay: mounted ? (fromSplash ? '1000ms' : '290ms') : '0ms' }}
+							>
+								<Projects />
 							</div>
 
 							<div 
