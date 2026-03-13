@@ -111,7 +111,7 @@ const NavBar = (props) => {
                                             { key: "course", label: "Course Projects" },
                                         ];
                                         const groups = order.map((o) => ({ ...o, items: [] }));
-                                        INFO.projects.forEach((p) => {
+                                        (INFO.projects || []).filter((p) => !p.hidden).forEach((p) => {
                                             const idx = order.findIndex((o) => o.key === p.category);
                                             if (idx >= 0) groups[idx].items.push(p);
                                         });

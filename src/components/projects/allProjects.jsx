@@ -7,7 +7,7 @@ import INFO from "../../data/user";
 import "./styles/allProjects.css";
 
 const AllProjects = ({ mounted }) => {
-	const projects = INFO.projects || [];
+	const projects = (INFO.projects || []).filter((p) => !p.hidden);
 	const research = projects.filter((p) => p.category === "research");
 	const internships = projects.filter((p) => p.category === "internship");
 	const courses = projects.filter((p) => p.category === "course");

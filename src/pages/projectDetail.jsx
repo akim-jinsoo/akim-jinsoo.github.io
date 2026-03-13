@@ -25,7 +25,7 @@ const ProjectDetail = () => {
         setMounted(true);
     }, []);
 
-    const project = INFO.projects.find((p) => p.slug === slug);
+    const project = INFO.projects.find((p) => p.slug === slug && !p.hidden);
     const isPlatoHand = project?.slug === "plato";
     const currentSEO = SEO.find((item) => item.page === "projects") || {};
 

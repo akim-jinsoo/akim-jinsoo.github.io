@@ -9,9 +9,13 @@ import React from "react";
 // /bullet                   -> begin unordered list block
 // /endbullet                -> end unordered list block
 // list lines use indentation (tabs or 2 spaces) for nesting
-// /image URL [opt1,opt2]    -> image box, opts: aspect=16:9, height=300, crop=center
+// /image URL [opt1,opt2]    -> image box, opts: aspect=16:9, height=300, crop=center, fit=contain
 // /video URL [caption]      -> video element with optional caption text
 // /caption Text[, italic]   -> caption rendered beneath previous image (or standalone)
+// /table                    -> begin table block (first row is header)
+// /endtable                 -> end table block
+// table rows use `|` as the cell separator
+// % comment                 -> ignored line (author notes)
 
 const buildNestedFromLines = (lines) => {
   const root = [];
@@ -45,11 +49,24 @@ const renderNestedList = (items, level = 0, ordered = true, keyPrefix = "") => {
   );
 };
 
+const parseTableRow = (rawLine = "") => {
+  const trimmed = rawLine.trim();
+  if (!trimmed) return null;
+
+  const normalized = trimmed.replace(/^\|/, "").replace(/\|$/, "");
+  const cells = normalized.split("|").map((cell) => cell.trim());
+  if (!cells.length) return null;
+  if (cells.every((cell) => !cell)) return null;
+  return cells;
+};
+
 const parseToNodes = (content = "") => {
   const lines = content.split(/\r?\n/);
   const nodes = [];
   let inList = null;
   let listItems = [];
+  let inTable = false;
+  let tableRows = [];
 
   const flushList = () => {
     if (!inList) return;
@@ -59,27 +76,61 @@ const parseToNodes = (content = "") => {
     listItems = [];
   };
 
+  const flushTable = () => {
+    if (!inTable) return;
+    if (!tableRows.length) {
+      inTable = false;
+      tableRows = [];
+      return;
+    }
+
+    const colCount = tableRows.reduce((max, row) => Math.max(max, row.length), 0);
+    const normalizedRows = tableRows.map((row) => {
+      const copy = [...row];
+      while (copy.length < colCount) copy.push("");
+      return copy;
+    });
+
+    nodes.push({
+      type: "table",
+      header: normalizedRows[0],
+      rows: normalizedRows.slice(1),
+    });
+
+    inTable = false;
+    tableRows = [];
+  };
+
   for (let rawLine of lines) {
     const line = rawLine.trim();
     if (!line) {
       flushList();
+      flushTable();
       nodes.push({ type: "br" });
+      continue;
+    }
+
+    if (line.startsWith("%")) {
+      // Author-facing comment line in .txt markup files.
       continue;
     }
 
     if (line.startsWith("/section ")) {
       flushList();
+      flushTable();
       nodes.push({ type: "h2", text: line.replace(/^\/section\s+/, "") });
       continue;
     }
     if (line.startsWith("/subsection ")) {
       flushList();
+      flushTable();
       nodes.push({ type: "h3", text: line.replace(/^\/subsection\s+/, "") });
       continue;
     }
 
     if (line === "/list") {
       flushList();
+      flushTable();
       inList = "ordered";
       listItems = [];
       continue;
@@ -90,6 +141,7 @@ const parseToNodes = (content = "") => {
     }
     if (line === "/bullet") {
       flushList();
+      flushTable();
       inList = "bullet";
       listItems = [];
       continue;
@@ -99,8 +151,21 @@ const parseToNodes = (content = "") => {
       continue;
     }
 
+    if (line === "/table") {
+      flushList();
+      flushTable();
+      inTable = true;
+      tableRows = [];
+      continue;
+    }
+    if (line === "/endtable") {
+      flushTable();
+      continue;
+    }
+
     if (line.startsWith("/image ")) {
       flushList();
+      flushTable();
       const m = rawLine.match(/^\/image\s+(\S+)(?:\s+(.+))?$/);
       if (m) {
         const url = m[1];
@@ -108,6 +173,7 @@ const parseToNodes = (content = "") => {
         let aspect = null;
         let height = null;
         let crop = null;
+        let fit = null;
         if (optsRaw) {
           const opts = optsRaw.split(",").map((s) => s.trim()).filter(Boolean);
           opts.forEach((o) => {
@@ -118,15 +184,20 @@ const parseToNodes = (content = "") => {
               const n = parseInt(v || k, 10);
               if (!Number.isNaN(n)) height = n;
             } else if (k.toLowerCase() === "crop") crop = v || null;
+            else if (k.toLowerCase() === "fit") {
+              const fitValue = (v || "contain").toLowerCase();
+              fit = fitValue === "true" || fitValue === "1" ? "contain" : fitValue;
+            }
           });
         }
-        nodes.push({ type: "image", url, aspect, height, crop });
+        nodes.push({ type: "image", url, aspect, height, crop, fit });
         continue;
       }
     }
 
     if (line.startsWith("/video ")) {
       flushList();
+      flushTable();
       const m = rawLine.match(/^\/video\s+(\S+)(?:\s+(.+))?$/);
       if (m) {
         nodes.push({ type: "video", url: m[1], caption: m[2] ? m[2].trim() : "" });
@@ -136,6 +207,7 @@ const parseToNodes = (content = "") => {
 
     if (line.startsWith("/caption ")) {
       flushList();
+      flushTable();
       const m = rawLine.match(/^\/caption\s+(.+)$/);
       if (m) {
         let rest = m[1].trim();
@@ -177,11 +249,19 @@ const parseToNodes = (content = "") => {
       continue;
     }
 
+    if (inTable) {
+      const cells = parseTableRow(rawLine);
+      if (cells) tableRows.push(cells);
+      continue;
+    }
+
     flushList();
+    flushTable();
     nodes.push({ type: "p", text: rawLine });
   }
 
   flushList();
+  flushTable();
   return nodes;
 };
 
@@ -232,6 +312,40 @@ const MarkupRenderer = ({ content }) => {
         const aspect = node.aspect || null;
         const height = node.height || null;
         const crop = (node.crop || "center").toLowerCase();
+        const fit = (node.fit || "cover").toLowerCase();
+        const useContain = fit === "contain";
+
+        if (useContain) {
+          const containStyle = {
+            display: "block",
+            width: "100%",
+            height: "auto",
+            borderRadius: 8,
+            background: "#eee",
+          };
+
+          if (height) {
+            containStyle.maxHeight = `${height}px`;
+            containStyle.width = "auto";
+            containStyle.maxWidth = "100%";
+            containStyle.margin = "0 auto";
+          }
+
+          out.push(<img key={key} className="markup-image" src={src} alt="" style={containStyle} />);
+
+          // If the next node is a caption, render it directly under the image and skip it
+          if (i + 1 < nodes.length && nodes[i + 1].type === "caption") {
+            const cap = nodes[i + 1];
+            out.push(
+              <div key={`${key}-cap`} className="markup-image-caption">
+                {cap.italic ? <em>{cap.text}</em> : cap.text}
+              </div>
+            );
+            i++; // skip caption node
+          }
+
+          break;
+        }
 
         const cropMap = {
           center: "50% 50%",
@@ -323,6 +437,33 @@ const MarkupRenderer = ({ content }) => {
           </div>
         );
         break;
+      case "table": {
+        out.push(
+          <div key={key} className="markup-table-wrap">
+            <table className="markup-table">
+              <thead>
+                <tr>
+                  {node.header.map((cell, idx) => (
+                    <th key={`${key}-h-${idx}`}>{cell}</th>
+                  ))}
+                </tr>
+              </thead>
+              {node.rows && node.rows.length ? (
+                <tbody>
+                  {node.rows.map((row, rIdx) => (
+                    <tr key={`${key}-r-${rIdx}`}>
+                      {row.map((cell, cIdx) => (
+                        <td key={`${key}-r-${rIdx}-c-${cIdx}`}>{cell}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              ) : null}
+            </table>
+          </div>
+        );
+        break;
+      }
       case "p":
         out.push(
           <p key={key} className="markup-paragraph">

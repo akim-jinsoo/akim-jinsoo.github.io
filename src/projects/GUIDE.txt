@@ -5,9 +5,11 @@ Features
 - Headings: `/section Title` and `/subsection Title`
 - Ordered lists: `/list` ... `/endlist` (indent with tab or 2 spaces for nesting)
 - Unordered lists: `/bullet` ... `/endbullet` (same nesting rules)
+- Tables: `/table` ... `/endtable` (first row is header, use `|` to separate cells)
 - Images: `/image <URL> [options]` (options comma-separated)
 - Videos: `/video <URL> [caption text]`
 - Captions: `/caption Text[, italic]` — placed beneath the immediately preceding image if present
+- Comments: `%your note` (ignored by renderer)
 
 Directive quick reference
 - /section Project Title
@@ -34,9 +36,12 @@ Images and captions
 - Basic image:
   /image /aristo.png
 
-- Image with options (aspect, height in px, crop):
-  /image /aristo.png aspect=16:9, height=240, crop=top
+- Image with options (aspect, height in px, crop, fit):
+  /image /aristo.png aspect=16:9, height=240, crop=top, fit=cover
   /caption A concise caption for the image
+
+- No-crop image fit:
+  /image /aristo.png aspect=16:9, fit=contain
 
 - Caption with commas or italic:
   /caption "Caption, with comma", italic
@@ -44,9 +49,20 @@ Images and captions
 Video
 - /video /demo/video.mp4 Short demo description
 
+Tables
+/table
+Metric | Joint-Position Control | Direct Torque Control
+Stability | Jittery and high-frequency vibrations | Smooth and fine-grained force-closure
+Payload Capacity | Fails at 0.09 kg | Success up to 0.15 kg (+67%)
+Grasp Quality | Limited to form-closure | Achieves stable force-closure
+/endtable
+
 Notes
 - Relative media paths like `./img.png` are resolved to `/img.png` (public root).
 - Keep `/caption` on the line immediately after the `/image` to attach it to that image.
+- `fit=contain` renders the image at natural proportion (ignores `aspect`) to avoid letterbox blank space.
+- For tables, include at least one row after `/table`; the first row is treated as column headers.
+- Lines starting with `%` are treated as author comments and do not render.
 - Plain lines become paragraphs.
 
 End of guide

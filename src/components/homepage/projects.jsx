@@ -9,7 +9,7 @@ import INFO from "../../data/user";
 import "./styles/projects.css";
 
 const Projects = () => {
-	const projects = (INFO.projects || []).slice(0, 3);
+	const projects = (INFO.projects || []).filter((p) => !p.hidden).slice(0, 3);
 
 	return (
 		<div className="homepage-projects">

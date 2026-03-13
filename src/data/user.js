@@ -84,6 +84,7 @@ const INFO = {
 		{
 			title: "Imitation Learning for Robotic Manipulation",
 			slug: "imitation-learning",
+			hidden: true,
 			description:
 				"Utilizing ARISTO Hand has data collection platform for imitation learning in robotic manipulation tasks and deployed policies on ARISTO Hand",
 			// logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
