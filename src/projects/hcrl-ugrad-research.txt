@@ -1,69 +1,46 @@
-/section Undergraduate Research at HCRL
+/section Undergraduate Research: Human-Centered Robotics Lab (HCRL)
 
 /subsection Overview
-At the Human-Centered Robotics Lab (HCRL) at UT Austin, I contributed to ongoing humanoid and mobile robot projects through mechanical design, maintenance, and software integration.  
-My work focused on two platforms — Draco 3, a torque-controlled humanoid leg system, and BumpyBot, an omnidirectional mobile robot for hospital transport research.
+At the Human-Centered Robotics Lab (HCRL) at UT Austin, I contributed to the development of humanoid and mobile robot platforms through mechanical design, structural validation, and software integration.
+My work focused on two primary systems: Draco 3, a humanoid robot, and BumpyBot, an omnidirectional transport robot.
 
+/section Draco 3 (Humanoid Research Platform)
 
-/section Draco 3
-
-/subsection Objective
-Draco 3 is a humanoid robot developed to study whole-body control and hybrid actuation.  
-I supported two Ph.D. students with mechanical design improvements and hardware reliability, focusing on structural strength, sensor alignment, and system maintainability.
-
-/subsection Encoder Mount Redesign
-The original knee motors couldn’t support full single-leg loading, and upgrading to stronger motors caused incompatibility with the magnetic encoder mount.  
-I redesigned the encoder mount to fit the new motors while keeping the same encoders and reducing signal noise.  
-The final part was printed in black SLA resin for stiffness and dimensional accuracy.
-
-/subsection Ankle Force-Torque Sensor Mount
-The original ankle strain gauges produced unreliable readings, so we replaced them with ATI Mini45 force-torque sensors.  
-I designed a new mount optimized for safety, manufacturability, and quick assembly.  
-Finite Element Analysis confirmed a safety factor of two, and the parts were machined from 6061-T6 aluminum.
-
-/subsection Revised Ankle and Foot Design
-To fix off-center roll motion and limited ankle range, I redesigned the ankle stopper and F-T sensor mount.  
-I also proposed adding rubber soles to absorb step impact.  
-After evaluating commercial options like Vibram, we decided to produce them in-house for cost and turnaround efficiency.
-
-/subsection Hand Replacements and Simulation Support
-For multi-contact locomotion research, I helped replace the robot’s hands with ATI Mini40 sensors and rigid rods.  
-I also created a modified URDF for ROS simulations, enabling virtual experiments and control validation on the updated model.
-
-/subsection Maintenance and Repair
-Beyond design work, I maintained and repaired Draco 3 during continuous experimental use.  
-This involved diagnosing mechanical and electrical issues, replacing damaged components, realigning encoders, retensioning belts, and verifying sensor calibration after impacts.  
-I developed quick alignment and disassembly methods that made future maintenance easier and more repeatable.
-
-/subsection Additional Contributions
-I designed several small 3D-printed components — PCB mounts, cable organizers, and sensor covers — to improve wiring, durability, and system maintainability across the robot.
-
-/subsection Summary
-My work on Draco 3 combined mechanical redesign, structural validation, maintenance, and simulation modeling to increase reliability and research flexibility of the humanoid platform.
-
-
-/section BumpyBot
+%input draco-3.png
 
 /subsection Objective
-BumpyBot is an omnidirectional mobile robot developed at HCRL for hospital transport applications.  
-My role focused on control integration, teleoperation, and autonomous navigation using ROS.
+Draco 3 is a humanoid robot designed for research into whole-body control and hybrid actuation.
+I provided mechanical design improvements and hardware reliability support for PhD-level research, focusing on structural integrity and sensor precision.
 
-/subsection Teleoperation Integration
-I implemented Xbox controller support in ROS for intuitive manual control and quick testing.  
-This teleoperation system became the base for later semi-autonomous and autonomous operation modes.
+/subsection Key Engineering Contributions
+/bullet
+%input draco-encoder
+Encoder Mount Redesign: When the knee motors were upgraded for higher load capacity, I designed a custom encoder mount to resolve mounting incompatibilities. The part was fabricated using black SLA resin to ensure high dimensional accuracy and stiffness while reducing signal noise.
+%input draco-ankle
+Ankle Force-Torque (F-T) Integration: I replaced unreliable strain gauges with ATI Mini45 F-T sensors and engineered a custom mount optimized for manufacturability. I verified the design using Finite Element Analysis (FEA), achieving a safety factor of 2.0.
+%input draco-ankle-2
+Kinematic and Impact Improvements: I redesigned ankle stoppers and sensor mounts to correct off-center roll motion and expand ankle range of motion. To mitigate impact forces during locomotion, I prototyped and produced in-house rubber soles.
+/endbullet
 
-/subsection Motion Control and Filtering
-To smooth wheel velocity and reduce jerk during motion, I implemented a first-order low-pass filter in the control stack.  
-This made manual and semi-autonomous operation noticeably more stable and predictable.
+/subsection Maintenance and Operations
+I served as a primary hardware technician for Draco 3, diagnosing mechanical and electrical failures during experimental runs.
+I developed standardized procedures for belt retensioning, encoder realignment, and sensor calibration, significantly reducing system downtime.
 
-/subsection URDF and Sensor Calibration
-After a mechanical redesign that changed wheel and motor positions, I rebuilt the URDF model to reflect the updated geometry.  
-I recalibrated the camera and lidar positions to maintain accurate perception alignment and odometry consistency.
+/section BumpyBot (Omnidirectional Mobile Robot)
 
-/subsection Odometry and SLAM Implementation
-I configured the odometry system for accurate localization and later integrated SLAM for mapping and navigation.  
-This allowed BumpyBot to autonomously explore and build maps of its environment — a major step toward hospital-ready deployment.
+%input bumpy-bot
+
+/subsection Objective
+BumpyBot is an omnidirectional mobile platform designed for autonomous hospital transport research.
+My role involved bridging the gap between hardware and autonomy through control integration and navigation software.
+
+/subsection Software and Control Integration
+/bullet
+
+Teleoperation: I implemented an Xbox controller interface in ROS, providing an intuitive manual override system for safe testing and data collection.
+Signal Processing: I developed and integrated a first-order low-pass filter into the velocity control stack. This smoothed wheel commands and reduced jerk, resulting in more stable and predictable motion during high-speed maneuvers.
+Sensor Fusion and SLAM: I rebuilt the URDF model to ensure tf transform accuracy, and integrated odometry plus SLAM to enable autonomous indoor mapping and navigation.
+/endbullet
 
 /subsection Summary
-Through BumpyBot, I gained practical experience in robot software architecture, motion control, filtering, and SLAM integration.  
-It was a complete robotics project that connected hardware, perception, and autonomy into one working system.
+My contributions to BumpyBot spanned the full robotics stack, from low-level motor filtering and URDF modeling to high-level SLAM and autonomous navigation, moving the platform closer to real-world hospital deployment.

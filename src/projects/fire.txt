@@ -1,47 +1,28 @@
-/section Sony
+/section FIRE Program
 
 /subsection Objective
-During my internship at Sony, I worked on the PLATO Project — a collaboration between Sony and UT Austin to develop a teleoperated robotic system capable of fine manipulation and haptic feedback.  
-My focus was on resolving critical hardware issues in the PLATO Hand V1, improving torque output, reliability, and electrical serviceability to meet the precision standards required for tabletop tasks such as playing Jenga.
+This project was a part of my Freshman Introduction to Research Engineering (FIRE) Program. Our primary objective was to create an affordable interactive game tailored for children coping with traumatic brain injuries. This need became apparent when our mentor, Professor James Sulzer, shared the story of his daughter, Livie, who had suffered a severe head injury. Professor Sulzer noticed that most available devices in the market were prohibitively expensive for many families.
 
-/section Challenges and Goals
+/subsection Initial Prototype
+Our initial prototype was a simple interactive game where Livie had to match the screen to the board. To keep costs low, we utilized old keyboards and cards to create the mechanical components of the device. During testing, Livie's primary interest seemed to be in testing the prototype's durability rather than playing the game. However, despite this initial challenge, we saw potential in our design.
 
-/subsection Torque Limitations
-The PLATO Hand V1 used HT2205 motors rated for 0.04 Nm, but testing showed they only delivered 0.03 Nm of usable torque.  
-Picking up a single Jenga block required 0.031 Nm, leaving almost no performance margin.  
-The primary goal of the internship was to redesign the actuation system to increase torque without sacrificing responsiveness or backdrivability.
+/subsection Final Prototype
+The final prototype marked a significant refinement of our initial concept. We incorporated 3D printed and laser-cut parts to enhance durability, preventing Livie from unintentionally damaging the device. We made keycaps more visually engaging to capture her attention and categorise them. Notably, when Livie answered correctly, the game rewarded her with amusing sounds, which she found highly motivating and enjoyable.
 
-/subsection Electrical Complexity
-The original design contained 81 wires per hand and relied on hot glue for mounting electronics, making maintenance extremely difficult.  
-At UT Austin, the prototype experienced an electrical short that couldn’t be repaired without full disassembly.  
-Simplifying and hardening the electrical system was the second major objective.
+/subsection Results
+Defining success for our rehabilitation device was rooted in Livie's engagement and interaction.
 
-/section PLATO Hand V1.5
-
-/subsection Torque Fixes
-To resolve the torque issue, I implemented 30:1 harmonic drives on the MCP joints, increasing available torque from 0.03 Nm to approximately 0.9 Nm.  
-This dramatically improved manipulation strength and stability while maintaining smooth backdrivability for safe teleoperation.  
-
-Why harmonic drives?  
+Engagement:
 /bullet
-Sony’s mechanical engineering team already had experience with harmonic drives, enabling rapid integration and support.  
-The tight internship timeline favored off-the-shelf components with proven performance.  
-Zero backlash made harmonic drives ideal for precise finger control during dexterous manipulation.  
-Maintaining backdrivability was critical for safe human-robot interaction.  
+Livie exhibited genuine enjoyment while playing the game, particularly delighting in the silly sounds when she provided correct answers.
+She frequently smiled and even attempted to imitate the amusing noises.
+Livie displayed sustained engagement, surpassing our initial expectations.
 /endbullet
 
-For the PIP joints, space limitations prevented harmonic drive installation, so I modified the pulley ratio from 1:1 to 1.49:1, increasing torque output to 0.045 Nm without adding bulk or complexity.
-
-/subsection Electrical System Revamp
-I redesigned the electrical system around a compact, modular PCB architecture — one board per finger — to reduce wiring and simplify debugging.  
-Each board integrated:  
+Interaction:
 /bullet
-SimpleFOCMini V1.0 (3x)  
-ESP32 Devkit V1.0 (1x)  
-TJA1050 CAN transceiver (1x)  
+Livie maintained constant contact with the game keys.
+She repeatedly ran her hands over the keys and explored the extrusions and textures we incorporated into the design.
 /endbullet
-I also designed a new electrical mount that secured all boards cleanly within the finger base, eliminating hot glue, improving accessibility, and significantly reducing maintenance time.
 
-/subsection Final Assembly
-After implementing both the mechanical and electrical upgrades, the PLATO Hand V1.5 was fully assembled and validated.  
-The new version successfully addressed the torque and reliability issues that had limited the earlier prototype and established a stable foundation for continued R&D at Sony.
+Our primary goal was to create an affordable rehabilitation device, addressing a significant gap in the market. Remarkably, the total estimated cost of our project, excluding 3D printing, was a mere $29.07. Notably, many of the supplies used were readily available household items, enhancing accessibility. Furthermore, since we coded the games in JavaScript and HTML, there is potential to display them on a website, allowing widespread access without the need for local file copies on users' computers. This project not only holds promise for Livie's rehabilitation but also offers a cost-effective solution for others facing similar challenges.
