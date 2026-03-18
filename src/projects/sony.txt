@@ -1,14 +1,12 @@
-/section Sony
-
 /image /sony/project-system.png aspect=16:9, fit=contain, height=420
 /caption System overview of the Sony x UT Austin PLATO platform.
 
-/subsection Objective
+/section Objective
 During my internship at Sony, I worked on the PLATO Project — a collaboration between Sony and UT Austin to develop a teleoperated robotic system capable of precise manipulation and haptic feedback.  
 My focus was improving the PLATO Hand V1, which suffered from limited torque and an overly complex electrical system.  
 The goal was to redesign and validate a new version — PLATO Hand V1.5 — that met Sony’s standards for reliability, strength, and maintainability.
 
-/subsection Challenges
+/section Challenges
 /image /sony/original-plato.png aspect=16:9, fit=contain, height=420
 /caption Original PLATO Hand V1 configuration before redesign.
 
@@ -17,7 +15,7 @@ The HT2205 motors were rated for 0.04 Nm, but in testing, only produced around 0
 Additionally, the hand’s electrical system used 81 wires and relied on hot glue for mounting, making it fragile and nearly impossible to service.  
 The project goal was to increase torque while reducing wiring and improving accessibility.
 
-/subsection Actuator Test Bed
+/section Actuator Test Bed
 /image /sony/motor-test.png aspect=16:9, fit=contain, height=420
 /caption Custom actuator test bed used for force and torque validation.
 
@@ -31,7 +29,7 @@ Maintaining back-driveability of the motors is a crucial point of the hand that 
 While harmonic drives are susceptible to damage when experiencing sudden impact or force, however, our use case doesn't include that, so it should be fine under normal operation.
 I addtionally developed a test bed with a force gauge to verify and validate the actuator prototype, which includes the housing, motor, and gearbox.
 
-/subsection Mechanical Redesign
+/section Mechanical Redesign
 /image /sony/sony-plato-cad.png aspect=16:9, fit=contain, height=420
 /caption CAD model of the PLATO Hand V1.5 mechanical redesign.
 
@@ -42,7 +40,7 @@ To solve the torque limitation, I integrated 30:1 harmonic drives into the MCP j
 This upgrade enabled strong, controlled grasping without sacrificing backdrivability — essential for safe teleoperation.  
 For the PIP joints, where space was limited, I modified the pulley ratio from 1:1 to 1.49:1, increasing torque to 0.045 Nm without redesigning the housing.
 
-/subsection Final Assembly
+/section Final Assembly
 /image /sony/sony-plato.png aspect=16:9, fit=contain, height=420
 /caption Final assembled PLATO Hand V1.5 prototype.
 
