@@ -1,0 +1,62 @@
+/section Project Overview
+As part of the Advanced Mechatronics course at UT Austin, I worked on a team to design and manufacture a high-performance RC car optimized for circuit racing.
+The design focused on achieving a balance between modularity, mechanical robustness, and power-to-weight ratio to ensure both speed and track reliability.
+/image /car.png fit=contain, height=340
+/caption RC Car CAD Assembly.
+
+/section Chassis Engineering and Structural Validation
+I led the structural design and material optimization of the vehicle frame, focusing on a lightweight modular architecture.
+/bullet
+Iterative Material Selection: While the initial design utilized ABS, manufacturing constraints required a pivot to PLA. To maintain structural integrity while reducing mass, I optimized the chassis thickness from 6.35 mm to 5.3 mm, using geometry to regain the stiffness lost by the thinner profile.
+FEA Validation: I conducted stress, displacement, and strain analyses within SolidWorks to ensure the chassis could withstand drivetrain torque and high-speed impacts during race conditions.
+Serviceability: I designed a modular frame featuring custom cap fittings, allowing for rapid battery replacement and track-side maintenance.
+/endbullet
+/image /car/chassis.png fit=contain, height=320
+/caption Chassis design iteration validated through structural simulation and testing.
+
+/section Steering Kinematics and Stability
+The primary challenge was achieving cornering stability within a compact footprint.
+/bullet
+Single-Axle Design: I implemented a simplified steering system using high-infill PLA, providing a balance of precision and give to prevent catastrophic failures of the servo motor during collisions.
+Modularity: I maintained a small chassis footprint that allowed easy access to the steering linkage and servo for quick adjustments between race heats.
+/endbullet
+/image /car/steering.png fit=contain, height=320
+/caption Compact steering modular subassembly.
+
+/section Drivetrain and RPM/Torque Analysis
+While I did not design the physical gearbox, I was responsible for part of the mechanical validation of the powertrain components to ensure performance reliability under load.
+/bullet
+RPM and Torque Analysis: I performed calculations on gear mesh forces and rotational inertia to ensure the Rigid White Resin gears could sustain the high RPMs and torque spikes required for competitive circuit starts.
+Material Selection: I validated the use of a carbon fiber rear axle to provide maximum torsional stiffness with minimal rotational inertia, ensuring efficient power transfer to the wheels.
+/endbullet
+/image /car/gearbox.png fit=contain, height=320
+/caption Gearbox and drivetrain modular subassembly.
+
+/section Functional Body Kit and Protection
+Inspired by Formula 1 aesthetics, I modeled a custom 3D-printed body kit including front and rear wings and side skirts.
+/bullet
+Sacrificial Armor: While the profiles were aerodynamic, the primary function of the front wing was to serve as a structural impact guard. It was engineered as a crumple zone to protect the steering linkages and servo from direct wall collisions.
+Electronic Integration: The side skirts and chassis panels provided secure mounting points for internal electronics, keeping the center of gravity low while shielding the battery and wiring from debris.
+/endbullet
+
+/section Performance Review and Failure Analysis
+/table
+Component | Performance Result | Engineering Takeaway
+Chassis | High durability; the thickness reduction to 5.3 mm did not compromise the frame. | FEA was an accurate predictor of real-world structural needs.
+Protection | The front wing successfully absorbed three major impacts, saving the steering rack. | Functional armor is more critical than high-speed aerodynamics for indoor circuit racing.
+Drivetrain | Failure point: under extended loading, gear teeth began to shear and set screws backed out. | Resin gears lacked the fatigue limit for high-acceleration shock loads. Future iterations require metal gears and thread-locking compound.
+/endtable
+
+/image /car/car-driving.gif fit=contain, height=500
+/caption Driving test of the assembled car.
+
+/section Root Cause Analysis of Drivetrain Failure
+Post-race inspection revealed that while the gears performed well in initial tests, they failed under sustained racing conditions.
+/bullet
+Stress Concentration: Sudden acceleration and deceleration applied peak forces to individual gear teeth, exceeding the material's shear strength and leading to tooth breakage.
+Vibration and Fastener Fatigue: High-frequency vibrations caused the motor pinion set screws to back out, leading to misalignment and further gear damage.
+Impact Loading: Wall impacts transmitted kinetic energy through the drivetrain, causing shock loads that the 3D-printed resin could not dissipate.
+/endbullet
+
+/image /car/prototype.png fit=contain, height=320
+/caption Image of final assembled car.

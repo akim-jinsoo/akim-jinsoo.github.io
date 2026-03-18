@@ -1,0 +1,70 @@
+/section Reinforcement Learning for Thin-Object Manipulation
+
+/subsection Project Overview
+This research investigates using reinforcement learning (RL) to enable a dexterous three-fingered hand to perform human-like manipulation of thin objects, such as playing cards and coins.
+By leveraging the sensorized fingernails of the custom PLATO Hand, we compared different control action spaces to determine which produced the most stable and robust grasps in contact-rich environments.
+
+/image /plato_rl/rl_enviornment.png aspect=16:9, crop=center
+/caption RL simulation environment used for parallelized policy training.
+
+/subsection The Challenge: The "Thin-Object" Problem
+Traditional robotic grippers struggle with thin objects because they often rely on soft fingertips that lack precision and high mechanical impedance.
+Humans solve this by using rigid fingernails to provide tactile feedback and stable interfaces for tasks like picking up a single coin.
+
+/image /plato_rl/card_grasping.png aspect=16:9, crop=center
+/caption Card grasping setup highlighting thin-object contact.
+
+Goal: Use model-free RL to discover grasp strategies that utilize fingernail edges to lift objects off flat surfaces.
+
+Complexity: The search space for dexterous manipulation is massive, requiring highly efficient simulation and precise reward shaping.
+
+/subsection Technical Approach
+/image /plato_rl/RL_plan.png aspect=16:9, crop=center
+/caption RL training plan and staged progression from basic lifting to thin-object manipulation.
+
+1. Simulation and Physics Modeling
+
+/bullet
+Parallelized training: Utilized IsaacLab to train across 4,096 environments simultaneously.
+Massive data scale: Generated nearly 900 million samples, equivalent to 205 real-world days of training, in just 2.5 hours on a workstation RTX 4090 GPU.
+Transmission modeling: Because URDFs cannot natively simulate the PLATO Hand's closed-loop 5-bar linkage, we implemented a transmission model to convert it to an open-chained revolute-revolute finger for the physics engine.
+/endbullet
+
+2. Reward Engineering and Curriculum Learning
+
+/bullet
+Dynamic weighting: We started with lower penalties for joint velocity and acceleration to encourage exploration, increasing them by an order of magnitude after 20% of training.
+Fine-grained rewards: We utilized a palm contact penalty to force the policy to use the fingers and fingernails for finer manipulation.
+Goal tracking: Orientation tracking rewards were phased in only after the policy learned basic lifting to prevent reward hacking the goal pose.
+/endbullet
+
+/subsection Key Results: Ball Grasping with Torque Control
+In step 3 of the training plan, torque control produced stable spherical-object grasping with smoother contact transitions than position control.
+The learned policy maintained force-closure while reducing jitter during lift and hold phases.
+
+/image /plato_rl/sphere-grasp.gif aspect=16:9, crop=center
+/caption Sphere grasping result from torque-based control policy (step 3).
+
+/subsection Key Results: Card Grasping with Fingernail Lift
+In step 4, the policy successfully executed fingernail-assisted card lifting by sliding under the edge and establishing a stable contact interface.
+This behavior demonstrates the intended thin-object strategy enabled by rigid fingernails and reward curriculum shaping.
+
+/image /plato_rl/fingernail-lifted.gif aspect=16:9, crop=center
+/caption Fingernail-assisted card lifting result (step 4).
+
+/subsection Key Results: Torque vs. Position Control
+We conducted quantitative payload tests to compare how each action space handled increasing mass for a playing card.
+
+/table
+Metric | Joint-Position Control | Direct Torque Control
+Stability | Jittery; produces high-frequency vibrations | Smooth; fine-grained force-closure
+Payload Capacity | Fails at 0.09kg | Success up to 0.15kg (+67%)
+Grasp Quality | Limited to form-closure | Achieves stable force-closure
+/endtable
+
+/subsection My Contributions
+/bullet
+Mechanical and simulation validation: Led the mechanical design and fabrication of the PLATO Hand and validated the simulation model for 5-bar linkage transmission.
+Reward design: Designed and tuned the multi-stage reward functions and curriculum necessary for stable training on thin objects.
+Comparative analysis: Executed experiment training and performed the policy evaluation comparing position- and torque-based control.
+/endbullet

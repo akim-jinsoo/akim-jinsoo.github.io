@@ -1,0 +1,6 @@
+/section Page status
+While the project page is being develop, please take a look at the draft manuscript that was submitted to AIM2026.
+
+/section Manuscript
+/pdf /AIM26_0416_MS.pdf page=1, height=920
+/caption Draft manuscript preview, italic

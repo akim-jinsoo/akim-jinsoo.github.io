@@ -1,0 +1,40 @@
+/section FIRE Program
+
+/subsection Objective
+This project was a part of my Freshman Introduction to Research Engineering (FIRE) Program. Our primary objective was to create an affordable interactive game tailored for children coping with traumatic brain injuries. This need became apparent when our mentor, Professor James Sulzer, shared the story of his daughter, Livie, who had suffered a severe head injury. Professor Sulzer noticed that most available devices in the market were prohibitively expensive for many families.
+
+/subsection Initial Prototype
+Our initial prototype was a simple interactive game where Livie had to match the screen to the board. To keep costs low, we utilized old keyboards and cards to create the mechanical components of the device. During testing, Livie's primary interest seemed to be in testing the prototype's durability rather than playing the game. However, despite this initial challenge, we saw potential in our design.
+
+/image /fire/first-prototype.png fit=contain, height=200
+/caption Initial low-cost prototype assembled from repurposed materials.
+/image /fire/livie.png fit=contain, height=500
+/caption Early user testing session with Livie.
+
+/subsection Final Prototype
+The final prototype marked a significant refinement of our initial concept. We incorporated 3D printed and laser-cut parts to enhance durability, preventing Livie from unintentionally damaging the device. We made keycaps more visually engaging to capture her attention and categorise them. Notably, when Livie answered correctly, the game rewarded her with amusing sounds, which she found highly motivating and enjoyable.
+
+/image /fire/final-prototype.png fit=contain, height=320
+/caption Final interactive game prototype with improved durability and engagement.
+/image /fire/cad-cover.png fit=contain, height=320
+/caption CAD cover design used to protect and stabilize core components.
+/image /fire/cut-parts.png fit=contain, height=320
+/caption Laser-cut and fabricated parts prepared for final assembly.
+
+/subsection Results
+Defining success for our rehabilitation device was rooted in Livie's engagement and interaction.
+
+Engagement:
+/bullet
+Livie exhibited genuine enjoyment while playing the game, particularly delighting in the silly sounds when she provided correct answers.
+She frequently smiled and even attempted to imitate the amusing noises.
+Livie displayed sustained engagement, surpassing our initial expectations.
+/endbullet
+
+Interaction:
+/bullet
+Livie maintained constant contact with the game keys.
+She repeatedly ran her hands over the keys and explored the extrusions and textures we incorporated into the design.
+/endbullet
+
+Our primary goal was to create an affordable rehabilitation device, addressing a significant gap in the market. Remarkably, the total estimated cost of our project, excluding 3D printing, was a mere $29.07. Notably, many of the supplies used were readily available household items, enhancing accessibility. Furthermore, since we coded the games in JavaScript and HTML, there is potential to display them on a website, allowing widespread access without the need for local file copies on users' computers. This project not only holds promise for Livie's rehabilitation but also offers a cost-effective solution for others facing similar challenges.
