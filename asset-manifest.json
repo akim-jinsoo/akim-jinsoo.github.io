@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "https://www.aaronjkim.com/static/css/main.901f8762.css",
-    "main.js": "https://www.aaronjkim.com/static/js/main.7efbe211.js",
+    "main.css": "https://www.aaronjkim.com/static/css/main.f98239c2.css",
+    "main.js": "https://www.aaronjkim.com/static/js/main.0b0a4858.js",
     "static/js/453.0c4475c6.chunk.js": "https://www.aaronjkim.com/static/js/453.0c4475c6.chunk.js",
     "static/media/plato.txt": "https://www.aaronjkim.com/static/media/plato.d217e03d9c9bc7da00ea.txt",
     "static/media/car.txt": "https://www.aaronjkim.com/static/media/car.63bc272c46f7e02e1a27.txt",
-    "static/media/plato_rl.txt": "https://www.aaronjkim.com/static/media/plato_rl.607e3684e93dc7e5f9de.txt",
+    "static/media/plato_rl.txt": "https://www.aaronjkim.com/static/media/plato_rl.6f0835507ac2154cb4ed.txt",
     "static/media/hcrl-ugrad-research.txt": "https://www.aaronjkim.com/static/media/hcrl-ugrad-research.be1e28a2664426cd1816.txt",
     "static/media/low-cost-single-actuator-anthropomorphic-hand.txt": "https://www.aaronjkim.com/static/media/low-cost-single-actuator-anthropomorphic-hand.df4103b87562298026ba.txt",
     "static/media/hand-designs.txt": "https://www.aaronjkim.com/static/media/hand-designs.4affa3d696e8200e03c9.txt",
-    "static/media/sony.txt": "https://www.aaronjkim.com/static/media/sony.108b1c798d5eddc906fc.txt",
-    "static/media/fire.txt": "https://www.aaronjkim.com/static/media/fire.c17df4645bdf3d28e8e5.txt",
+    "static/media/sony.txt": "https://www.aaronjkim.com/static/media/sony.1d563e0d4dd47516b2aa.txt",
+    "static/media/fire.txt": "https://www.aaronjkim.com/static/media/fire.1c063944ff18f617e4a0.txt",
     "static/media/hero.txt": "https://www.aaronjkim.com/static/media/hero.b7d0bd84a4c931043824.txt",
-    "static/media/hockey.txt": "https://www.aaronjkim.com/static/media/hockey.765fff2a22bf76389b1f.txt",
-    "static/media/battle.txt": "https://www.aaronjkim.com/static/media/battle.5ced7f02b2872df2ad81.txt",
-    "static/media/samsung.txt": "https://www.aaronjkim.com/static/media/samsung.161dfde1e69af2bc7c17.txt",
+    "static/media/hockey.txt": "https://www.aaronjkim.com/static/media/hockey.557930a66c16c2344f69.txt",
+    "static/media/battle.txt": "https://www.aaronjkim.com/static/media/battle.e348200cd4b56024d362.txt",
+    "static/media/samsung.txt": "https://www.aaronjkim.com/static/media/samsung.81c23a8d843a46b3beb1.txt",
     "index.html": "https://www.aaronjkim.com/index.html",
     "static/media/aristo.txt": "https://www.aaronjkim.com/static/media/aristo.e632214772870c499247.txt",
-    "main.901f8762.css.map": "https://www.aaronjkim.com/static/css/main.901f8762.css.map",
-    "main.7efbe211.js.map": "https://www.aaronjkim.com/static/js/main.7efbe211.js.map",
+    "main.f98239c2.css.map": "https://www.aaronjkim.com/static/css/main.f98239c2.css.map",
+    "main.0b0a4858.js.map": "https://www.aaronjkim.com/static/js/main.0b0a4858.js.map",
     "453.0c4475c6.chunk.js.map": "https://www.aaronjkim.com/static/js/453.0c4475c6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.901f8762.css",
-    "static/js/main.7efbe211.js"
+    "static/css/main.f98239c2.css",
+    "static/js/main.0b0a4858.js"
   ]
 }
