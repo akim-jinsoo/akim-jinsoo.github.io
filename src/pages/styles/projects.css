@@ -129,6 +129,27 @@
 .markup-video {
 	margin: 12px 0;
 }
+
+.markup-pdf-wrap {
+	margin: 12px 0 18px 0;
+	border: 1px solid var(--side-border);
+	border-radius: 10px;
+	overflow: hidden;
+	background: var(--card-bg);
+	position: relative;
+}
+
+.markup-pdf {
+	display: block;
+	width: 100%;
+	border: 0;
+	background: #fff;
+}
+
+[data-theme="dark"] .markup-pdf {
+	background: #0b2230;
+}
+
 .video-caption {
 	margin-top: 6px;
 	font-size: 13px;
@@ -188,10 +209,10 @@
 }
 
 .markup-image-caption {
-    margin-top: 8px;
-    color: var(--secondary-color);
-    text-align: center;
-    font-size: 0.9em;
+	margin: 8px 0 18px 0;
+	color: var(--secondary-color);
+	text-align: center;
+	font-size: 0.9em;
 }
 
 /* Back to Experience button */

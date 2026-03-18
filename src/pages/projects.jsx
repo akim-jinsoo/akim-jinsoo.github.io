@@ -72,7 +72,7 @@ const Experience = () => {
 						</div>
 
 						<div className={`subtitle projects-subtitle ${mounted ? "animate-fade-up" : ""}`} style={{ animationDelay: mounted ? "120ms" : "0ms" }}>
-							I've worked on a variety of projects over the years, gaining experience that has shaped my approach to engineering and research. My current focus is on robotic manipulation and mechanical design, while I continue to expand into artificial intelligence and machine learning to enhance perception and control in robotics. WARNING: !!!Underdevelopment!!! In the process of switching to a new portfolio format, some projects may be temporarily be incomplete.
+							I've worked on a variety of projects over the years, gaining experience that has shaped my approach to engineering and research. My current focus is on robotic manipulation and mechanical design, while I continue to expand into artificial intelligence and machine learning to enhance perception and control in robotics.
  						</div>
 
 						<div className={`projects-list ${mounted ? "animate-fade-up" : ""}`} style={{ animationDelay: mounted ? "200ms" : "0ms" }}>

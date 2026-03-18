@@ -1,0 +1,138 @@
+.homepage-publications {
+	width: 100%;
+	padding-top: 30px;
+}
+
+.homepage-publications .card-body {
+	padding-top: 16px;
+}
+
+.publications-body {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.homepage-publication-item {
+	padding: 12px;
+	border-radius: 8px;
+	background-color: var(--side-bg);
+	border: 1px solid var(--side-border);
+	transition: all 0.3s ease;
+}
+
+.homepage-publication-item:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.publication-item-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 12px;
+	margin-bottom: 8px;
+}
+
+.publication-item-title {
+	font-weight: 600;
+	font-size: 0.95rem;
+	color: var(--primary-color);
+	line-height: 1.4;
+	flex: 1;
+}
+
+.publication-item-year {
+	flex-shrink: 0;
+	font-weight: 600;
+	color: var(--link-color);
+	font-size: 0.9rem;
+}
+
+.publication-item-authors {
+	font-size: 0.85rem;
+	color: var(--secondary-color);
+	margin-bottom: 6px;
+	line-height: 1.4;
+}
+
+.publication-authors-preview {
+	font-style: italic;
+}
+
+.publication-item-venue {
+	font-size: 0.8rem;
+	color: var(--tertiary-color);
+}
+
+.publication-item-links {
+	margin-top: 8px;
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.publication-link {
+	font-size: 0.8rem;
+	color: var(--link-color);
+	text-decoration: none;
+	font-weight: 600;
+	padding: 4px 8px;
+	border-radius: 4px;
+	transition: all 0.2s ease;
+}
+
+.publication-link:hover {
+	text-decoration: underline;
+	opacity: 0.8;
+}
+
+.publications-footer {
+	margin-top: 8px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.publications-link {
+	color: var(--link-color);
+	text-decoration: none;
+	font-weight: 600;
+	font-style: italic;
+	font-size: 0.9rem;
+}
+
+.publications-link:hover {
+	text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+	.publications-body {
+		gap: 12px;
+	}
+
+	.homepage-publication-item {
+		padding: 10px;
+	}
+}
+
+@media (max-width: 600px) {
+	.publications-body {
+		gap: 10px;
+	}
+
+	.homepage-publication-item {
+		padding: 8px;
+	}
+
+	.publication-item-title {
+		font-size: 0.9rem;
+	}
+
+	.publication-item-authors {
+		font-size: 0.8rem;
+	}
+
+	.publication-item-venue {
+		font-size: 0.75rem;
+	}
+}

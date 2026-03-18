@@ -9,6 +9,8 @@ import fire from "../projects/fire.txt";
 import hockey from "../projects/hockey.txt";
 import battle from "../projects/battle.txt";
 import car from "../projects/car.txt";
+import lowCostAnthroHand from "../projects/low-cost-single-actuator-anthropomorphic-hand.txt";
+import handDesigns from "../projects/hand-designs.txt";
 
 const MARKUPS = {
   aristo,
@@ -22,6 +24,8 @@ const MARKUPS = {
   hockey,
   battle,
   car,
+  lowCostAnthroHand,
+  handDesigns,
 };
 
 export default MARKUPS;

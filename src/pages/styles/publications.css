@@ -1,10 +1,12 @@
 .publications-container {
-  max-width: 900px;
+  max-width: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
   height: 100%;
   padding-top: 120px;
+  padding-left: 16px;
+  padding-right: 16px;
   /* Ensure the page fills the viewport so footer sits at the bottom when content is short.
     Use a slightly larger visible area so the footer is pushed lower on short lists. */
   min-height: calc(100vh - 40px); /* slightly less subtraction to extend the page */
@@ -121,7 +123,7 @@
 }
 
 .publication-title {
-  color: #222; /* dark gray */
+  color: var(--primary-color);
   font-weight: 600;
   text-decoration: none;
   font-size: 1rem; /* match year size */
@@ -131,11 +133,11 @@
 .publication-title:hover {
   /* keep interaction but do not underline or change color */
   text-decoration: none;
-  color: #222;
+  color: var(--primary-color);
 }
 
 .publication-year {
-  color: #666;
+  color: var(--secondary-color);
   font-size: 1rem; /* match title */
   opacity: 0.9;
   flex: 0 0 auto;
@@ -143,7 +145,7 @@
 }
 
 .publication-meta {
-  color: #444;
+  color: var(--secondary-color);
   font-size: 0.95rem;
   margin-bottom: 8px;
 }
@@ -158,7 +160,7 @@
 }
 
 .publication-authors-more {
-  color: #333;
+  color: var(--primary-color);
   font-style: italic;
 }
 
@@ -184,9 +186,9 @@
   position: absolute;
   left: 0;
   top: 1.6em;
-  background: #fff;
-  border: 1px solid #e6e6e6;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  background: var(--side-bg);
+  border: 2px solid var(--tertiary-color);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   padding: 8px 10px;
   border-radius: 8px;
   white-space: nowrap;
@@ -194,7 +196,7 @@
 }
 
 .publication-abstract {
-  color: #333;
+  color: var(--primary-color);
   font-size: 0.95rem;
   line-height: 1.3;
 }

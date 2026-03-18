@@ -2,7 +2,7 @@ const INFO = {
 	main: {
 		title: "Online Portfolio",
 		name: "Aaron Kim",
-		email: "akim2002@utexas.edu",
+		email: "akim.jinsoo@gmail.com",
  		logo: "../logo.png", //TODO change logo to my logo
 		universityLogo: "../ut-logo.png",
 	},
@@ -34,7 +34,7 @@ const INFO = {
 			institution: "The University of Texas at Austin",
 			period: "August 2024 - May 2026",
 			gpa: "3.8/4.0",
-			description: "Relevant Coursework: Sensor-based algorithms, Robot Manipulation Learning, Learning for dynamics and control",
+			description: "Relevant Coursework: Sensor-based algorithms, Robot Manipulation Learning, Modern Control, Learning for dynamics and control",
 			awards: [
 				"Award: NSF Research Traineeship Recipient"
 			],
@@ -78,6 +78,16 @@ const INFO = {
 				"Utilizing Isaac Lab for simulating and training PLATO/ARISTO Hand for manipulation tasks.",
 			logo: "./rl.gif",
 			longMarkupKey: "rl",
+			category: "research",
+		},
+
+		{
+			title: "Hand Designs",
+			slug: "hand-designs",
+			description:
+				"Unrealized hand design concepts and iterations.",
+			logo: "./hand-design/aristo-apple.png",
+			longMarkupKey: "handDesigns",
 			category: "research",
 		},
 
@@ -142,6 +152,16 @@ const INFO = {
 			logo: "./fire.png",
 			longMarkupKey: "fire",
 			category: "research",
+		},
+
+		{
+			title: "Low-cost, Single-Actuator Anthropomorphic Hand",
+			slug: "low-cost-single-actuator-anthropomorphic-hand",
+			description:
+				"ME 380R",
+			logo: "./low-cost-hand/minimal-hand.jpeg",
+			longMarkupKey: "lowCostAnthroHand",
+			category: "course",
 		},
 
 		{

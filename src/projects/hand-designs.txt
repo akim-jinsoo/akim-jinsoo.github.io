@@ -1,0 +1,61 @@
+/section About 
+This page showcases hand designs that were explored but never fully realized due to technical constraints, shifting project priorities, and research direction changes. Although these iterations were not completed, they represent important design steps in the evolution of my robotic hand development work.
+
+/section PLATO + Hand
+The idea of this iteration of Plato Hand was to improve upon power grasping capabilites of the older hand. In order to do this, I added the missing joint/linkage (distal phalanx).
+/image /hand-design/plato-cad.png fit=contain, height=320
+/caption CAD model of upgraded PLATO Hand with added distal phalanx.
+The original design used a 5-bar linkage, but extending it introduced singularities. To resolve this, the mechanism was redesigned as a double 4-bar linkage.
+/image /hand-design/plato-old-new.png fit=contain, height=320
+/caption Comparison of original 5-bar vs. redesigned double 4-bar linkage.
+The updated design maintains a wide range of motion and enables precise pinching across various object sizes.
+/image /hand-design/plato-precision-grasp.png fit=contain, height=320
+/caption Precision grasp demonstration with improved range of motion.
+With the added linkage, the hand achieves improved power grasping, allowing more even force distribution around grasped objects.
+/image /hand-design/plato-power-grasp.png fit=contain, height=320
+/caption Power grasp test showing improved force distribution.
+
+/section PLATO 2.0 Hand
+This was another proposed future iteration of PLATO Hand. 
+/image /hand-design/platov3-cad.png fit=contain, height=340
+/caption CAD model of PLATO 2.0 with compact finger modules and integrated electronics.
+This iteration of the hand has serveral new changes:
+
+More compact finger module.
+/image /hand-design/platov3-finger-design.png fit=contain, height=320
+/caption Redesigned compact finger module for reduced footprint.
+/image /hand-design/plato-v3-mcp.gif fit=contain, height=320
+/caption MCP (metacarpophalangeal) joint flexion demonstration.
+/image /hand-design/plato-v3-pip.gif fit=contain, height=320
+/caption PIP and DIP (proximal/distal interphalangeal) joint flexion.
+
+Linear motor assembly with onboard motor driver and encoder
+/image /hand-design/platov3-motor-config.png fit=contain, height=320
+/caption Integrated motor driver and encoder configuration.
+
+MCP Abduction/adduction
+/image /hand-design/platov3-MCP-ab:adduction.png fit=contain, height=320
+/caption MCP abduction/adduction capability.
+
+Multi-modal grasping configuration. The thumb rotates 180 degrees, allowing 3 finger + 1 thumb or 4 finger configuration.
+/image /hand-design/platov3-multi-modal-grasping.png fit=contain, height=320
+/caption Multi-modal grasping showing 180-degree thumb rotation capability.
+
+Hyperextension. This hand was being developed the same time as ARISTO Hand, but intended to take longer to develop.
+/image /hand-design/platov3-hyperextension.png fit=contain, height=320
+/caption Hyperextension capability for enhanced reach and manipulation.
+
+/section ARISTO + Hand
+The new iteration of the ARISTO hand upgrades the hand to a small and more-anthropomorphic hand. The hand was upgraded to a 5-finger design. 
+/image /hand-design/aristo-apple.png fit=contain, height=320
+/caption Five-finger ARISTO Hand grasp test.
+
+The antagonistic tendon routing was replaced with a torsional spring, reducing system complexity and eliminating the need for a tensioning mechanism.
+/image /hand-design/aristo-routing.jpg fit=contain, height=320
+/caption Simplified torsional spring routing compared to antagonistic tendons.
+
+The design retains the rigid fingernail for precise small-object interaction and maintains distal hyperextension.
+/image /hand-design/aristo-nail.png fit=contain, height=320
+/caption Rigid fingernail design for precision small-object manipulation.
+/image /hand-design/aristo-hyperextenion.png fit=contain, height=320
+/caption Distal hyperextension capability for enhanced dexterity.

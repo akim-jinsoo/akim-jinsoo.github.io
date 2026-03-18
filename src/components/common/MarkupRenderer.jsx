@@ -11,6 +11,7 @@ import React from "react";
 // list lines use indentation (tabs or 2 spaces) for nesting
 // /image URL [opt1,opt2]    -> image box, opts: aspect=16:9, height=300, crop=center, fit=contain
 // /video URL [caption]      -> video element with optional caption text
+// /pdf URL [opt1,opt2]      -> embedded pdf, opts: page=1, height=900
 // /caption Text[, italic]   -> caption rendered beneath previous image (or standalone)
 // /table                    -> begin table block (first row is header)
 // /endtable                 -> end table block
@@ -67,11 +68,15 @@ const parseToNodes = (content = "") => {
   let listItems = [];
   let inTable = false;
   let tableRows = [];
+  let queuedMedia = []; // Media nodes to add after list closes
 
   const flushList = () => {
     if (!inList) return;
     const nested = buildNestedFromLines(listItems);
     nodes.push({ type: inList === "ordered" ? "olist" : "ulist", items: nested });
+    // Add queued media nodes after the list
+    nodes.push(...queuedMedia);
+    queuedMedia = [];
     inList = null;
     listItems = [];
   };
@@ -164,7 +169,7 @@ const parseToNodes = (content = "") => {
     }
 
     if (line.startsWith("/image ")) {
-      flushList();
+      if (!inList) flushList();
       flushTable();
       const m = rawLine.match(/^\/image\s+(\S+)(?:\s+(.+))?$/);
       if (m) {
@@ -190,7 +195,12 @@ const parseToNodes = (content = "") => {
             }
           });
         }
-        nodes.push({ type: "image", url, aspect, height, crop, fit });
+        const imageNode = { type: "image", url, aspect, height, crop, fit };
+        if (inList) {
+          queuedMedia.push(imageNode);
+        } else {
+          nodes.push(imageNode);
+        }
         continue;
       }
     }
@@ -205,8 +215,38 @@ const parseToNodes = (content = "") => {
       }
     }
 
-    if (line.startsWith("/caption ")) {
+    if (line.startsWith("/pdf ")) {
       flushList();
+      flushTable();
+      const m = rawLine.match(/^\/pdf\s+(\S+)(?:\s+(.+))?$/);
+      if (m) {
+        const url = m[1];
+        const optsRaw = (m[2] || "").trim();
+        let page = null;
+        let height = 900;
+
+        if (optsRaw) {
+          const opts = optsRaw.split(",").map((s) => s.trim()).filter(Boolean);
+          opts.forEach((o) => {
+            const [k, v] = o.split(/=\s*/).map((s) => s.trim());
+            const keyName = (k || "").toLowerCase();
+            if (keyName === "page") {
+              const n = parseInt(v || "", 10);
+              if (!Number.isNaN(n) && n > 0) page = n;
+            } else if (keyName === "height") {
+              const n = parseInt(v || k, 10);
+              if (!Number.isNaN(n) && n > 0) height = n;
+            }
+          });
+        }
+
+        nodes.push({ type: "pdf", url, page, height });
+        continue;
+      }
+    }
+
+    if (line.startsWith("/caption ")) {
+      if (!inList) flushList();
       flushTable();
       const m = rawLine.match(/^\/caption\s+(.+)$/);
       if (m) {
@@ -234,7 +274,12 @@ const parseToNodes = (content = "") => {
             if (o.toLowerCase() === "italic" || o.toLowerCase() === "italic=true" || o === "1") italic = true;
           });
         }
-        nodes.push({ type: "caption", text: captionText, italic });
+        const captionNode = { type: "caption", text: captionText, italic };
+        if (inList) {
+          queuedMedia.push(captionNode);
+        } else {
+          nodes.push(captionNode);
+        }
         continue;
       }
     }
@@ -269,6 +314,19 @@ const resolveMediaUrl = (url) => {
   if (!url) return url;
   if (/^\w+:\/\//.test(url) || url.startsWith("/")) return url;
   return "/" + url.replace(/^(?:\.\/|\.\.\/)+/, "");
+};
+
+const buildPdfEmbedUrl = (url, page) => {
+  const base = resolveMediaUrl(url);
+  if (!base) return base;
+
+  const fragments = [];
+  if (page && Number.isFinite(page)) fragments.push(`page=${page}`);
+  // Hide browser PDF UI where supported (best effort; not security).
+  fragments.push("toolbar=0", "navpanes=0", "scrollbar=0", "view=FitH");
+
+  const separator = base.includes("#") ? "&" : "#";
+  return `${base}${separator}${fragments.join("&")}`;
 };
 
 const MarkupRenderer = ({ content }) => {
@@ -437,6 +495,23 @@ const MarkupRenderer = ({ content }) => {
           </div>
         );
         break;
+      case "pdf": {
+        const src = buildPdfEmbedUrl(node.url, node.page);
+        out.push(
+          <div key={key} className="markup-pdf-wrap">
+            <iframe
+              title={`PDF ${i + 1}`}
+              src={src}
+              className="markup-pdf"
+              style={{ height: `${node.height || 900}px` }}
+              loading="lazy"
+              referrerPolicy="no-referrer"
+              onContextMenu={(e) => e.preventDefault()}
+            />
+          </div>
+        );
+        break;
+      }
       case "table": {
         out.push(
           <div key={key} className="markup-table-wrap">

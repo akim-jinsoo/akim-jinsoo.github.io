@@ -26,6 +26,7 @@ const ProjectDetail = () => {
     }, []);
 
     const project = INFO.projects.find((p) => p.slug === slug && !p.hidden);
+    const isAristo = project?.slug === "aristo";
     const isPlatoHand = project?.slug === "plato";
     const currentSEO = SEO.find((item) => item.page === "projects") || {};
 
@@ -117,6 +118,36 @@ const ProjectDetail = () => {
             }
         }
     }, [isPlatoHand]);
+
+    useEffect(() => {
+        if (!isAristo) return;
+
+        const blockContextMenu = (e) => {
+            const container = document.querySelector(".project-detail-body");
+            if (container && container.contains(e.target)) {
+                e.preventDefault();
+            }
+        };
+
+        const blockShortcuts = (e) => {
+            const key = (e.key || "").toLowerCase();
+            const cmdOrCtrl = e.metaKey || e.ctrlKey;
+            if (!cmdOrCtrl) return;
+
+            if (key === "s" || key === "p") {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        };
+
+        document.addEventListener("contextmenu", blockContextMenu);
+        window.addEventListener("keydown", blockShortcuts, true);
+
+        return () => {
+            document.removeEventListener("contextmenu", blockContextMenu);
+            window.removeEventListener("keydown", blockShortcuts, true);
+        };
+    }, [isAristo]);
 
     
 

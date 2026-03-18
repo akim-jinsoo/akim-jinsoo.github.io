@@ -10,6 +10,7 @@ import Footer from "../components/common/footer";
 import NavBar from "../components/common/navBar";
 import About from "../components/homepage/about";
 import Projects from "../components/homepage/projects";
+import Publications from "../components/homepage/publications";
 import Works from "../components/homepage/works";
 import Education from "../components/homepage/education";
 
@@ -230,6 +231,13 @@ const Homepage = () => {
 								style={{ animationDelay: mounted ? (fromSplash ? '1000ms' : '290ms') : '0ms' }}
 							>
 								<Projects />
+							</div>
+
+							<div 
+								className={`${fromSplash ? 'pre-animate' : ''} ${mounted ? 'animate-fade-up' : ''}`} 
+								style={{ animationDelay: mounted ? (fromSplash ? '1050ms' : '305ms') : '0ms' }}
+							>
+								<Publications />
 							</div>
 
 							<div 

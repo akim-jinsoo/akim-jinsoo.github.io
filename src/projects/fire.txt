@@ -6,8 +6,20 @@ This project was a part of my Freshman Introduction to Research Engineering (FIR
 /subsection Initial Prototype
 Our initial prototype was a simple interactive game where Livie had to match the screen to the board. To keep costs low, we utilized old keyboards and cards to create the mechanical components of the device. During testing, Livie's primary interest seemed to be in testing the prototype's durability rather than playing the game. However, despite this initial challenge, we saw potential in our design.
 
+/image /fire/first-prototype.png fit=contain, height=200
+/caption Initial low-cost prototype assembled from repurposed materials.
+/image /fire/livie.png fit=contain, height=500
+/caption Early user testing session with Livie.
+
 /subsection Final Prototype
 The final prototype marked a significant refinement of our initial concept. We incorporated 3D printed and laser-cut parts to enhance durability, preventing Livie from unintentionally damaging the device. We made keycaps more visually engaging to capture her attention and categorise them. Notably, when Livie answered correctly, the game rewarded her with amusing sounds, which she found highly motivating and enjoyable.
+
+/image /fire/final-prototype.png fit=contain, height=320
+/caption Final interactive game prototype with improved durability and engagement.
+/image /fire/cad-cover.png fit=contain, height=320
+/caption CAD cover design used to protect and stabilize core components.
+/image /fire/cut-parts.png fit=contain, height=320
+/caption Laser-cut and fabricated parts prepared for final assembly.
 
 /subsection Results
 Defining success for our rehabilitation device was rooted in Livie's engagement and interaction.

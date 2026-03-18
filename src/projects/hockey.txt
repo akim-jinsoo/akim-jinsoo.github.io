@@ -6,20 +6,34 @@ The challenge involved detecting three possible goals, each emitting a unique IR
 Our team of five collaborated to design, prototype, and build a functional system capable of autonomous operation.
 
 /subsection First Prototype
+/image /hockey/hockey-lego.gif fit=contain, height=320
+/caption LEGO-based rapid prototype used to validate flywheel shooting.
 I began by building a rapid prototype using LEGO components and a small motor to test the flywheel concept for shooting.  
 This initial version confirmed the mechanical feasibility of using a flywheel-based shooter.
 
 /subsection Second Prototype
+/image /hockey.png fit=contain, height=320
+/caption Early second-iteration prototype with improved shooter and puck loading.
 Based on insights from the first iteration, I designed an improved mechanical shooter and puck loader using 3D printing and laser-cut plywood.  
 The design emphasized simplicity, cost efficiency, and modularity for quick testing.  
+
+/image /hockey/hockey-shoot.gif fit=contain, height=320
+/caption Live shooting test of the second prototype.
+
 I also handled the electrical system, wiring, and motor control.  
 We used two L298N H-Bridge drivers controlled via an Arduino and Raspberry Pi combination, with code written in both the Arduino IDE and Python.  
 My main focus was motor synchronization, encoder feedback, and control stability.
 
+/image /hockey/hockey-wheel.gif fit=contain, height=320
+/caption Wheel and drivetrain tuning during control testing.
+
 /subsection Final Robot
+/image /hockey/final-bot.JPEG fit=contain, height=400
+/caption Final autonomous hockey robot after chassis and drivetrain redesign.
 Through testing, we identified structural weaknesses in the chassis and motor mounts, as well as control instability with the mecanum wheels.  
 We transitioned to a tank drive configuration for greater stability and replaced the chassis with laser-cut acrylic for higher rigidity.  
 These changes significantly improved mobility and overall robustness.
+
 
 /subsection Summary
 The Hockey Bot project strengthened my understanding of mechatronic integration—combining mechanical design, electronics, and embedded software.  
