@@ -15,13 +15,13 @@ const INFO = {
 	homepage: {
 		title: "Hello! I'm Aaron",
 		description:
-			"A Graduate student in Mechanical Engineering at UT Austin, specializing in mechanical design, robotic manipulation, and machine learning.",
+			"A PhD student in Mechanical Engineering at UT Austin, specializing in mechanical design, robotic manipulation, and machine learning.",
 	},
 
 	// About section (editable content for the homepage About card)
 	about: {
 		paragraphs: [
-			"I’m pursuing an integrated master’s degree in Mechanical Engineering at The University of Texas at Austin, specializing in dynamic systems and control. My research experience comes primarily from working with Dr. Luis Sentis at the Human-Centered Robotics Lab, where I focus on robotic manipulation and learning-based control.",
+			"I'm a 3rd year graduate student, pursuing my PhD in Mechanical Engineering at The University of Texas at Austin, specializing in dynamic systems and control. My research experience comes primarily from working with Dr. Luis Sentis at the Human-Centered Robotics Lab, where I focus on dexterous robotic hand design, contact-rich manipulation, and learning-based control for thin-object grasping.",
 			"My passion for robotics drives me to design, build, and test systems that bridge mechanical design, control theory, and machine intelligence. This portfolio highlights a range of projects that reflect my hands-on approach to solving complex robotics problems.",
 			"Outside of engineering, I enjoy photography, cooking, traveling, and spending time in the garage as a self-taught mechanic.",
 			"Feel free to reach out via LinkedIn or email; I’m always open to connecting about research or industry collaborations."
@@ -29,6 +29,11 @@ const INFO = {
 	},
 
 	education: [
+		{
+			degree: "Ph.D. in Mechanical Engineering",
+			institution: "The University of Texas at Austin",
+			period: "May 2026 - Present",
+		},
 		{
 			degree: "M.S. in Mechanical Engineering",
 			institution: "The University of Texas at Austin",

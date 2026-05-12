@@ -34,7 +34,7 @@ Linear motor assembly with onboard motor driver and encoder
 /caption Integrated motor driver and encoder configuration.
 
 MCP Abduction/adduction
-/image /hand-design/platov3-MCP-ab:adduction.png fit=contain, height=320
+/image /hand-design/platov3-MCP-ab_adduction.png fit=contain, height=320
 /caption MCP abduction/adduction capability.
 
 Multi-modal grasping configuration. The thumb rotates 180 degrees, allowing 3 finger + 1 thumb or 4 finger configuration.

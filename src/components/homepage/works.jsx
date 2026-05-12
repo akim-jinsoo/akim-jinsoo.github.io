@@ -15,6 +15,21 @@ const Works = () => {
 					<div className="works-body">
 						<div className="work">
 							<img
+								src="./dyna_robotics_logo.jpg"
+								alt="Dyna Robotics"
+								className="work-image"
+							/>
+							<div className="work-content">
+								<div className="work-header">
+									<div className="work-title">Dyna Robotics</div>
+									<div className="work-duration">Coming Soon</div>
+								</div>
+								<div className="work-subtitle">Member of Technical Staff, Hardware Intern</div>
+							</div>
+						</div>
+
+						<div className="work">
+							<img
 								src="./hcrl.png"
 								alt="hcrl"
 								className="work-image"
@@ -22,7 +37,7 @@ const Works = () => {
 							<div className="work-content">
 								<div className="work-header">
 									<div className="work-title">Human Centered Robotics Lab</div>
-									<div className="work-duration">August 2024 - Present</div>
+									<div className="work-duration">August 2024 - May 2026</div>
 								</div>
 								<div className="work-subtitle">Graduate Student Fellow</div>
 							</div>
