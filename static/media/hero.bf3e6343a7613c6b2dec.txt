@@ -1,0 +1,39 @@
+/section Project Objective
+At the Human-Enabled Robotic Technology (HeRo) Lab, I led the development of an autonomous mouse testing platform designed to support pharmaceutical research on dynamic allodynia (pain caused by light touch).
+The goal was to replace manual, subjective testing with an automated system to improve consistency, data throughput, and reproducibility in neurological pain studies.
+
+/section Iterative Design Evolution
+/table
+Phase | Design Focus | Key Features | Challenges
+Prototype 1 | Proof of Concept | Single-channel; dual-environment (light/dark) chamber. | High manufacturing complexity; difficult to replicate.
+Prototype 2 | Scalability | 5-channel laser-cut acrylic construction; wire mesh integration. | Material inefficiency; labor-intensive assembly.
+Final Iteration | Modular Production | 6-channel aluminum extrusion frame; Arduino Mega control. | Simplified the design; near testing phase.
+/endtable
+
+/image /hero/5-channel.png fit=contain, height=360
+/caption Design of five-channel acrylic design focused on scalability.
+/image /hero/6-channel.png fit=contain, height=360
+/caption Final six-channel design with aluminum frame.
+
+/section Technical Implementation
+The system leverages a preference-based behavioral signal. Since mice naturally prefer dark environments, the device applies light brush strokes at random intervals within the dark zone. Mice experiencing allodynia retreat to the light zone, and this movement is tracked by IR sensors to quantify pain sensitivity.
+
+/section Hardware and Control
+/bullet
+Structure: Shifted from acrylic to 6061 aluminum extrusions, significantly reducing weight while increasing structural rigidity and ease of maintenance.
+Actuation: Integrated a 12V DC motor equipped with a CPR (Counts Per Revolution) encoder for sub-millimeter precision in brush stroke velocity and positioning.
+Automation: Developed the control logic on an Arduino Mega, managing 12+ IR sensor inputs and multi-channel motor outputs for fully autonomous data collection.
+/endbullet
+
+/image /hero/prototype.png fit=contain, height=360
+/caption Built prototype of the six-channel design.
+
+/section Results and Intellectual Property
+The project successfully moved from a fragile single-channel concept to a robust, 6-channel modular platform.
+/bullet
+Patent Status: A provisional patent application was filed, however, was not accepted due to the large number of application that cycle.
+Current Status: The project is on indefinite hold.
+/endbullet
+
+/section Summary
+The Mouse Haptic project represents a multidisciplinary integration of mechanical design, embedded systems, and behavioral science. By automating the stimulus and response loop, the system removes human bias from pain research and scales testing capacity by 600% compared to the initial prototype.

@@ -1,0 +1,58 @@
+/section Introduction
+The human hand is a complex assembly capable of remarkable precision. Replicating this in robotics typically requires dozens of actuators, leading to high manufacturing costs. This project explores an alternative path: achieving adaptive, multi-finger motion using a single linear motor and mechanically interconnected linkages. By prioritizing underactuated design, we developed a functional robotic hand for under $100.
+
+/image /low-cost-hand/minimal-hand.jpeg fit=contain, height=360
+/caption Final low-cost anthropomorphic hand prototype.
+
+/section The Problem Statement
+Modern robotic hands often rely on precisely toleranced cables and numerous motors, driving up complexity. Our goal was to eliminate these barriers:
+/bullet
+Actuator Reduction: Replace 20+ motors with a single linear actuator and rigid linkages.
+Adaptive Grasping: Integrate mechanical compliance to allow the hand to grasp objects of differing shapes without complex sensor feedback.
+Affordability: Utilize 3D-printed components and off-the-shelf hardware to keep the total bill of materials (BOM) below $100.
+/endbullet
+
+/image /low-cost-hand/hand-cad.png fit=contain, height=340
+/caption CAD model used for packaging and clearance validation.
+
+/section Mechanical Architecture
+The design is split into the finger kinematics and the central driving mechanism housed within the palm.
+
+/subsection 1) Finger Kinematics: Colocated 4-Bar Linkages
+Each finger utilizes a crossing 4-bar linkage acting as a crank.
+/bullet
+Coordinated Motion: Two colocated linkages allow all three joints of the finger to operate in unison for full flexion and extension.
+Streamlined Design: We forfeited side to side (abduction/adduction) movements to maximize the reliability of the grasping arc while keeping parts counts low.
+/endbullet
+
+/image /low-cost-hand/linkage.png fit=contain, height=320
+/caption Colocated 4-bar linkage architecture for synchronized finger flexion.
+/image /low-cost-hand/finger-design.png fit=contain, height=320
+/caption Test print of the finger mechanism.
+
+
+/subsection 2) The Palm and Driving Mechanism
+The palm serves as the structural housing for the drivetrain, enabling five-finger actuation from a single source.
+/bullet
+Spring-Loaded Distribution: The linear motor drives the four fingers through a spring-linkage system. These springs allow individual fingers to stall upon contact while the motor continues to move, ensuring the remaining fingers finish their closing motion around the object.
+Thumb Actuation: The thumb utilizes a double rack and pinion system. This redirects the motor's linear force into the necessary opposing orientation to enable a secure power grasp.
+/endbullet
+
+/image /low-cost-hand/hand-palm.gif fit=contain, height=400
+/caption Palm drivetrain demonstration showing centralized single-actuator motion.
+
+/section My Contributions
+Working in a team of two, I led the mechanical design and kinematic synthesis of the system:
+/bullet
+Linkage Optimization: Iterated on link lengths to ensure the grasping arc mirrored human anatomy while maintaining mechanical advantage.
+CAD and Prototyping: Modeled the full assembly to fit within a realistic human scale while ensuring all internal gears and springs cleared the palm housing.
+Cost Management: Strategically selected materials and 3D-printing parameters to meet the $100 budget goal without sacrificing structural integrity.
+/endbullet
+
+/image /low-cost-hand/hand-tape.JPEG fit=contain, height=400
+/caption Hand grasping a tape dispenser.
+/image /low-cost-hand/hand-wheel.gif fit=contain, height=400
+/caption Mechanism motion test highlighting compliant finger adaptation.
+
+/section Summary
+This project demonstrates that high-fidelity robotic motion is achievable at a low price point. By leveraging underactuated linkages and mechanical compliance, we created a platform capable of handling diverse objects through the simplicity of a single motor and a budget-friendly manufacturing process.
