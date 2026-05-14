@@ -21,9 +21,8 @@ const INFO = {
 	// About section (editable content for the homepage About card)
 	about: {
 		paragraphs: [
-			"I'm a 3rd year graduate student, pursuing my PhD in Mechanical Engineering at The University of Texas at Austin, specializing in dynamic systems and control. My research experience comes primarily from working with Dr. Luis Sentis at the Human-Centered Robotics Lab, where I focus on dexterous robotic hand design, contact-rich manipulation, and learning-based control for thin-object grasping.",
-			"My passion for robotics drives me to design, build, and test systems that bridge mechanical design, control theory, and machine intelligence. This portfolio highlights a range of projects that reflect my hands-on approach to solving complex robotics problems.",
-			"Outside of engineering, I enjoy photography, cooking, traveling, and spending time in the garage as a self-taught mechanic.",
+			"I'm a 3rd year graduate student, pursuing my PhD in Mechanical Engineering at The University of Texas at Austin, specializing in dynamic systems and control. My research experience comes primarily from working with Dr. Luis Sentis at the Human-Centered Robotics Lab, where I focus on robotic hand design and contact-rich manipulation.",
+			"Outside of robotics, I enjoy cooking, cars (working on them and driving them), traveling, photography, and climbing.",
 			"Feel free to reach out via LinkedIn or email; I’m always open to connecting about research or industry collaborations."
 		],
 	},
@@ -215,7 +214,7 @@ const INFO = {
 				{ name: "Tetsuya Narita" },
 				{ name: "Luis Sentis" },
 			],
-			venue: "IEEE/ASME International Conference on Advanced Intelligent Mechatronics (under review)",
+			venue: "IEEE/ASME International Conference on Advanced Intelligent Mechatronics",
 			year: 2026,
 		},
 		{
@@ -229,7 +228,7 @@ const INFO = {
 				{ name: "Tetsuya Narita" },
 				{ name: "Luis Sentis" },
 			],
-			venue: "IEEE Robotics and Automation Letters (under review)",
+			venue: "IEEE Robotics and Automation Letters",
 			year: 2026,
 			links: [
 				{ href: "https://arxiv.org/pdf/2602.05156", label: "arXiv" },
