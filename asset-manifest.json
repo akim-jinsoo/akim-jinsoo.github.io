@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "https://www.aaronjkim.com/static/css/main.f98239c2.css",
-    "main.js": "https://www.aaronjkim.com/static/js/main.1fbff7a2.js",
+    "main.js": "https://www.aaronjkim.com/static/js/main.0641439c.js",
     "static/js/453.0c4475c6.chunk.js": "https://www.aaronjkim.com/static/js/453.0c4475c6.chunk.js",
     "static/media/plato.txt": "https://www.aaronjkim.com/static/media/plato.8fd781918a915c1e1707.txt",
     "static/media/car.txt": "https://www.aaronjkim.com/static/media/car.ea5d804fd5a88ef3a85e.txt",
@@ -18,11 +18,11 @@
     "index.html": "https://www.aaronjkim.com/index.html",
     "static/media/aristo.txt": "https://www.aaronjkim.com/static/media/aristo.afee2c6f998a503af4cf.txt",
     "main.f98239c2.css.map": "https://www.aaronjkim.com/static/css/main.f98239c2.css.map",
-    "main.1fbff7a2.js.map": "https://www.aaronjkim.com/static/js/main.1fbff7a2.js.map",
+    "main.0641439c.js.map": "https://www.aaronjkim.com/static/js/main.0641439c.js.map",
     "453.0c4475c6.chunk.js.map": "https://www.aaronjkim.com/static/js/453.0c4475c6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f98239c2.css",
-    "static/js/main.1fbff7a2.js"
+    "static/js/main.0641439c.js"
   ]
 }
