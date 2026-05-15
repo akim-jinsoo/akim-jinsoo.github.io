@@ -36,7 +36,7 @@ const ProjectDetail = () => {
     const project = INFO.projects.find((p) => p.slug === slug && !p.hidden);
     const isAristo = project?.slug === "aristo";
     const isPlatoHand = project?.slug === "plato";
-    const hasSectionNav = Boolean(project) && !isPlatoHand;
+    const hasSectionNav = Boolean(project) && !isPlatoHand && !isAristo;
     const currentSEO = SEO.find((item) => item.page === "projects") || {};
 
     const [progress, setProgress] = useState(0);
@@ -121,7 +121,7 @@ const ProjectDetail = () => {
 
     useEffect(() => {
         if (isPlatoHand) {
-            const newTab = window.open("https://platohand.github.io/plato/", "_blank", "noopener,noreferrer");
+            const newTab = window.open("https://platohand.github.io/", "_blank", "noopener,noreferrer");
             if (newTab) {
                 newTab.opener = null;
             }
@@ -129,33 +129,12 @@ const ProjectDetail = () => {
     }, [isPlatoHand]);
 
     useEffect(() => {
-        if (!isAristo) return;
-
-        const blockContextMenu = (e) => {
-            const container = document.querySelector(".project-detail-body");
-            if (container && container.contains(e.target)) {
-                e.preventDefault();
+        if (isAristo) {
+            const newTab = window.open("https://aristohand.github.io/", "_blank", "noopener,noreferrer");
+            if (newTab) {
+                newTab.opener = null;
             }
-        };
-
-        const blockShortcuts = (e) => {
-            const key = (e.key || "").toLowerCase();
-            const cmdOrCtrl = e.metaKey || e.ctrlKey;
-            if (!cmdOrCtrl) return;
-
-            if (key === "s" || key === "p") {
-                e.preventDefault();
-                e.stopPropagation();
-            }
-        };
-
-        document.addEventListener("contextmenu", blockContextMenu);
-        window.addEventListener("keydown", blockShortcuts, true);
-
-        return () => {
-            document.removeEventListener("contextmenu", blockContextMenu);
-            window.removeEventListener("keydown", blockShortcuts, true);
-        };
+        }
     }, [isAristo]);
 
     useEffect(() => {
@@ -296,7 +275,38 @@ const ProjectDetail = () => {
                                 Opening the PLATO Hand project site.
                             </div>
                             <p>
-                                If you are not redirected, visit <a href="https://platohand.github.io/plato/">https://platohand.github.io/plato/</a>.
+                                If you are not redirected, visit <a href="https://platohand.github.io/">https://platohand.github.io/</a>.
+                            </p>
+                            <p>
+                                <Link to="/experience" className="back-button">Back to Experience</Link>
+                            </p>
+                        </div>
+                        <div className="page-footer">
+                            <Footer />
+                        </div>
+                    </div>
+                </div>
+            </React.Fragment>
+        );
+    }
+
+    if (isAristo) {
+        return (
+            <React.Fragment>
+                <Helmet>
+                    <title>{`ARISTO Hand | ${INFO.main.title}`}</title>
+                    <meta name="description" content="Redirecting to the ARISTO Hand project site." />
+                </Helmet>
+                <div className="page-content">
+                    <NavBar active="experience" />
+                    <div className="content-wrapper">
+                        <div className="projects-container">
+                            <div className={`title projects-title ${mounted ? 'animate-fade-up' : ''}`}>Redirecting…</div>
+                            <div className={`subtitle projects-subtitle ${mounted ? 'animate-fade-up' : ''}`} style={{ animationDelay: mounted ? '120ms' : '0ms' }}>
+                                Opening the ARISTO Hand project site.
+                            </div>
+                            <p>
+                                If you are not redirected, visit <a href="https://aristohand.github.io/">https://aristohand.github.io/</a>.
                             </p>
                             <p>
                                 <Link to="/experience" className="back-button">Back to Experience</Link>

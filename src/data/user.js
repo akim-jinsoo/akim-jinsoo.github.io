@@ -55,7 +55,7 @@ const INFO = {
 
 	projects: [
 		{
-			title: "ARISTO Hand (in-progress)",
+			title: "ARISTO Hand",
 			slug: "aristo",
 			description:
 				"3 Fingered Robotics Hand inspired by human-like sensing.",
