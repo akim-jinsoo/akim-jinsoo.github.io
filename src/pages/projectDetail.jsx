@@ -264,6 +264,7 @@ const ProjectDetail = () => {
             <React.Fragment>
                 <Helmet>
                     <title>{`PLATO Hand | ${INFO.main.title}`}</title>
+                    <meta name="robots" content="noindex" />
                     <meta name="description" content="Redirecting to the PLATO Hand project site." />
                 </Helmet>
                 <div className="page-content">
@@ -295,6 +296,7 @@ const ProjectDetail = () => {
             <React.Fragment>
                 <Helmet>
                     <title>{`ARISTO Hand | ${INFO.main.title}`}</title>
+                    <meta name="robots" content="noindex" />
                     <meta name="description" content="Redirecting to the ARISTO Hand project site." />
                 </Helmet>
                 <div className="page-content">
@@ -325,6 +327,7 @@ const ProjectDetail = () => {
         <React.Fragment>
             <Helmet>
                 <title>{`${project.title} | ${INFO.main.title}`}</title>
+                <meta name="robots" content="noindex" />
                 <meta name="description" content={project.description || currentSEO.description} />
             </Helmet>
 

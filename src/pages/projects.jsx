@@ -50,6 +50,7 @@ const Experience = () => {
 		<React.Fragment>
 			<Helmet>
 				<title>{`Experience | ${INFO.main.title}`}</title>
+				<meta name="robots" content="noindex" />
 				<meta name="description" content={currentSEO.description} />
 				<meta
 					name="keywords"

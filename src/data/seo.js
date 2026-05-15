@@ -2,15 +2,15 @@ const SEO = [
 	{
 		page: "home",
 		description:
-			"I am a backend developer with expertise in Node.js. I have experience in building scalable, secure and reliable web applications using various frameworks and technologies.",
-		keywords: ["Tharindu", "Tharindu N", "Tharindu Nayanajith"],
+			"PhD student in Mechanical Engineering at UT Austin, researching robotic hand design and manipulation.",
+		keywords: ["Aaron Kim", "Aaron Jinsoo Kim", "UT Austin robotics"],
 	},
 
 	{
 		page: "projects",
 		description:
-			"I've worked on a variety of projects over the years and I'm proud of the progress I've made. Many of these projects are open-source and available for others to explore and contribute to.",
-		keywords: ["Tharindu", "Tharindu N", "Tharindu Nayanajith"],
+			"Research and project portfolio in robotic hand design, manipulation, and mechatronics.",
+		keywords: ["Aaron Kim", "Aaron Jinsoo Kim", "UT Austin robotics"],
 	},
 
 	// contact page removed

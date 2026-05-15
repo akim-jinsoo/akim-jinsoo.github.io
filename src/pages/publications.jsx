@@ -60,6 +60,7 @@ const Publications = () => {
 		<React.Fragment>
 			<Helmet>
 				<title>Publications</title>
+				<meta name="robots" content="noindex" />
 				<meta name="description" content="Academic publications" />
 			</Helmet>
 
