@@ -21,6 +21,23 @@ const Experience = () => {
 		setMounted(true);
 	}, []);
 
+	useEffect(() => {
+		if (!mounted) return;
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('scroll-visible');
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			{ threshold: 0.08, rootMargin: '0px 0px -80px 0px' }
+		);
+		document.querySelectorAll('.projects-section').forEach(el => observer.observe(el));
+		return () => observer.disconnect();
+	}, [mounted]);
+
 	// typing effect for the title
 	useEffect(() => {
 		if (!mounted) return;
@@ -76,7 +93,7 @@ const Experience = () => {
 							I've worked on a variety of projects over the years, gaining experience that has shaped my approach to engineering and research. My current focus is on robotic manipulation and mechanical design, while I continue to expand into artificial intelligence and machine learning to enhance perception and control in robotics.
  						</div>
 
-						<div className={`projects-list ${mounted ? "animate-fade-up" : ""}`} style={{ animationDelay: mounted ? "200ms" : "0ms" }}>
+						<div className="projects-list">
 							<AllProjects mounted={mounted} />
 						</div>
 					</div>

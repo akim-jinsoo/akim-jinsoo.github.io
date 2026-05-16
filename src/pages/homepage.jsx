@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 
 import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 import Logo from "../components/common/logo";
 import Footer from "../components/common/footer";
@@ -77,6 +77,23 @@ const Homepage = () => {
 			}, 100);
 		}
 	}, []);
+
+	useEffect(() => {
+		if (!mounted) return;
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('scroll-visible');
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			{ threshold: 0.2, rootMargin: '0px 0px -110px 0px' }
+		);
+		document.querySelectorAll('.homepage-container .scroll-reveal').forEach(el => observer.observe(el));
+		return () => observer.disconnect();
+	}, [mounted]);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -194,6 +211,7 @@ const Homepage = () => {
 								<FontAwesomeIcon
 									icon={faGithub}
 									className={`homepage-social-icon ${mounted ? 'social-float' : ''}`}
+									style={mounted ? { animationDelay: '500ms' } : undefined}
 								/>
 							</a>
 							<a
@@ -204,6 +222,18 @@ const Homepage = () => {
 								<FontAwesomeIcon
 									icon={faLinkedin}
 									className={`homepage-social-icon ${mounted ? 'social-float' : ''}`}
+									style={mounted ? { animationDelay: '1000ms' } : undefined}
+								/>
+							</a>
+							<a
+								href="https://www.instagram.com/aaronkim.jpeg/"
+								target="_blank"
+								rel="noreferrer"
+							>
+								<FontAwesomeIcon
+									icon={faInstagram}
+									className={`homepage-social-icon ${mounted ? 'social-float' : ''}`}
+									style={mounted ? { animationDelay: '1500ms' } : undefined}
 								/>
 							</a>
 							<a
@@ -214,43 +244,29 @@ const Homepage = () => {
 								<FontAwesomeIcon
 									icon={faMailBulk}
 									className={`homepage-social-icon ${mounted ? 'social-float' : ''}`}
+									style={mounted ? { animationDelay: '2000ms' } : undefined}
 								/>
 							</a>
 						</div>
 
 						<div className="homepage-after-title">
-							<div 
-								className={`${fromSplash ? 'pre-animate' : ''} ${mounted ? 'animate-fade-up' : ''}`} 
-								style={{ animationDelay: mounted ? (fromSplash ? '900ms' : '260ms') : '0ms' }}
-							>
+							<div className="scroll-reveal">
 								<About />
 							</div>
 
-							<div 
-								className={`${fromSplash ? 'pre-animate' : ''} ${mounted ? 'animate-fade-up' : ''}`} 
-								style={{ animationDelay: mounted ? (fromSplash ? '1000ms' : '290ms') : '0ms' }}
-							>
+							<div className="scroll-reveal">
 								<Projects />
 							</div>
 
-							<div 
-								className={`${fromSplash ? 'pre-animate' : ''} ${mounted ? 'animate-fade-up' : ''}`} 
-								style={{ animationDelay: mounted ? (fromSplash ? '1050ms' : '305ms') : '0ms' }}
-							>
+							<div className="scroll-reveal">
 								<Publications />
 							</div>
 
-							<div 
-								className={`homepage-works ${fromSplash ? 'pre-animate' : ''} ${mounted ? 'animate-fade-up' : ''}`} 
-								style={{ animationDelay: mounted ? (fromSplash ? '1100ms' : '320ms') : '0ms' }}
-							>
+							<div className="homepage-works scroll-reveal">
 								<Works />
 							</div>
 
-							<div 
-								className={`${fromSplash ? 'pre-animate' : ''} ${mounted ? 'animate-fade-up' : ''}`} 
-								style={{ animationDelay: mounted ? (fromSplash ? '1300ms' : '380ms') : '0ms' }}
-							>
+							<div className="scroll-reveal">
 								<Education />
 							</div>
 						</div>

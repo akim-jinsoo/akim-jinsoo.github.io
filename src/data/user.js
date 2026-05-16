@@ -203,6 +203,22 @@ const INFO = {
 	// Publications: add/remove entries here to show on the Publications page
 	publications: [
 		{
+			id: "paper-3",
+			showOnHomepage: false,
+			title: "Fused Estimation and Control for Contact-Safe Legged Locomotion",
+			authorsList: [
+				{ name: "Kyle Morgenstein" },
+				{ name: "Ryan Gupta" },
+				{ name: "Aaron Kim", highlight: true },
+				{ name: "Junette Hsin" },
+				{ name: "Emily Sturman" },
+				{ name: "Seung Hyeon Bang" },
+				{ name: "Luis Sentis" },
+			],
+			venue: "IEEE International Conference on Robot and Human Interactive Communication",
+			year: 2026,
+		},
+		{
 			id: "paper-2",
 			title: "ARISTO Hand: Sensing-Driven Distal Hyperextension for Fine-Grained Manipulation",
 			authorsList: [

@@ -21,13 +21,13 @@
 
 /* Dark theme overrides: set by adding data-theme="dark" on <html> or <body> */
 [data-theme="dark"] {
-	--primary-color: #e6eef0;
-	--secondary-color: #c2c8cc;
-	--tertiary-color: #98a0a6;
-	--quaternary-color: #1f2933;
+	--primary-color: #fafafa;
+	--secondary-color: #d4d4d8;
+	--tertiary-color: #a1a1aa;
+	--quaternary-color: #3f3f46;
 	--link-color: #2dd4bf;
-	--page-bg: #071019;
-	--card-bg: #0b2230;
-	--side-bg: #06161b;
-	--side-border: #0b2a33;
+	--page-bg: #0f0f0f;
+	--card-bg: #1c1c1e;
+	--side-bg: #161618;
+	--side-border: #2d2d2f;
 }

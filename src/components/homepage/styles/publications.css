@@ -99,10 +99,22 @@
 	font-weight: 600;
 	font-style: italic;
 	font-size: 0.9rem;
+	position: relative;
 }
 
-.publications-link:hover {
-	text-decoration: underline;
+.publications-link::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -1px;
+	width: 0;
+	height: 1.5px;
+	background: var(--link-color);
+	transition: width 0.25s cubic-bezier(.2,.9,.3,1);
+}
+
+.publications-link:hover::after {
+	width: 100%;
 }
 
 @media (max-width: 900px) {

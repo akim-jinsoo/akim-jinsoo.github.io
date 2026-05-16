@@ -38,10 +38,42 @@
   will-change: transform;
 }
 
+/* Scroll-triggered reveal for publication items */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.scroll-reveal.scroll-visible {
+  animation: fadeUpPub 900ms cubic-bezier(.2,.9,.3,1) both;
+}
+
+.publications-year-heading.scroll-visible {
+  animation: fadeUpPub 700ms cubic-bezier(.2,.9,.3,1) both;
+}
+
+.publication-item.scroll-visible {
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-up,
   .logo-float {
     animation: none !important;
+  }
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .scroll-reveal.scroll-visible {
+    animation: none;
+  }
+  .publication-item:hover {
+    transform: none;
+  }
+  .publication-authors-dropdown[open] .publication-authors-more,
+  .publication-authors-dropdown.closing .publication-authors-more {
+    animation: none;
   }
 }
 
@@ -104,11 +136,66 @@
   }
 }
 
+.publications-year-group {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 36px;
+}
+
+/* vertical connector line between year groups */
+.publications-year-group:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 22px;
+  bottom: -36px;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(20, 184, 166, 0.35), transparent);
+}
+
+.publications-year-heading {
+  position: relative;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--link-color);
+  margin: 0 0 16px 0;
+}
+
+/* timeline dot */
+.publications-year-heading::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--link-color);
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.18);
+}
+
 .publication-item {
   border: 1px solid var(--side-border);
   padding: 16px;
   border-radius: 6px;
   background: var(--card-bg);
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.publication-item:hover {
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.09);
+  transform: translateY(-3px);
+  border-color: var(--link-color);
+}
+
+.publication-item:hover .publication-title {
+  color: var(--link-color);
+}
+
+.publication-item:has(.publication-authors-dropdown[open]) {
+  position: relative;
+  z-index: 20;
 }
 
 
@@ -126,23 +213,15 @@
   color: var(--primary-color);
   font-weight: 600;
   text-decoration: none;
-  font-size: 1rem; /* match year size */
+  font-size: 1rem;
   flex: 1 1 auto;
+  transition: color 0.25s ease;
 }
 
 .publication-title:hover {
-  /* keep interaction but do not underline or change color */
   text-decoration: none;
-  color: var(--primary-color);
 }
 
-.publication-year {
-  color: var(--secondary-color);
-  font-size: 1rem; /* match title */
-  opacity: 0.9;
-  flex: 0 0 auto;
-  margin-left: 12px;
-}
 
 .publication-meta {
   color: var(--secondary-color);
@@ -177,8 +256,24 @@
   content: "";
 }
 
+@keyframes dropdownOpen {
+  from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes dropdownClose {
+  from { opacity: 1; transform: none; }
+  to   { opacity: 0; transform: translateY(-6px) scale(0.97); }
+}
+
 .publication-authors-dropdown[open] .publication-authors-more {
   display: inline-block;
+  animation: dropdownOpen 200ms cubic-bezier(.2,.9,.3,1) both;
+}
+
+.publication-authors-dropdown.closing .publication-authors-more {
+  display: inline-block;
+  animation: dropdownClose 180ms cubic-bezier(.2,.9,.3,1) both;
 }
 
 .publication-authors-dropdown .publication-authors-more {
@@ -203,10 +298,8 @@
 
 /* Dark mode text colors */
 [data-theme="dark"] .publication-title,
-[data-theme="dark"] .publication-title:hover,
 [data-theme="dark"] .publication-meta,
 [data-theme="dark"] .publication-abstract,
-[data-theme="dark"] .publication-year,
 [data-theme="dark"] .publication-authors-more {
   color: var(--primary-color);
 }
@@ -227,9 +320,10 @@
   background: var(--link-color);
   color: #fff;
   border: none;
+  transition: background 0.2s ease, transform 0.2s cubic-bezier(.2,.9,.3,1);
 }
 
 .btn-mini:hover {
-  /* slightly darker teal to match site theme */
   background: #0e9a8e;
+  transform: scale(1.08);
 }

@@ -114,11 +114,28 @@
 .nav-item a {
 	text-decoration: none;
 	color: var(--primary-color);
+	position: relative;
+}
+
+.nav-item a::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -2px;
+	width: 0;
+	height: 1.5px;
+	background: var(--link-color);
+	transition: width 0.25s cubic-bezier(.2,.9,.3,1);
 }
 
 .nav-item a:hover {
 	color: var(--link-color);
 	transition: color 0.3s ease-in-out;
+}
+
+.nav-item a:hover::after,
+.nav-item.active > a::after {
+	width: 100%;
 }
 
 /* Dropdown styles for Experience */

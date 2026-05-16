@@ -38,7 +38,7 @@ const Publications = () => {
 		return null;
 	};
 
-	const publications = (INFO.publications || []).slice(0, 3);
+	const publications = (INFO.publications || []).filter(p => p.showOnHomepage !== false).slice(0, 3);
 
 	return (
 		<div className="homepage-publications">

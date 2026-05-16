@@ -25,6 +25,39 @@
 .grouped-projects .projects-section {
 	width: 100%;
 	margin-bottom: 32px;
+	opacity: 0;
+}
+
+.projects-section.scroll-visible {
+	opacity: 1;
+}
+
+@keyframes fadeUpExp {
+	from { opacity: 0; transform: translateY(14px); }
+	to   { opacity: 1; transform: none; }
+}
+
+.projects-section.scroll-visible .projects-section-title {
+	animation: fadeUpExp 900ms cubic-bezier(.2,.9,.3,1) both;
+}
+
+.projects-section.scroll-visible .all-projects-project {
+	animation: fadeUpExp 900ms cubic-bezier(.2,.9,.3,1) both;
+}
+
+.projects-section.scroll-visible .all-projects-project:nth-child(1) { animation-delay: 80ms; }
+.projects-section.scroll-visible .all-projects-project:nth-child(2) { animation-delay: 300ms; }
+.projects-section.scroll-visible .all-projects-project:nth-child(3) { animation-delay: 520ms; }
+.projects-section.scroll-visible .all-projects-project:nth-child(4) { animation-delay: 740ms; }
+.projects-section.scroll-visible .all-projects-project:nth-child(5) { animation-delay: 960ms; }
+.projects-section.scroll-visible .all-projects-project:nth-child(6) { animation-delay: 1180ms; }
+
+@media (prefers-reduced-motion: reduce) {
+	.projects-section { opacity: 1; }
+	.projects-section.scroll-visible .projects-section-title,
+	.projects-section.scroll-visible .all-projects-project {
+		animation: none;
+	}
 }
 
 .projects-section-title {

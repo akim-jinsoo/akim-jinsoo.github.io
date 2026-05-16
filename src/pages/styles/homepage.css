@@ -79,19 +79,32 @@
 	100% { transform: translateY(0); }
 }
 
-/* staggered start: left -> center -> right with 0.5s between starts
-	 and an initial container entrance delay of 0.5s (handled on the container).
-	 We add the container delay into the icon delays so floating sequence starts
-	 after the icons have faded in. */
-.homepage-socials a:nth-child(1) .homepage-social-icon.social-float { animation-delay: 500ms; }
-.homepage-socials a:nth-child(2) .homepage-social-icon.social-float { animation-delay: 1000ms; }
-.homepage-socials a:nth-child(3) .homepage-social-icon.social-float { animation-delay: 1500ms; }
+
+/* Scroll-triggered reveal for below-fold sections */
+.scroll-reveal {
+	opacity: 0;
+	transform: translateY(18px);
+}
+
+.scroll-reveal.scroll-visible {
+	animation: fadeUp 1300ms cubic-bezier(.2,.9,.3,1) both;
+}
 
 @media (prefers-reduced-motion: reduce) {
 	.animate-fade-up,
 	.logo-float,
 	.social-float {
 		animation: none !important;
+	}
+	.scroll-reveal {
+		opacity: 1;
+		transform: none;
+	}
+	.scroll-reveal.scroll-visible {
+		animation: none;
+	}
+	.homepage-image-wrapper:hover {
+		transform: rotate(3deg);
 	}
 }
 
@@ -138,6 +151,12 @@
 	height: 100%;
 	display: block;
 	transform-origin: center center;
+	transition: transform 0.4s cubic-bezier(.2,.9,.3,1), box-shadow 0.4s ease;
+}
+
+.homepage-image-wrapper:hover {
+	transform: rotate(1.5deg) scale(1.02);
+	box-shadow: 0 14px 44px rgba(0, 0, 0, 0.11);
 }
 
 .homepage-image-wrapper img {
@@ -152,6 +171,15 @@
 	justify-content: left;
 	align-items: center;
 	padding-top: 30px;
+}
+
+.homepage-socials a {
+	display: inline-block;
+	transition: transform 0.2s cubic-bezier(.2,.9,.3,1);
+}
+
+.homepage-socials a:hover {
+	transform: scale(1.1) translateY(-2px);
 }
 
 .homepage-social-icon {
