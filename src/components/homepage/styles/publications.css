@@ -10,15 +10,19 @@
 .publications-body {
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
+	gap: 20px;
 }
 
 .homepage-publication-item {
 	padding: 12px;
 	border-radius: 8px;
 	background-color: var(--side-bg);
-	border: 1px solid var(--side-border);
+	border: 1px solid rgba(0, 0, 0, 0.18);
 	transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .homepage-publication-item {
+	border-color: var(--side-border);
 }
 
 .homepage-publication-item:hover {
@@ -85,6 +89,58 @@
 .publication-link:hover {
 	text-decoration: underline;
 	opacity: 0.8;
+}
+
+.publication-link-arxiv {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 16px 8px 14px;
+	border-radius: 999px;
+	background: var(--link-color);
+	color: #fff;
+	font-weight: 700;
+	box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+	text-decoration: none;
+	line-height: 1;
+}
+
+.publication-link-arxiv-icon {
+	font-size: 1.05em;
+	line-height: 1;
+}
+
+.publication-link-website {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 8px 16px 8px 14px;
+	border-radius: 999px;
+	background: var(--link-color);
+	color: #fff;
+	font-weight: 700;
+	box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+	text-decoration: none;
+	line-height: 1;
+}
+
+.publication-link-website-icon {
+	font-size: 0.95em;
+	line-height: 1;
+}
+
+.publication-link-website:hover {
+	text-decoration: none;
+	opacity: 1;
+	transform: translateY(-1px);
+	background: #0e9a8e;
+}
+
+.publication-link-arxiv:hover {
+	text-decoration: none;
+	opacity: 1;
+	transform: translateY(-1px);
+	background: #0e9a8e;
 }
 
 .publications-footer {

@@ -115,7 +115,7 @@
 .publications-list {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 28px;
 }
 
 /* push footer to bottom when content doesn't fill the viewport */
@@ -140,6 +140,9 @@
   position: relative;
   padding-left: 24px;
   margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 /* vertical connector line between year groups */
@@ -176,11 +179,15 @@
 }
 
 .publication-item {
-  border: 1px solid var(--side-border);
+  border: 1px solid rgba(0, 0, 0, 0.18);
   padding: 16px;
   border-radius: 6px;
   background: var(--card-bg);
   transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+[data-theme="dark"] .publication-item {
+  border-color: var(--side-border);
 }
 
 .publication-item:hover {
@@ -326,4 +333,50 @@
 .btn-mini:hover {
   background: #0e9a8e;
   transform: scale(1.08);
+}
+
+.btn-mini-arxiv {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px 8px 14px;
+  border-radius: 999px;
+  background: var(--link-color);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+.btn-mini-arxiv-icon {
+  font-size: 1.05em;
+  line-height: 1;
+}
+
+.btn-mini-website {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px 8px 14px;
+  border-radius: 999px;
+  background: var(--link-color);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+.btn-mini-website-icon {
+  font-size: 0.9em;
+  line-height: 1;
+}
+
+.btn-mini-website:hover {
+  background: #0e9a8e;
+  transform: translateY(-1px);
+}
+
+.btn-mini-arxiv:hover {
+  background: #0e9a8e;
+  transform: translateY(-1px);
 }

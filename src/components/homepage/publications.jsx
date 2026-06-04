@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { faBookmark } from "@fortawesome/free-solid-svg-icons";
+import { faBookmark, faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Card from "../common/card";
 import INFO from "../../data/user";
@@ -63,17 +64,28 @@ const Publications = () => {
 								)}
 								{publication.links && publication.links.length > 0 && (
 									<div className="publication-item-links">
-										{publication.links.map((link, idx) => (
-											<a
-												key={idx}
-												href={link.href}
-												target="_blank"
-												rel="noreferrer"
-												className="publication-link"
-											>
-												{link.label}
-											</a>
-										))}
+										{publication.links.map((link, idx) => {
+											const label = link.label || "";
+											const isArxiv = label.toLowerCase() === "arxiv";
+											const isWebsite = label.toLowerCase() === "website";
+											return (
+												<a
+													key={idx}
+													href={link.href}
+													target="_blank"
+													rel="noreferrer"
+													className={
+														isArxiv ? "publication-link publication-link-arxiv"
+														: isWebsite ? "publication-link publication-link-website"
+														: "publication-link"
+													}
+												>
+													{isArxiv && <span className="publication-link-arxiv-icon ai ai-arxiv" aria-hidden="true" />}
+													{isWebsite && <FontAwesomeIcon icon={faGlobe} className="publication-link-website-icon" aria-hidden="true" />}
+													<span>{label}</span>
+												</a>
+											);
+										})}
 									</div>
 								)}
 							</div>

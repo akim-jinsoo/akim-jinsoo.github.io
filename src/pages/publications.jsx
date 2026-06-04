@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { Helmet } from "react-helmet";
 import Footer from "../components/common/footer";
 import NavBar from "../components/common/navBar";
@@ -187,11 +189,28 @@ const Publications = () => {
 													</div>
 													{links.length > 0 && (
 														<div className="publication-actions">
-															{links.map((ln, idx) => (
-																<a key={idx} href={ln.href} target="_blank" rel="noreferrer" className="btn-mini">
-																	{ln.label}
-																</a>
-															))}
+															{links.map((ln, idx) => {
+																const label = ln.label || "";
+																const isArxiv = label.toLowerCase() === "arxiv";
+																const isWebsite = label.toLowerCase() === "website";
+																return (
+																	<a
+																		key={idx}
+																		href={ln.href}
+																		target="_blank"
+																		rel="noreferrer"
+																		className={
+																			isArxiv ? "btn-mini btn-mini-arxiv"
+																			: isWebsite ? "btn-mini btn-mini-website"
+																			: "btn-mini"
+																		}
+																	>
+																		{isArxiv && <span className="btn-mini-arxiv-icon ai ai-arxiv" aria-hidden="true" />}
+																		{isWebsite && <FontAwesomeIcon icon={faGlobe} className="btn-mini-website-icon" aria-hidden="true" />}
+																		<span>{label}</span>
+																	</a>
+																);
+															})}
 														</div>
 													)}
 												</div>

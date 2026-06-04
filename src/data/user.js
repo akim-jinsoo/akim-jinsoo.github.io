@@ -203,22 +203,6 @@ const INFO = {
 	// Publications: add/remove entries here to show on the Publications page
 	publications: [
 		{
-			id: "paper-3",
-			showOnHomepage: false,
-			title: "Fused Estimation and Control for Contact-Safe Legged Locomotion",
-			authorsList: [
-				{ name: "Kyle Morgenstein" },
-				{ name: "Ryan Gupta" },
-				{ name: "Aaron Kim", highlight: true },
-				{ name: "Junette Hsin" },
-				{ name: "Emily Sturman" },
-				{ name: "Seung Hyeon Bang" },
-				{ name: "Luis Sentis" },
-			],
-			venue: "IEEE International Conference on Robot and Human Interactive Communication",
-			year: 2026,
-		},
-		{
 			id: "paper-2",
 			title: "ARISTO Hand: Sensing-Driven Distal Hyperextension for Fine-Grained Manipulation",
 			authorsList: [
@@ -232,6 +216,10 @@ const INFO = {
 			],
 			venue: "IEEE/ASME International Conference on Advanced Intelligent Mechatronics",
 			year: 2026,
+			links: [
+				{ href: "https://arxiv.org/pdf/2605.30508", label: "arXiv" },
+				{ href: "https://aristohand.github.io/", label: "Website" },
+			],
 		},
 		{
 			id: "paper-1",
@@ -248,6 +236,7 @@ const INFO = {
 			year: 2026,
 			links: [
 				{ href: "https://arxiv.org/pdf/2602.05156", label: "arXiv" },
+				{ href: "https://platohand.github.io/", label: "Website" },
 			],
 			abstract:
 				"We present the PLATO Hand, with a hybrid fingernail and pulp fingertip and guided contact modeling that enable stable, force-observable, edge-sensitive manipulation across diverse objects.",
